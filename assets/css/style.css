@@ -1925,8 +1925,8 @@ textarea:focus {
     line-height: 90px;
 }
 .stick .logo {
-    margin: 27px 0 0;
     transition: all .3s ease 0s;
+    margin: 0;
 }
 .stick .header-cart {
     padding: 22px 0 0 63px;

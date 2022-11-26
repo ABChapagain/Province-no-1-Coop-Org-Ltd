@@ -27,3 +27,61 @@
 </head>
 
 <body>
+
+
+    <!-- header start -->
+    <header class="header-area gray-bg clearfix">
+        <div class="header-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="index.php">
+                            <img width="80px" alt="Logo" src="assets/img/logo/logo.png" />
+                        </a>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-6">
+                        <div class="d-flex justify-content-end">
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        <li><a href="#about-us">About Us</a></li>
+                                        <li><a href="products.html">Products</a></li>
+                                        <li class="top-hover">
+                                            <a href="#contact">contact</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a href="#contact">notice</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a href="career.html">career</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-area">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu-active">
+                            <ul class="menu-overflow">
+                                <li>
+                                    <a href="#">HOME</a>
+                                </li>
+                                <li>
+                                    <a href="#about-us">about</a>
+                                </li>
+                                <li>
+                                    <a href="#products">products</a>
+                                </li>
+                                <li>
+                                    <a href="#contact">contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
