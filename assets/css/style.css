@@ -1441,7 +1441,13 @@ textarea:focus {
   background-size: cover;
 }
 .bg-image-3{
-  background-image: url("../../assets/img/bg/breadcrumb.jpg");
+  background-image: url("../../assets/img/bg/career.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-image-4{
+  background-image: url("../../assets/img/bg/notice.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2733,7 +2739,7 @@ textarea:focus {
   font-weight: 600;
 }
 .breadcrumb-content li {
-  color: #fff;
+  color: #519f10;
   display: inline-block;
   font-size: 14px;
   font-weight: 500;

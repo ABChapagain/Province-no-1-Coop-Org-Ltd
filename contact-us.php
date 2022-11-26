@@ -3,13 +3,13 @@
 
 
 <!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area bg-image-3 ptb-170">
+<div class="breadcrumb-area bg-image-4 ptb-170">
     <div class="container">
         <div class="breadcrumb-content text-center">
-            <h3>CAREER</h3>
+            <h3>CONTACT US</h3>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li class="active">Career </li>
+                <li class="active">Contact Us</li>
             </ul>
         </div>
     </div>
