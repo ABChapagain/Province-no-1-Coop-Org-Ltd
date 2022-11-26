@@ -18,7 +18,7 @@
 
 
 <!-- Contact Area Start -->
-<div id="contact" class="contact-us ptb-95">
+<div id="contact" class="contact-us pt-95">
     <div class="container">
         <div class="row">
             <!-- Contact Form Area Start -->

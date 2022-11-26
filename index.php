@@ -23,64 +23,23 @@
 </div>
 <!-- Slider End -->
 
-<!-- Product Area Start -->
-<div class="product-area bg-image-1 pt-100 pb-95">
-    <div class="container">
-        <div class="featured-product-active hot-flower owl-carousel product-nav">
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-1.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Alpine Premium CTC</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-2.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Alpine Honey</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-3.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Green Tea</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-4.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Pearly Everlasting</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-5.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Green Tea Leaf</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Product Area End -->
 
 <!-- About Us Area Start -->
 <div id="about-us" class="about-us-area pt-100 pb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 d-flex align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="overview-img text-center">
+                    <a href="#">
+                        <img src="assets/img/banner/about-us.jpg" alt="About Us" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mt-3 mt-lg-0 d-flex align-items-center">
                 <div class="overview-content-2">
                     <h4>Welcome To</h4>
-                    <h2>Our Alpine Tea Store!</h2>
-                    <p class="peragraph-blog">
+                    <h2>Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd</h2>
+                    <p class="peragraph-blog" style="text-align: justify;">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae,
                         nemo fugiat, incidunt molestiae velit neque autem possimus
                         pariatur tempora, laudantium veniam omnis similique dicta eum.
@@ -91,23 +50,11 @@
                         assumenda possimus repellat sunt minima dignissimos perspiciatis
                         neque. Quis optio id consectetur!
                     </p>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
-                        veniam harum possimus maxime perspiciatis culpa itaque nulla,
-                        reprehenderit aspernatur similique, neque, soluta maiores
-                        aliquid sit eaque fuga tempore quisquam obcaecati quidem.
-                        Maiores aspernatur mollitia, nam eum laudantium neque iste
-                        ratione.
-                    </p>
+                    <a class="btn py-2 px-4 rounded text-white bg-project" href="about-us.php">Read
+                        More</a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12">
-                <div class="overview-img text-center">
-                    <a href="#">
-                        <img src="assets/img/banner/about-us.jpg" alt="About Us" />
-                    </a>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
@@ -357,4 +304,37 @@
     </div>
 </div>
 <!-- Modal end -->
+
+<!-- Start Brand Area -->
+<div class="brand-logo-area ptb-100">
+    <div class="container">
+        <div class="product-top-bar section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">Our Members</h3>
+            </div>
+        </div>
+        <div class="brand-logo-active owl-carousel">
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/1.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/2.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/3.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/4.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/5.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/2.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Brand Area -->
+
 <?php require_once('./useable/footer.php') ?>

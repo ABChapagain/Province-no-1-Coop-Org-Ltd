@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>प्रदेश नं. १ थोक उपभोक्ता विशिष्टिकृत सहकारी संघ लिमिटेड</title>
+    <title>Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
@@ -53,7 +53,7 @@
                                             <a href="notice.php">notice</a>
                                         </li>
                                         <li class="top-hover">
-                                            <a class="btn py-3 px-4 rounded text-white career-btn"
+                                            <a class="btn py-3 px-4 rounded text-white bg-project"
                                                 href="career.php">career</a>
                                         </li>
                                     </ul>
