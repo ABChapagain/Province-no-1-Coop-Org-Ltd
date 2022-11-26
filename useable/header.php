@@ -44,16 +44,17 @@
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="#about-us">About Us</a></li>
-                                        <li><a href="products.html">Products</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="products.php">Products</a></li>
                                         <li class="top-hover">
-                                            <a href="#contact">contact</a>
+                                            <a href="contact-us.php">contact</a>
                                         </li>
                                         <li class="top-hover">
-                                            <a href="#contact">notice</a>
+                                            <a href="notice.php">notice</a>
                                         </li>
                                         <li class="top-hover">
-                                            <a href="career.html">career</a>
+                                            <a class="btn py-3 px-4 rounded text-white career-btn"
+                                                href="career.php">career</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -85,3 +86,6 @@
         </div>
     </header>
     <!-- header end -->
+
+
+    <div style="min-height: 87vh;">

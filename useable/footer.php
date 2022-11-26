@@ -1,14 +1,25 @@
-<!-- all js here -->
-<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-<script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/ajax-mail.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>
-<script>
+    </div>
+
+    <!-- Footer style Start -->
+    <footer class="footer-area py-3 text-center gray-bg-2">
+        <div class="container">
+            <p class="m-0">Copyright &copy; 2022 <strong>Alpine</strong></p>
+        </div>
+    </footer>
+    <!-- Footer style End -->
+
+
+    <!-- all js here -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/ajax-mail.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>
+    <script>
 function init() {
     var mapOptions = {
         zoom: 11,
@@ -245,8 +256,8 @@ function init() {
     })
 }
 google.maps.event.addDomListener(window, 'load', init)
-</script>
-<script src="assets/js/main.js"></script>
-</body>
+    </script>
+    <script src="assets/js/main.js"></script>
+    </body>
 
-</html>
+    </html>

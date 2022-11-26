@@ -1768,7 +1768,7 @@ textarea:focus {
 .main-menu ul li {
   display: inline-block;
   list-style: outside none none;
-  padding-right: 45px;
+  padding-right: 30px;
   position: relative;
 }
 .main-menu nav > ul > li:last-child {
@@ -1780,8 +1780,15 @@ textarea:focus {
   font-family: "Montserrat",sans-serif;
   font-size: 12px;
   font-weight: 600;
-  line-height: 100px;
   text-transform: uppercase;
+}
+
+.main-menu ul li a.career-btn {
+  background-color: #519f10;
+}
+
+.main-menu ul li a.career-btn:hover {
+  background-color: #417d0c;
 }
 .main-menu ul li:hover > a {
     color: #519f10;

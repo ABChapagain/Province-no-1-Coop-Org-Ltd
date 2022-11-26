@@ -349,13 +349,6 @@
     </div>
 </div>
 <!-- Contact Area Start -->
-<!-- Footer style Start -->
-<footer class="footer-area py-3 text-center gray-bg-2">
-    <div class="container">
-        <p class="m-0">Copyright &copy; 2022 <strong>Alpine</strong></p>
-    </div>
-</footer>
-<!-- Footer style End -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
