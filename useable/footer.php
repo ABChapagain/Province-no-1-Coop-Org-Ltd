@@ -1,7 +1,7 @@
     </div>
 
     <!-- Footer style Start -->
-    <footer class="footer-area py-3 text-center gray-bg-2">
+    <footer class="mt-150 footer-area py-3 text-center gray-bg-2">
         <div class="container">
             <p class="m-0">Copyright &copy; 2022 <strong>Alpine</strong></p>
         </div>
