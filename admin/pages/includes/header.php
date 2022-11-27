@@ -26,4 +26,6 @@
     <link rel="stylesheet" href="<?php echo url ?>/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="<?php echo url ?>/plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" href="<?php echo url?>dist/css/style.css">
 </head>
