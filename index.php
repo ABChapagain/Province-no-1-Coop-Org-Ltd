@@ -1,62 +1,5 @@
-<?php include_once('./useable/header.php') ?>
-<!-- header start -->
-<header class="header-area gray-bg clearfix">
-    <div class="header-bottom">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-4 col-6">
-                    <div class="logo">
-                        <a href="/">
-                            <img height="80px" alt="Logo" src="assets/img/logo/logo.png" />
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-8 col-6">
-                    <div class="header-bottom-right">
-                        <div class="main-menu">
-                            <nav>
-                                <ul>
-                                    <li><a href="#about-us">About Us</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li class="top-hover">
-                                        <a href="#contact">contact</a>
-                                    </li>
-                                    <li class="top-hover">
-                                        <a href="#contact">notice</a>
-                                    </li>
-                                    <li class="top-hover">
-                                        <a class="bg-danger btn" href="career.html">career</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-menu-area">
-                <div class="mobile-menu">
-                    <nav id="mobile-menu-active">
-                        <ul class="menu-overflow">
-                            <li>
-                                <a href="#">HOME</a>
-                            </li>
-                            <li>
-                                <a href="#about-us">about</a>
-                            </li>
-                            <li>
-                                <a href="#products">products</a>
-                            </li>
-                            <li>
-                                <a href="#contact">contact</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- header end -->
+<?php require_once('./useable/header.php') ?>
+
 
 <!-- Slider Start -->
 <div class="slider-area">
@@ -80,64 +23,23 @@
 </div>
 <!-- Slider End -->
 
-<!-- Product Area Start -->
-<div class="product-area bg-image-1 pt-100 pb-95">
-    <div class="container">
-        <div class="featured-product-active hot-flower owl-carousel product-nav">
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-1.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Alpine Premium CTC</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-2.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Alpine Honey</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-3.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Green Tea</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-4.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Pearly Everlasting</h4>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <img alt="Product" src="assets/img/product/product-5.jpg" />
-                </div>
-                <div class="product-content text-left">
-                    <h4>Green Tea Leaf</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Product Area End -->
 
 <!-- About Us Area Start -->
 <div id="about-us" class="about-us-area pt-100 pb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12 d-flex align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="overview-img text-center">
+                    <a href="#">
+                        <img src="assets/img/banner/about-us.jpg" alt="About Us" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mt-3 mt-lg-0 d-flex align-items-center">
                 <div class="overview-content-2">
                     <h4>Welcome To</h4>
-                    <h2>Our Alpine Tea Store!</h2>
-                    <p class="peragraph-blog">
+                    <h2>Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd</h2>
+                    <p class="peragraph-blog" style="text-align: justify;">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae,
                         nemo fugiat, incidunt molestiae velit neque autem possimus
                         pariatur tempora, laudantium veniam omnis similique dicta eum.
@@ -148,23 +50,11 @@
                         assumenda possimus repellat sunt minima dignissimos perspiciatis
                         neque. Quis optio id consectetur!
                     </p>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
-                        veniam harum possimus maxime perspiciatis culpa itaque nulla,
-                        reprehenderit aspernatur similique, neque, soluta maiores
-                        aliquid sit eaque fuga tempore quisquam obcaecati quidem.
-                        Maiores aspernatur mollitia, nam eum laudantium neque iste
-                        ratione.
-                    </p>
+                    <a class="btn py-2 px-4 rounded text-white bg-project" href="about-us.php">Read
+                        More</a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12">
-                <div class="overview-img text-center">
-                    <a href="#">
-                        <img src="assets/img/banner/about-us.jpg" alt="About Us" />
-                    </a>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
@@ -323,96 +213,6 @@
 </div>
 <!-- Testimonial Area End -->
 
-<!-- Contact Area Start -->
-<div id="contact" class="contact-us ptb-95">
-    <div class="container">
-        <div class="row">
-            <!-- Contact Form Area Start -->
-            <div class="col-lg-6">
-                <div class="small-title mb-30">
-                    <h2>Contact Form</h2>
-                    <p>Please fill this form to send a message.</p>
-                </div>
-                <form id="contact-form" action="https://whizthemes.com/mail-php/other/mail.php">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="contact-form-style mb-20">
-                                <input name="con_name" placeholder="Full Name" type="text" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact-form-style mb-20">
-                                <input name="con_email" placeholder="Email Address" type="email" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="contact-form-style mb-20">
-                                <input name="con_subject" placeholder="Subject" type="text" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="contact-form-style">
-                                <textarea name="con_message" placeholder="Message"></textarea>
-                                <button class="submit" type="submit">SEND MESSAGE</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <p class="form-messege"></p>
-            </div>
-            <!-- Contact Form Area End -->
-            <!-- Contact Address Strat -->
-            <div class="col-lg-6">
-                <div class="small-title mb-30">
-                    <h2>Contact Address</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="contact-information mb-30">
-                            <h4>Our Address</h4>
-                            <p>Your address goes here</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="contact-information contact-mrg mb-30">
-                            <h4>Phone Number</h4>
-                            <p>
-                                <a href="tel:9822401941">9822401941</a>
-                                <a href="tel:9824897492">9824897492</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="contact-information contact-mrg mb-30">
-                            <h4>Web Address</h4>
-                            <p>
-                                <a href="mailto:abchapagain@example.com">abchapagain@example.com</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Contact Address Strat -->
-            <!-- Google Map Start -->
-            <div class="col-md-12">
-                <div id="store-location">
-                    <div class="contact-map pt-80">
-                        <div id="map"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Google Map Start -->
-        </div>
-    </div>
-</div>
-<!-- Contact Area Start -->
-<!-- Footer style Start -->
-<footer class="footer-area py-3 text-center gray-bg-2">
-    <div class="container">
-        <p class="m-0">Copyright &copy; 2022 <strong>Alpine</strong></p>
-    </div>
-</footer>
-<!-- Footer style End -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
@@ -504,4 +304,37 @@
     </div>
 </div>
 <!-- Modal end -->
-<?php include_once('./useable/header.php') ?>
+
+<!-- Start Brand Area -->
+<div class="brand-logo-area ptb-100">
+    <div class="container">
+        <div class="product-top-bar section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">Our Members</h3>
+            </div>
+        </div>
+        <div class="brand-logo-active owl-carousel">
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/1.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/2.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/3.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/4.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/5.jpg">
+            </div>
+            <div class="single-brand-logo">
+                <img alt="" src="assets/img/brand-logo/2.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Brand Area -->
+
+<?php require_once('./useable/footer.php') ?>

@@ -1441,7 +1441,13 @@ textarea:focus {
   background-size: cover;
 }
 .bg-image-3{
-  background-image: url("../../assets/img/bg/breadcrumb.jpg");
+  background-image: url("../../assets/img/bg/career.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-image-4{
+  background-image: url("../../assets/img/bg/notice.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1768,11 +1774,11 @@ textarea:focus {
 .main-menu ul li {
   display: inline-block;
   list-style: outside none none;
-  padding-right: 45px;
+  margin-right: 30px;
   position: relative;
 }
 .main-menu nav > ul > li:last-child {
-    padding-right: 0px;
+    margin-right: 0px;
 }
 .main-menu ul li a {
   color: #1b1b1b;
@@ -1780,8 +1786,15 @@ textarea:focus {
   font-family: "Montserrat",sans-serif;
   font-size: 12px;
   font-weight: 600;
-  line-height: 100px;
   text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.bg-project {
+    background-color: #519f10;
+}
+.bg-project:hover {
+  background-color: #417d0c;
 }
 .main-menu ul li:hover > a {
     color: #519f10;
@@ -1925,8 +1938,8 @@ textarea:focus {
     line-height: 90px;
 }
 .stick .logo {
-    margin: 27px 0 0;
     transition: all .3s ease 0s;
+    margin: 0;
 }
 .stick .header-cart {
     padding: 22px 0 0 63px;
@@ -2726,7 +2739,7 @@ textarea:focus {
   font-weight: 600;
 }
 .breadcrumb-content li {
-  color: #fff;
+  color: #519f10;
   display: inline-block;
   font-size: 14px;
   font-weight: 500;

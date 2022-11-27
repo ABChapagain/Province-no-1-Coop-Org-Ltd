@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>प्रदेश नं. १ थोक उपभोक्ता विशिष्टिकृत सहकारी संघ लिमिटेड</title>
+    <title>Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
@@ -27,3 +27,65 @@
 </head>
 
 <body>
+
+
+    <!-- header start -->
+    <header class="header-area gray-bg clearfix">
+        <div class="header-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="index.php">
+                            <img width="80px" alt="Logo" src="assets/img/logo/logo.png" />
+                        </a>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-6">
+                        <div class="d-flex justify-content-end">
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="products.php">Products</a></li>
+                                        <li class="top-hover">
+                                            <a href="contact-us.php">contact</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a href="notice.php">notice</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a class="btn py-3 px-4 rounded text-white bg-project"
+                                                href="career.php">career</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-area">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu-active">
+                            <ul class="menu-overflow">
+                                <li>
+                                    <a href="#">HOME</a>
+                                </li>
+                                <li>
+                                    <a href="#about-us">about</a>
+                                </li>
+                                <li>
+                                    <a href="#products">products</a>
+                                </li>
+                                <li>
+                                    <a href="#contact">contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+
+    <div style="min-height: 87vh;">

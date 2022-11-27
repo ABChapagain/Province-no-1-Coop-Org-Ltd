@@ -21,7 +21,7 @@ a.meanmenu-reveal{display:none}
   position: absolute;
   right: 0;
   text-decoration: none;
-  top: -65px;
+  top: -55px;
   width: 18px;
 }
 .mean-container a.meanmenu-reveal span{display:block;background:#333;height:2px;margin-top:3px}
