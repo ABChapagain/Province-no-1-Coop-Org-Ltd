@@ -72,92 +72,182 @@
             <div class="tab-pane active">
                 <div class="featured-product-active owl-carousel product-nav">
                     <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-1.jpg" />
+                        <div class="product-wrapper mb-30 shadow rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src=" assets/img/product/product-1.jpg" />
                             </div>
-                            <div class="product-content text-left">
-                                <h4>Alpine Premium CTC</h4>
-                            </div>
-                        </div>
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-2.jpg" />
-                            </div>
-                            <div class="product-content text-left">
-                                <h4>Alpine Honey</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-3.jpg" />
-                            </div>
-                            <div class="product-content text-left">
-                                <h4>Green Tea</h4>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Alpine Premium CTC</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
                             </div>
                         </div>
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-4.jpg" />
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-2.jpg" />
                             </div>
-                            <div class="product-content text-left">
-                                <h4>Green Tea Leaf</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-5.jpg" />
-                            </div>
-                            <div class="product-content text-left">
-                                <h4>Black Tea</h4>
-                            </div>
-                        </div>
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-6.jpg" />
-                            </div>
-                            <div class="product-content text-left">
-                                <h4>Tea and Chai</h4>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Alpine Honey</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-7.jpg" />
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-3.jpg" />
                             </div>
-                            <div class="product-content text-left">
-                                <h4>Green Tea</h4>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Green Tea</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
                             </div>
                         </div>
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-8.jpg" />
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-4.jpg" />
                             </div>
-                            <div class="product-content text-left">
-                                <h4>Alpine Honey</h4>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Green Tea Leaf</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-9.jpg" />
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-5.jpg" />
                             </div>
-                            <div class="product-content text-left">
-                                <h4>Mint Tea</h4>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Black Tea</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
                             </div>
                         </div>
-                        <div class="product-wrapper mb-30">
-                            <div class="product-img">
-                                <img alt="Product" src="assets/img/product/product-4.jpg" />
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-6.jpg" />
                             </div>
-                            <div class="product-content text-left">
-                                <h4>Green Tea Leaf</h4>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Tea and Chai</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-wrapper-single">
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-7.jpg" />
+                            </div>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Green Tea</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-8.jpg" />
+                            </div>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Alpine Honey</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-wrapper-single">
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-9.jpg" />
+                            </div>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Mint Tea</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-wrapper mb-30 shadow border-none rounded">
+                            <div class="rounded">
+                                <img alt="Product"
+                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    src="assets/img/product/product-4.jpg" />
+                            </div>
+                            <div class="blog-content px-2 py-3">
+                                <h4> Green Tea Leaf</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
+                                    incididunt
+                                    ut labore et dolore</p>
+                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                    title="Quick View">
+                                    Read More
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -167,6 +257,7 @@
     </div>
 </div>
 <!-- New Products End -->
+
 <!-- Testimonial Area Start -->
 <div class="testimonials-area bg-image-2 bg-img pt-100 pb-100">
     <div class="container">

@@ -1452,6 +1452,12 @@ textarea:focus {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.bg-image-5 {
+  background-image: url("../../assets/img/bg/about-us.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 :focus {
     outline: -webkit-focus-ring-color auto 0px;
