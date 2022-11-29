@@ -84,11 +84,9 @@
         <div class="footer-bottom pb-25 pt-25 gray-bg-2">
             <div class="container">
                 <div class="copyright">
-                    <p class="copy-text text-center"> © 2021 <strong>Province no. 1 Wholesale Consumer
+                    <p class="copy-text text-center"> © 2022 <strong>Province no. 1 Wholesale Consumer
                             Specialized
-                            Cooperative Union Ltd</strong> Made With ❤️ By <a class="company-name"
-                            href="https://achyutchapagain.com.np" target="_blank">
-                            <strong> ABChapagain</strong></a>.
+                            Cooperative Union Ltd</strong>. All Rights Reserved.</p>
                     </p>
                 </div>
 
