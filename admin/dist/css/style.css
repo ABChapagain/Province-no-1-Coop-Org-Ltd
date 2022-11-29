@@ -1,3 +1,16 @@
 .act {
   background-color: aquamarine;
 }
+
+.table-description{
+  height: 80px;
+  overflow: auto;
+}
+
+
+.btn{
+  width: fit-content;
+  display: inline;
+  
+}
+
