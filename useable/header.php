@@ -30,7 +30,7 @@
 
 
     <!-- header start -->
-    <header class="header-area gray-bg clearfix">
+    <header class="header-area gray-bg clearfix sticky-top">
         <div class="header-bottom">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
@@ -51,6 +51,9 @@
                                         </li>
                                         <li class="top-hover">
                                             <a href="notice.php">notice</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a href="events.php">events</a>
                                         </li>
                                         <li class="top-hover">
                                             <a class="btn py-3 px-4 rounded text-white bg-project"
