@@ -1955,12 +1955,30 @@ textarea:focus {
   line-height: 32px;
 }
 .single-slider {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+.slider-active {
+    position: relative;
+}
+
+.single-slider::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url('../img/slider/shadow.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 .slider-content h1 {
-  color: #000;
+  color: #fff;
   font-family: "Playfair Display",serif;
   font-size: 60px;
   font-weight: 400;
