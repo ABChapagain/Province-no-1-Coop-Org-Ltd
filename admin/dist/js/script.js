@@ -11,3 +11,13 @@ if(list){
 $(function() {
     $('[data-toggle="tooltip"]').tooltip()
 })
+
+
+//sidebar toggle
+  $(document).on("click", "[data-widget='pushmenu']", function() {
+        if (document.querySelector("body").classList.contains("sidebar-collapse")) {
+            document.querySelector("body").classList.remove("sidebar-collapse")
+        } else {
+            document.querySelector("body").classList.add("sidebar-collapse")
+        }
+    })
