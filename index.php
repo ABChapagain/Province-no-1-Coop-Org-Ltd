@@ -6,69 +6,33 @@
     <div class="slider-active owl-dot-style owl-carousel">
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-1.jpg)">
             <div class="container">
-                <div class="slider-content slider-animated-1">
-                    <h1 class="animated">
-                        Want to stay <span class="theme-color">healthy</span>
-                    </h1>
-                    <h1 class="animated">
-                        drink <span class="theme-color">Alpine</span>
-                    </h1>
-                    <p>The Coop Brand</p>
+                <div style="height: 13.3rem;" class="slider-content slider-animated-1">
+
                 </div>
             </div>
         </div>
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-2.jpeg)">
             <div class="container">
-                <div class="slider-content slider-animated-1">
-                    <h1 class="animated">
-                        Want to stay <span class="theme-color">healthy</span>
-                    </h1>
-                    <h1 class="animated">
-                        drink <span class="theme-color">Alpine</span>
-                    </h1>
-                    <p>The Coop Brand</p>
+                <div style="height: 13.3rem;" class="slider-content slider-animated-1">
+
                 </div>
             </div>
         </div>
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-3.jpg)">
             <div class="container">
-                <div class="slider-content slider-animated-1">
-                    <h1 class="animated">
-                        Want to stay <span class="theme-color">healthy</span>
-                    </h1>
-                    <h1 class="animated">
-                        drink <span class="theme-color">Alpine</span>
-                    </h1>
-                    <p>The Coop Brand</p>
+                <div style="height: 13.3rem;" class="slider-content slider-animated-1">
+
                 </div>
             </div>
         </div>
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-4.jpg)">
             <div class="container">
-                <div class="slider-content slider-animated-1">
-                    <h1 class="animated">
-                        Want to stay <span class="theme-color">healthy</span>
-                    </h1>
-                    <h1 class="animated">
-                        drink <span class="theme-color">Alpine</span>
-                    </h1>
-                    <p>The Coop Brand</p>
+                <div style="height: 13.3rem;" class="slider-content slider-animated-1">
+
                 </div>
             </div>
         </div>
-        <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-5.jpg)">
-            <div class="container">
-                <div class="slider-content slider-animated-1">
-                    <h1 class="animated">
-                        Want to stay <span class="theme-color">healthy</span>
-                    </h1>
-                    <h1 class="animated">
-                        drink <span class="theme-color">Alpine</span>
-                    </h1>
-                    <p>The Coop Brand</p>
-                </div>
-            </div>
-        </div>
+
 
         <!-- You can add new slider here just copy upper div -->
     </div>
@@ -83,7 +47,7 @@
             <div class="col-lg-6 col-md-12">
                 <div class="overview-img text-center">
                     <a href="#">
-                        <img src="assets/img/banner/about-us.jpg" alt="About Us" />
+                        <img class="rounded" src="assets/img/slider/slider-5.jpg" alt="About Us" />
                     </a>
                 </div>
             </div>
@@ -303,8 +267,14 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+        </div>
+        <div class="ms-auto text-end">
+
+            <a class="btn py-2 px-4 rounded text-white text-end bg-project" href="products.php">Show
+                More</a>
         </div>
     </div>
 </div>
