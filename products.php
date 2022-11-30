@@ -31,7 +31,7 @@
                                 <a href="#product-list" data-view="product-list"><i class="fa fa-list-ul"></i></a>
                             </li>
                         </ul>
-                        <p>Showing 1 - 20 of 30 results</p>
+                        <p>Showing 1 - 6 of 20 results</p>
                     </div>
                     <div class="product-sorting-wrapper">
                         <div class="product-shorting shorting-style">
@@ -183,7 +183,7 @@
                             </ul>
                         </div>
                         <div class="total-pages">
-                            <p>Showing 1 - 20 of 30 results</p>
+                            <p>Showing 1 - 6 of 20 results</p>
                         </div>
                     </div>
                 </div>
