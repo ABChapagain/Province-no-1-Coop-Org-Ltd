@@ -35,10 +35,12 @@
 <script src="<?php echo url ?>dist/js/script.js"></script>
 
 <!-- SweetAlert2 -->
-<script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?php echo url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- Toastr -->
 <!-- <script src="../../plugins/toastr/toastr.min.js"></script> -->
 
+<!-- Ekko Lightbox -->
+<script src="<?php echo url ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="<?php echo url ?>plugins/datatables/jquery.dataTables.min.js"></script>
@@ -54,4 +56,4 @@
 <script src="<?php echo url ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo url ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="<?php echo url ?>dist/js/adminlte.min.js"></script>

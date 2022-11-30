@@ -31,6 +31,10 @@
 
     <link rel="stylesheet" href="<?php echo url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="<?php echo url ?>/plugins/ekko-lightbox/ekko-lightbox.css">
+
+
 
 
     <!-- DataTables -->
