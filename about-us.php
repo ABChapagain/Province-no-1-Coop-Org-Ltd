@@ -24,7 +24,7 @@
             <div class="col-lg-6 col-md-12">
                 <div class="overview-img text-center">
                     <a href="#">
-                        <img src="assets/img/banner/about-us.jpg" alt="About Us" />
+                        <img class="rounded" src="assets/img/slider/slider-5.jpg" alt="About Us" />
                     </a>
                 </div>
             </div>
@@ -43,8 +43,7 @@
                         assumenda possimus repellat sunt minima dignissimos perspiciatis
                         neque. Quis optio id consectetur!
                     </p>
-                    <a class="btn py-2 px-4 rounded text-white bg-project" href="about-us.php">Read
-                        More</a>
+
                 </div>
             </div>
 
