@@ -5592,6 +5592,36 @@ section.wn_contact_area {
 
 
 
+.about-us-sidebar {
+    padding: 12px 0;
+    font-size: 16px;
+    display: block;
+    padding-left: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
 
+.about-us-sidebar.active {
+    color: #519f10;
+    background-color: #f5f5f5;
+    border-left: 2px solid #519f10;
+}
 
+.ceo-title {
+    background-color: #f5f5f5;
+    padding: 10px;
+}
 
+.ceo-title h4 {
+    font-weight: 500;
+}
+
+.text-green{
+    color: #519f10;
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 90px;
+    z-index: 999;
+}

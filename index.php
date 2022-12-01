@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="overview-img text-center">
-                    <a href="#">
+                    <a href="about-us.php">
                         <img class="rounded" src="assets/img/slider/slider-5.jpg" alt="About Us" />
                     </a>
                 </div>
