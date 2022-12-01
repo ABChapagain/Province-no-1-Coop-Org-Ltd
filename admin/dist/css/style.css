@@ -14,3 +14,17 @@
   
 }
 
+.items{
+  height: 80vh;
+  display: flex;
+  /* justify-content: center; */
+  margin:0 auto;
+  align-items: center;
+   width: 60%;
+}
+
+.card{
+ width: 100%;
+ margin: 0;
+}
+

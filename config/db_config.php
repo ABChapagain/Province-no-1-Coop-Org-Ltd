@@ -1,10 +1,10 @@
 <?php
-$DB_NAME = 'province';
-$HOST = 'localhost';
-$PASSWORD = "";
-$USER = "root";
+$db_name = 'province';
+$host = 'localhost';
+$password = "";
+$user = "root";
 
-$conn = new mysqli($HOST, $USER, $PASSWORD, $DB_NAME);
+$conn = new mysqli($host, $user, $password, $db_name);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
