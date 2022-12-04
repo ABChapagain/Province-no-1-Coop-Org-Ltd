@@ -6,29 +6,41 @@
     <div class="slider-active owl-dot-style owl-carousel">
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-1.jpg)">
             <div class="container">
-                <div style="height: 13.3rem;" class="slider-content slider-animated-1">
-
+                <div style="height: 13.3rem;" class="slider-content slider-amimated-1">
+                    <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
+                    <h1 class="animated">drink matcha.</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
+                        magna aliqua.</p>
                 </div>
             </div>
         </div>
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-2.jpeg)">
             <div class="container">
                 <div style="height: 13.3rem;" class="slider-content slider-animated-1">
-
+                    <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
+                    <h1 class="animated">drink matcha.</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
+                        magna aliqua.</p>
                 </div>
             </div>
         </div>
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-3.jpg)">
             <div class="container">
                 <div style="height: 13.3rem;" class="slider-content slider-animated-1">
-
+                    <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
+                    <h1 class="animated">drink matcha.</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
+                        magna aliqua.</p>
                 </div>
             </div>
         </div>
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-4.jpg)">
             <div class="container">
                 <div style="height: 13.3rem;" class="slider-content slider-animated-1">
-
+                    <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
+                    <h1 class="animated">drink matcha.</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
+                        magna aliqua.</p>
                 </div>
             </div>
         </div>
@@ -46,7 +58,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="overview-img text-center">
-                    <a href="#">
+                    <a href="about-us.php">
                         <img class="rounded" src="assets/img/slider/slider-5.jpg" alt="About Us" />
                     </a>
                 </div>

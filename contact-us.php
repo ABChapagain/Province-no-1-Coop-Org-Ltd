@@ -95,7 +95,7 @@
             <div class="col-md-12">
                 <div id="store-location">
                     <div class="contact-map pt-80">
-                        <div id="map"></div>
+                        <div id="map" height></div>
                     </div>
                 </div>
             </div>

@@ -6,10 +6,10 @@
 <div class="breadcrumb-area bg-image-5 ptb-170">
     <div class="container">
         <div class="breadcrumb-content text-center">
-            <h3>ABOUT US</h3>
+            <h3>MESSAGE FROM CEO</h3>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li class="active">About Us</li>
+                <li class="active">Message From CEO</li>
             </ul>
         </div>
     </div>
@@ -21,10 +21,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="sticky-sidebar sidebar-list-style mt-20">
+                <div class="sticky-sidebar sidebar-list-style mt-20 ">
                     <ul>
-                        <li><a class="about-us-sidebar active" href="about-us.php">About Us </a></li>
-                        <li><a class="about-us-sidebar" href="message-from-ceo.php">Message from CEO</a></li>
+                        <li><a class="about-us-sidebar" href="about-us.php">About Us </a></li>
+                        <li><a class="about-us-sidebar active" href="message-from-ceo.php">Message from CEO</a></li>
                     </ul>
                 </div>
             </div>
@@ -33,28 +33,43 @@
                     <div class="product-grid product-view pb-20">
                         <div class="row">
                             <div class="mb-4">
-                                <h4 class="text-green">Welcome To</h4>
-                                <h2>Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd</h2>
+                                <h2>Message From CEO</h2>
                             </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="overview-img text-center">
-
-                                    <img class="rounded" src="assets/img/slider/slider-5.jpg" alt="About Us" />
-
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 mt-3 mt-lg-0 d-flex">
+                            <div class="col-lg-8 col-md-12 mt-3 mt-lg-0 d-flex">
                                 <p class="peragraph-blog" style="text-align: justify;">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae,
-                                    nemo fugiat, incidunt molestiae velit neque autem possimus
-                                    pariatur tempora, laudantium veniam omnis similique dicta eum.
-                                    Saepe culpa ratione pariatur necessitatibus optio officiis
-                                    aspernatur quam odio eos alias, minima veniam, magnam harum
-                                    quia. Animi itaque nam doloribus inventore officiis vel veniam
-                                    quos repellendus aut quisquam nisi nostrum esse, provident
-                                    assumenda possimus repellat sunt minima dignissimos perspiciatis
-                                    neque. Quis optio id consectetur!
+                                    Hello Namaste everyone 🙏
+                                    <br>
+                                    <br>
+                                    Our organization is an umbrella organization of coopratives and it's vision is to
+                                    establish sustainable business entity in the community by marketing goods and
+                                    services through cooperatives. We encourage early cooperatives and members to become
+                                    entrepreneurs.
+                                    <br>
+                                    <br>
+
+                                    Through cooperatives, we are moving forward by bringing the products of cooperatives
+                                    or members to various Nepalese markets, as well as minimizing the potential fraud
+                                    that may be caused to consumers by middlemen. This is our first organization in
+                                    Nepal which will gather the cooperatives and engage them into the business.
+
+                                    <br>
+                                    <br>
+                                    Finally, I would like to express my sincere gratitude to all of you who have
+                                    connected with us directly or indirectly.
+
+                                    <br>
+                                    <br>
+                                    Thank you!
                                 </p>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="overview-img text-center">
+                                    <img class="rounded" src="assets/img/team/ceo.JPG" alt="About Us" />
+                                </div>
+                                <div class="ceo-title">
+                                    <h4>Sandip Giri</h4>
+                                    <p>CEO</p>
+                                </div>
                             </div>
                         </div>
                     </div>
