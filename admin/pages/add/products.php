@@ -47,22 +47,6 @@ require app . "/pages/includes/sidebar.php";
     require app . "/pages/includes/js_links.php";
     ?>
 
-    <script>
-        var Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-
-        const success = function(status, message) {
-            Toast.fire({
-                icon: status,
-                title: message
-            })
-        }
-    </script>
-
 
     <?php
     if (isset($_SESSION['product_added'])) {

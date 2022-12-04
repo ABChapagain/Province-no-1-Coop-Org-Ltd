@@ -9,6 +9,9 @@ $id = $_GET['id'];
 $sql = "select * from products where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
+
+$sql = "select * from product_image where id='$id'";
+$images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!-- Google Font: Source Sans Pro -->
@@ -30,7 +33,7 @@ $rows = $result->fetch_assoc();
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" enctype="multipart/form-data" action="product_post.php">
+            <form method="POST" enctype="multipart/form-data" action="product_post.php?id=<?php echo $id ?>">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -44,7 +47,7 @@ $rows = $result->fetch_assoc();
                         <label for="image">Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img" value="<?php echo $rows['image'] ?>">
+                                <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
                                 <label class="custom-file-label" for="image">Choose file</label>
                             </div>
                         </div>
@@ -57,7 +60,17 @@ $rows = $result->fetch_assoc();
             </form>
         </div>
     </div>
+    <div class="image-preview">
+        <?php foreach ($images as $image) :
+        ?>
+            <div class="image">
+                <a href="<?php echo url . $image['name'] ?>" data-toggle="lightbox" data-title="<button class='btn btn-danger' onclick='deleteImage(<?php echo $image['id'] ?>,`<?php echo $image['name'] ?>`)'>Delete</button>">
 
+                    <img src="<?php echo url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
 
     <!-- jQuery -->
     <script src="<?php echo url ?>plugins/jquery/jquery.min.js"></script>
@@ -71,25 +84,10 @@ $rows = $result->fetch_assoc();
     <script src="<?php echo url ?>dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purp oses -->
     <!-- Page specific script -->
+    <?php
+    require app . "/pages/includes/js_links.php";
+    ?>
 
-
-
-
-    <script>
-        var Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-
-        const success = function(status, message) {
-            Toast.fire({
-                icon: status,
-                title: message
-            })
-        }
-    </script>
 
 
     <?php

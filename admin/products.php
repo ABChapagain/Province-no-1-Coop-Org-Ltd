@@ -74,8 +74,6 @@ $result->fetch_all(MYSQLI_ASSOC);
                                                 <?php
                                                 $sql = "select * from product_image where id=" . $rows['id'];
                                                 $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-
-
                                                 foreach ($image as $img) :
                                                 ?>
                                                     <a href="<?php echo url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
@@ -112,25 +110,7 @@ $result->fetch_all(MYSQLI_ASSOC);
 </div>
 <!-- /.content-wrapper -->
 
-
-
 <?php include "./pages/includes/footer.php" ?>
-
-<script>
-    var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-    });
-
-    const success = function(status, message) {
-        Toast.fire({
-            icon: status,
-            title: message
-        })
-    }
-</script>
 
 <?php
 if (isset($_SESSION['product_deleted'])) {
@@ -143,33 +123,3 @@ if (isset($_SESSION['product_deleted'])) {
     unset($_SESSION['product_deleted']);
 }
 ?>
-
-<script>
-    $(function() {
-        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-            event.preventDefault();
-            $(this).ekkoLightbox({
-                alwaysShowClose: true
-            });
-        });
-    })
-</script>
-
-<script>
-    const showConfirmation = function(id) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Delete',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                location.replace(`pages/delete/product.php?id=${id}`)
-            }
-        })
-
-    }
-</script>
