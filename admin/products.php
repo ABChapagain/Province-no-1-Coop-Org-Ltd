@@ -1,11 +1,13 @@
-<?php include "./includes.php" ?>
-
 <?php
+session_start();
 
+include "./includes.php";
 
 $sql = "select * from products";
 $result = $conn->query($sql);
-$result->fetch_all();
+$result->fetch_all(MYSQLI_ASSOC);
+
+
 
 ?>
 
@@ -69,13 +71,23 @@ $result->fetch_all();
                                             </td>
                                             <td>
 
-                                                <a href="<?php echo url . $rows['image'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
-                                                    <img src="<?php echo url . $rows['image'] ?>" width="80px" class="img-fluid mb-2" alt="white sample" />
-                                                </a>
+                                                <?php
+                                                $sql = "select * from product_image where id=" . $rows['id'];
+                                                $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+
+                                                foreach ($image as $img) :
+                                                ?>
+                                                    <a href="<?php echo url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
+                                                        <img src="<?php echo url . $img['name'] ?>" width="80px" class="img-fluid mb-2" alt="image" />
+                                                    </a>
+                                                <?php
+                                                endforeach;
+                                                ?>
                                             </td>
                                             <td>
-                                                <button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button>
-                                                <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+                                                <a href="<?php echo url ?>/pages/edit/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
+                                                <button class="btn btn-danger" data-toggle="tooltip" onclick="showConfirmation(<?php echo $rows['id'] ?>)" data-placement=" top" title="Delete"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
                                     <?php
@@ -105,14 +117,59 @@ $result->fetch_all();
 <?php include "./pages/includes/footer.php" ?>
 
 <script>
+    var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+    });
+
+    const success = function(status, message) {
+        Toast.fire({
+            icon: status,
+            title: message
+        })
+    }
+</script>
+
+<?php
+if (isset($_SESSION['product_deleted'])) {
+    echo $_SESSION['product_deleted'];
+    if ($_SESSION['product_deleted'] == "successful") {
+        echo "<script>success('success', 'product deleted successfully'); </script>";
+    } else {
+        echo "<script>success('error', 'unable to delete product'); </script>";
+    }
+    unset($_SESSION['product_deleted']);
+}
+?>
+
+<script>
     $(function() {
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
             event.preventDefault();
             $(this).ekkoLightbox({
                 alwaysShowClose: true
             });
-
         });
-
     })
+</script>
+
+<script>
+    const showConfirmation = function(id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.replace(`pages/delete/product.php?id=${id}`)
+            }
+        })
+
+    }
 </script>

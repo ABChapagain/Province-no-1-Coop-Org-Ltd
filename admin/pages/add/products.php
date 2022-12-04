@@ -29,7 +29,7 @@ require app . "/pages/includes/sidebar.php";
                         <label for="image">Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img">
+                                <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
                                 <label class="custom-file-label" for="image">Choose file</label>
                             </div>
                         </div>
