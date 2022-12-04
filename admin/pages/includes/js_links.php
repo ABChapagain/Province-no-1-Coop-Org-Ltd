@@ -32,7 +32,7 @@
 <script src="<?php echo url ?>dist/js/pages/dashboard.js"></script>
 
 <!-- custom script -->
-<script src="<?php echo url ?>dist/js/script.js"></script>
+<script src="<?php echo url ?>dist/js/script.js?v=<?php echo uniqid() ?>" type="module"></script>
 
 <!-- SweetAlert2 -->
 <script src="<?php echo url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
