@@ -1,3 +1,5 @@
+import  "../../plugins/sweetalert2/sweetalert2.min.js"
+
 let url = window.location.href;
 url = url.split("/").pop().split(".")[0] || "index";
 

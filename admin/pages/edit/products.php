@@ -4,6 +4,11 @@ session_start();
 include "../../config/config.php";
 require app . "/pages/includes/header.php";
 require app . "/pages/includes/sidebar.php";
+
+$id = $_GET['id'];
+$sql = "select * from products where id='$id'";
+$result = $conn->query($sql);
+$rows = $result->fetch_assoc();
 ?>
 
 <!-- Google Font: Source Sans Pro -->
@@ -21,7 +26,7 @@ require app . "/pages/includes/sidebar.php";
     <div class="items">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Add Products</h3>
+                <h3 class="card-title">Edit Products</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -29,17 +34,17 @@ require app . "/pages/includes/sidebar.php";
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" id="description" rows="3" placeholder="Enter ..." name="description"></textarea>
+                        <textarea class="form-control" id="description" rows="3" placeholder="Enter ..." name="description"><?php echo $rows['description'] ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img">
+                                <input type="file" class="custom-file-input" id="image" name="img" value="<?php echo $rows['image'] ?>">
                                 <label class="custom-file-label" for="image">Choose file</label>
                             </div>
                         </div>
@@ -47,7 +52,7 @@ require app . "/pages/includes/sidebar.php";
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>
