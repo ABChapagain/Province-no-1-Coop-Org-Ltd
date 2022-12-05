@@ -68,6 +68,67 @@
 
 
 
+
+<!-- Team Area Start -->
+<div class="team-area pt-95 pb-70">
+    <div class="container">
+        <div class="product-top-bar section-border mb-50">
+            <div class="section-title-wrap style-two text-center">
+                <h3 class="section-title">Team Members</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-wrapper mb-30">
+                    <div class="team-img">
+                        <img src="assets/img/team/nabin_kharel.jpg" alt="Team" />
+                    </div>
+                    <div class="team-content text-center">
+                        <h4>Mr. Nabin Kharel</h4>
+                        <span>Member</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-wrapper mb-30">
+                    <div class="team-img">
+                        <img src="assets/img/team/santosh_mandal.jpg" alt="Team" />
+                    </div>
+                    <div class="team-content text-center">
+                        <h4>Mr. Santosh Kumar Mandal</h4>
+                        <span>Member </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-wrapper mb-30">
+                    <div class="team-img">
+                        <img src="assets/img/team/rukmani_karki.jpg" alt="Team" />
+                    </div>
+                    <div class="team-content text-center">
+                        <h4>Mr. Rukmani Karki</h4>
+                        <span>Member </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-wrapper mb-30">
+                    <div class="team-img">
+                        <img src="assets/img/team/rukmani_karki.jpg" alt="Team" />
+                    </div>
+                    <div class="team-content text-center">
+                        <h4>Mr. Rukmani Karki</h4>
+                        <span>Member </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team Area End -->
+
+
+
 <!-- Testimonial Area Start -->
 <div class="testimonials-area bg-image-2 bg-img pt-100 pb-100">
     <div class="container">
@@ -114,119 +175,7 @@
 </div>
 <!-- Testimonial Area End -->
 
-<!-- Team Area Start -->
-<div class="team-area pt-95 pb-70">
-    <div class="container">
-        <div class="product-top-bar section-border mb-50">
-            <div class="section-title-wrap style-two text-center">
-                <h3 class="section-title">Team Members</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <a href="#">
-                            <img src="assets/img/team/team-1.jpg" alt="">
-                        </a>
-                        <div class="team-action">
-                            <a class="action-plus facebook" href="#">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                            <a class="action-heart twitter" title="Wishlist" href="#">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                            <a class="action-cart instagram" href="#">
-                                <i class="ion-social-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr. Sandeep Giri</h4>
-                        <span>Manager </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/img/team/team-2.jpg" alt="">
-                        </a>
-                        <div class="team-action">
-                            <a class="action-plus facebook" href="#">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                            <a class="action-heart twitter" title="Wishlist" href="#">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                            <a class="action-cart instagram" href="#">
-                                <i class="ion-social-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr. Achyut Chapagain</h4>
-                        <span>Developer </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <a href="#">
-                            <img src="assets/img/team/team-3.jpg" alt="">
-                        </a>
-                        <div class="team-action">
-                            <a class="action-plus facebook" href="#">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                            <a class="action-heart twitter" title="Wishlist" href="#">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                            <a class="action-cart instagram" href="#">
-                                <i class="ion-social-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr. Rejens Rayamajhi</h4>
-                        <span>Designer </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Team Area End -->
 
-
-<!-- Start Brand Area -->
-<div class="brand-logo-area ptb-100">
-    <div class="container">
-        <div class="brand-logo-active owl-carousel">
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/1.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/2.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/3.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/4.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/5.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/2.jpg">
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Brand Area -->
 
 
 <?php require_once('./useable/footer.php');
