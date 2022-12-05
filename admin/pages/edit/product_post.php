@@ -4,8 +4,9 @@ include "../../config/config.php";
 $id = $_GET['id'];
 $name = $_POST['name'];
 $description = $_POST['description'];
+$category = $_POST['category'];
 
-$sql = "update products set name='$name', description='$description' where id='$id'";
+$sql = "update products set name='$name', description='$description',category='$category' where id='$id'";
 if ($conn->query($sql)) {
     $countfiles = count($_FILES['img']['name']);
     if (strlen($_FILES['img']['name'][0]) != 0)

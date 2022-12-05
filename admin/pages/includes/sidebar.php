@@ -26,6 +26,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?php echo url ?>category.php" class="nav-link branches">
+                        <!-- <i class="nav-icon fa-gauge"></i> -->
+                        <i class="nav-icon fas fa-boxes"></i>
+                        <p class="text">Category</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?php echo url ?>members.php" class="nav-link members">
                         <!-- <i class="nav-icon fa-gauge"></i> -->
                         <i class="nav-icon fas fa-users"></i>

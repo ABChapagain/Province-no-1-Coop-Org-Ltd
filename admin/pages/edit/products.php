@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include "../../config/config.php";
 require app . "/pages/includes/header.php";
 require app . "/pages/includes/sidebar.php";
@@ -12,6 +10,9 @@ $rows = $result->fetch_assoc();
 
 $sql = "select * from product_image where id='$id'";
 $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+$sql = "select * from category";
+$category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!-- Google Font: Source Sans Pro -->
@@ -40,6 +41,22 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>">
                     </div>
                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">Category</label>
+                        <select class="form-control" name="category">
+                            <?php $selected = $rows['category'] ?>
+                            <option value="<?php echo $selected ?>" selected><?php echo $selected ?></option>
+                            <?php
+                            foreach ($category as $cat) :
+                                if ($selected != $cat['name']) :
+                            ?>
+                                    <option value="<?php echo $cat['name'] ?>"><?php echo $cat['name'] ?></option>
+                            <?php
+                                endif;
+                            endforeach;
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="description">Description</label>
                         <textarea class="form-control" id="description" rows="3" placeholder="Enter ..." name="description"><?php echo $rows['description'] ?></textarea>
                     </div>
@@ -48,18 +65,22 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
-                                <label class="custom-file-label" for="image">Choose file</label>
+                                <label class="custom-file-label" for="image">add image</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- /.card-body -->
+
+
                 <div class="card-footer">
                     <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
+
         </div>
     </div>
+
     <div class="image-preview">
         <?php foreach ($images as $image) :
         ?>
@@ -89,15 +110,15 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     ?>
 
 
-
     <?php
-    if (isset($_SESSION['product_added'])) {
-        if ($_SESSION['product_added'] == "successful") {
-            echo "<script>success('success', 'product added successfully'); </script>";
+    if (isset($_SESSION['product_updated'])) {
+        echo "<script>swalfire();</script>";
+        if ($_SESSION['product_updated'] == "successful") {
+            echo "<script>success('success', 'product updated successfully'); </script>";
         } else {
-            echo "<script>success('error', 'unable to add product'); </script>";
+            echo "<script>success('error', 'unable to update product'); </script>";
         }
-        unset($_SESSION['product_added']);
+        // unset($_SESSION['product_updated']);
     }
     ?>
 

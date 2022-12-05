@@ -73,9 +73,7 @@ $(function() {
                 location.reload();            
             }
         });            }
-        })
-
-      
+        })      
     }
 
 
@@ -94,3 +92,9 @@ Toast.fire({
 })
 }
 
+
+
+//data tables
+function swalfire(){
+    Swal.fire("check");
+}

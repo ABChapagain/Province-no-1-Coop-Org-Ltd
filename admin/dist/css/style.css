@@ -45,8 +45,12 @@
 }
 
 .image-preview img:hover{
-  width: 120px;
-  height: 135px;
+  /* width: 120px;
+  height: 135px; */
+  transform: scale(1.12,1.12);
   opacity: 1;
 }
 
+td,th{
+  width: fit-content;
+}

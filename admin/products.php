@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include "./includes.php";
 
 $sql = "select * from products";
@@ -33,7 +31,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="table" class="table table-bordered table-striped">
                                 <a href="<?php url ?>pages/add/products.php"> <button style="margin-left:auto;margin-bottom:5px" class="btn btn-primary d-flex">add</button></a>
                                 <thead>
                                     <tr>
@@ -41,8 +39,8 @@ $result->fetch_all(MYSQLI_ASSOC);
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Image</th>
+                                        <th>Category</th>
                                         <th>Action</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,19 +53,14 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             <td><?php echo ++$i ?></td>
                                             <td><?php echo $rows['name'] ?> </td>
                                             <td>
-                                                <div class="card card-secondary">
-                                                    <div class="card-header">
-                                                        <div class="card-tools">
-                                                            <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
-                                                            </button>
-                                                        </div>
-                                                        <!-- /.card-tools -->
-                                                    </div>
-                                                    <!-- /.card-header -->
-                                                    <div class="card-body table-description">
-                                                        <?php echo $rows['description'] ?> </div>
-                                                    <!-- /.card-body -->
-                                                </div>
+                                                <?php
+                                                $description = $rows['description'];
+                                                if (strlen($description) > 15) {
+                                                    $description = trim(substr($description, 0, 15));
+                                                    $description .= ".....";
+                                                }
+                                                echo $description;
+                                                ?>
                                             </td>
                                             <td>
 
@@ -77,15 +70,19 @@ $result->fetch_all(MYSQLI_ASSOC);
                                                 foreach ($image as $img) :
                                                 ?>
                                                     <a href="<?php echo url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
-                                                        <img src="<?php echo url . $img['name'] ?>" width="80px" class="img-fluid mb-2" alt="image" />
+                                                        <img src="<?php echo url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
                                                     </a>
                                                 <?php
                                                 endforeach;
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="<?php echo url ?>/pages/edit/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
-                                                <button class="btn btn-danger" data-toggle="tooltip" onclick="showConfirmation(<?php echo $rows['id'] ?>)" data-placement=" top" title="Delete"><i class="fas fa-trash"></i></button>
+                                                <?php echo $rows['category'] ?>
+                                            </td>
+                                            <td>
+                                                <a href="<?php echo url ?>pages/view/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-book-open"></i></button></a>
+                                                <a href="<?php echo url ?>pages/edit/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
+                                                <button class="btn btn-danger" data-toggle="tooltip" onclick="showConfirmation(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
                                     <?php
@@ -112,6 +109,16 @@ $result->fetch_all(MYSQLI_ASSOC);
 
 <?php include "./pages/includes/footer.php" ?>
 
+
+<script>
+    $('#table').dataTable({
+        // "columnDefs": [{
+        //     "width": "20%",
+        //     "targets": 0
+        // }]
+        "autoWidth": false
+    });
+</script>
 <?php
 if (isset($_SESSION['product_deleted'])) {
     echo $_SESSION['product_deleted'];

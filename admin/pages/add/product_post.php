@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "../../config/config.php";
 
 
@@ -10,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $product = $_POST['name'];
     $description = $_POST['description'];
-    $sql = "insert into products (name,description) values('$product','$description')";
+    $category = $_POST['category'];
+    $sql = "insert into products (name,description,category) values('$product','$description','$category')";
     if ($conn->query($sql)) {
         if (strlen($_FILES['img']['name'][0]) != 0) {
             $sql = "select id from products where name='$product'";
