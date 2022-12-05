@@ -7,9 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //count total files
     $countfiles = count($_FILES['img']['name']);
 
-    $product = $_POST['name'];
-    $description = $_POST['description'];
-    $category = $_POST['category'];
+    $product = mysqli_real_escape_string($conn, $_POST['name']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $category = mysqli_real_escape_string($conn, $_POST['category']);
+
+
     $sql = "insert into products (name,description,category) values('$product','$description','$category')";
     if ($conn->query($sql)) {
         if (strlen($_FILES['img']['name'][0]) != 0) {
