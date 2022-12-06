@@ -1,10 +1,11 @@
 <?php
 include "../../config/config.php";
 
-$id = $_GET['id'];
-$name = $_POST['name'];
-$description = $_POST['description'];
-$category = $_POST['category'];
+
+$id = mysqli_real_escape_string($conn, $_GET['id']);
+$name = mysqli_real_escape_string($conn, $_POST['name']);
+$description = mysqli_real_escape_string($conn, $_POST['description']);
+$category = mysqli_real_escape_string($conn, $_POST['category']);
 
 $sql = "update products set name='$name', description='$description',category='$category' where id='$id'";
 if ($conn->query($sql)) {

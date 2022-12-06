@@ -1,7 +1,6 @@
 <?php
-session_start();
 include "../../config/config.php";
-$id = $_GET['id'];
+$id = mysqli_real_escape_string($conn, $_GET['id']);
 
 $sql = "select * from product_image where id='$id'";
 $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);

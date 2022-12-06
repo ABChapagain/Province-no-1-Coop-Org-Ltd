@@ -54,3 +54,7 @@
 td,th{
   width: fit-content;
 }
+
+img{
+  object-fit: cover;
+}

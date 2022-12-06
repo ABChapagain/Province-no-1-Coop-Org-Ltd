@@ -55,8 +55,8 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             <td>
                                                 <?php
                                                 $description = $rows['description'];
-                                                if (strlen($description) > 15) {
-                                                    $description = trim(substr($description, 0, 15));
+                                                if (strlen($description) > 30) {
+                                                    $description = trim(substr($description, 0, 30));
                                                     $description .= ".....";
                                                 }
                                                 echo $description;
@@ -82,7 +82,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             <td>
                                                 <a href="<?php echo url ?>pages/view/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-book-open"></i></button></a>
                                                 <a href="<?php echo url ?>pages/edit/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
-                                                <button class="btn btn-danger" data-toggle="tooltip" onclick="showConfirmation(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+                                                <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteProduct(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
                                     <?php

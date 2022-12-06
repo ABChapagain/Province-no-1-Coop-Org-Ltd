@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include "../../config/config.php";
 require app . "/pages/includes/header.php";
 require app . "/pages/includes/sidebar.php";

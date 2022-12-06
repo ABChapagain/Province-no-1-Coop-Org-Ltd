@@ -26,9 +26,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo url ?>category.php" class="nav-link branches">
+                    <a href="<?php echo url ?>category.php" class="nav-link category">
                         <!-- <i class="nav-icon fa-gauge"></i> -->
-                        <i class="nav-icon fas fa-boxes"></i>
+                        <i class="nav-icon fas fa-tasks"></i>
                         <p class="text">Category</p>
                     </a>
                 </li>
