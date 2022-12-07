@@ -40,6 +40,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?php echo url ?>events.php" class="nav-link events">
+                        <!-- <i class="nav-icon fa-gauge"></i> -->
+                        <i class="nav-icon fas fa-users"></i>
+                        <p class="text">Events</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?php echo url ?>reports.php" class="nav-link reports">
                         <!-- <i class="nav-icon fa-gauge"></i> -->
                         <i class="nav-icon fas fa-file-alt"></i>

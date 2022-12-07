@@ -88,3 +88,7 @@ async function deleteImage(id, name) {
     });
   }
 }
+
+
+//summernote
+    $('#summernote').summernote({ height: 150})
