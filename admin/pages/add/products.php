@@ -1,9 +1,11 @@
 <?php
-session_start();
 
 include "../../config/config.php";
 require app . "/pages/includes/header.php";
 require app . "/pages/includes/sidebar.php";
+
+$sql = "select * from category";
+$category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
 
@@ -20,6 +22,19 @@ require app . "/pages/includes/sidebar.php";
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Category</label>
+                        <select class="form-control" name="category">
+                            <option value="" disabled selected>select</option>
+                            <?php
+                            foreach ($category as $cat) :
+                            ?>
+                                <option value="<?php echo $cat['name'] ?>"><?php echo $cat['name'] ?></option>
+                            <?php
+                            endforeach
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
@@ -46,22 +61,6 @@ require app . "/pages/includes/sidebar.php";
     <?php
     require app . "/pages/includes/js_links.php";
     ?>
-
-    <script>
-        var Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-
-        const success = function(status, message) {
-            Toast.fire({
-                icon: status,
-                title: message
-            })
-        }
-    </script>
 
 
     <?php

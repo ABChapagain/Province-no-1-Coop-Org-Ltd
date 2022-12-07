@@ -28,3 +28,33 @@
  margin: 0;
 }
 
+.image-preview{
+  display: flex;
+  justify-content: center;
+  gap:0.5rem;
+}
+
+.image-preview img{
+  width: 110px;
+  height: 125px;
+  border: 1px rgb(136, 136, 136) solid;
+  border-radius: 2px;  
+  opacity: 0.85;
+  transition: all;
+  transition-duration: 0.3s;
+}
+
+.image-preview img:hover{
+  /* width: 120px;
+  height: 135px; */
+  transform: scale(1.12,1.12);
+  opacity: 1;
+}
+
+td,th{
+  width: fit-content;
+}
+
+img{
+  object-fit: cover;
+}
