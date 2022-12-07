@@ -93,7 +93,7 @@
                         <div class="product-wrapper mb-30 shadow rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src=" assets/img/product/product-1.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -110,7 +110,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-2.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -129,7 +129,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-3.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -146,7 +146,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-4.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -165,7 +165,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-5.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -182,7 +182,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-6.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -201,7 +201,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-7.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -218,7 +218,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-8.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -237,7 +237,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-9.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -254,7 +254,7 @@
                         <div class="product-wrapper mb-30 shadow border-none rounded">
                             <div class="rounded">
                                 <img alt="Product"
-                                    style="height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
                                     src="assets/img/product/product-4.jpg" />
                             </div>
                             <div class="blog-content px-2 py-3">
@@ -329,6 +329,121 @@
 <!-- Testimonial Area End -->
 
 
+<!-- Message from CEO -->
+<div class="about-us-page-area ptb-100">
+    <div class="container">
+        <div class="product-top-bar section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">Message from CEO</h3>
+            </div>
+        </div>
+        <div class="d-xl-flex gap-4 align-items-center justify-content-center">
+            <div>
+                <p class="peragraph-blog" style="text-align: justify;">
+                    Hello Namaste everyone 🙏
+                    <br>
+                    <br>
+                    Our organization is an umbrella organization of coopratives and it's vision is to
+                    establish sustainable business entity in the community by marketing goods and
+                    services through cooperatives. We encourage early cooperatives and members to become
+                    entrepreneurs.
+                    <br>
+                    <br>
+
+                    Through cooperatives, we are moving forward by bringing the products of cooperatives
+                    or members to various Nepalese markets, as well as minimizing the potential fraud
+                    that may be caused to consumers by middlemen. This is our first organization in
+                    Nepal which will gather the cooperatives and engage them into the business.
+
+                    <br>
+                    <br>
+                    Finally, I would like to express my sincere gratitude to all of you who have
+                    connected with us directly or indirectly.
+
+                    <br>
+                    <br>
+                    Thank you!
+                </p>
+            </div>
+
+            <div>
+                <div class="overview-img text-center">
+                    <img style="object-fit:cover" width="100%" class="rounded" src="assets/img/team/ceo.JPG"
+                        alt="About Us" />
+                </div>
+                <div class="ceo-title">
+                    <h4>Sandip Giri</h4>
+                    <p>CEO</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- News Area Start -->
+<div class="blog-area bg-image-1 pt-90 pb-70">
+    <div class="container">
+        <div class="product-top-bar section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">Latest Events</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-single mb-30">
+                    <div class="blog-thumb">
+                        <a href="#"><img src="assets/img/blog/blog-single-1.jpg" alt="" /></a>
+                    </div>
+                    <div class="blog-content pt-25">
+                        <span class="blog-date">14 Sep</span>
+                        <h3><a href="#">Lorem ipsum sit ame co.</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
+                            labore et dolore</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-single mb-30">
+                    <div class="blog-thumb">
+                        <a href="#"><img src="assets/img/blog/blog-single-2.jpg" alt="" /></a>
+                    </div>
+                    <div class="blog-content pt-25">
+                        <span class="blog-date">20 Dec</span>
+                        <h3><a href="#">Lorem ipsum sit ame co.</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
+                            labore et dolore</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-single mb-30">
+                    <div class="blog-thumb">
+                        <a href="#"><img src="assets/img/blog/blog-single-3.jpg" alt="" /></a>
+                    </div>
+                    <div class="blog-content pt-25">
+                        <span class="blog-date">18 Aug</span>
+                        <h3><a href="#">Lorem ipsum sit ame co.</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
+                            labore et dolore</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ms-auto text-end">
+            <a class="btn py-2 px-4 rounded text-white text-end bg-project" href="events.php">Show
+                More</a>
+        </div>
+    </div>
+</div>
+<!-- News Area End -->
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -376,41 +491,13 @@
                         <div class="modal-pro-content">
                             <h3>Dutchman's Breeches</h3>
                             <div class="product-price-wrapper">
-                                <span class="product-price-old">£162.00 </span>
-                                <span>£120.00</span>
+                                <span>Consumable Goods</span>
                             </div>
                             <p>
                                 Pellentesque habitant morbi tristique senectus et netus et
                                 malesuada fames ac turpis egestas. Vestibulum tortor quam,
                                 feugiat vitae, ultricies eget, tempor sit amet.
                             </p>
-                            <div class="quick-view-select">
-                                <div class="select-option-part">
-                                    <label>Size*</label>
-                                    <select class="select">
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
-                                    </select>
-                                </div>
-                                <div class="quickview-color-wrap">
-                                    <label>Color*</label>
-                                    <div class="quickview-color">
-                                        <ul>
-                                            <li class="blue">b</li>
-                                            <li class="red">r</li>
-                                            <li class="pink">p</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-quantity">
-                                <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02" />
-                                </div>
-                                <button>Add to cart</button>
-                            </div>
-                            <span><i class="fa fa-check"></i> In stock</span>
                         </div>
                     </div>
                 </div>

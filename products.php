@@ -1,4 +1,7 @@
-<?php require_once('./useable/header.php');
+<?php
+require_once('./useable/header.php');
+require_once('./config/db_config.php');
+
 ?>
 
 
@@ -188,16 +191,27 @@
                     </div>
                 </div>
             </div>
+
+            <?php
+            $sql = "SELECT * FROM category";
+
+            $result = $conn->query($sql);
+            $result->fetch_all(MYSQLI_ASSOC);
+            ?>
+
             <div class="col-lg-3">
                 <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
                     <div class="shop-widget">
                         <h4 class="shop-sidebar-title">Category</h4>
                         <div class="sidebar-list-style mt-20">
                             <ul>
-                                <li><input type="checkbox" /><a href="#">Consumable Goods </a></li>
-                                <li><input type="checkbox" /><a href="#">Handicrafts</a></li>
-                                <li><input type="checkbox" /><a href="#">Stationary</a></li>
-                                <li><input type="checkbox" /><a href="#">Agricultural and Machinery</a></li>
+                                <?php
+                                foreach ($result as $category) {
+                                    echo "
+                                    <li><input type='checkbox' /><a href='#'>$category[name]</a></li>
+                                    ";
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
