@@ -1,4 +1,9 @@
-<?php require_once('./useable/header.php') ?>
+<?php
+require_once('./useable/header.php');
+require_once('./config/db_config.php');
+
+
+?>
 
 
 <!-- Slider Start -->
@@ -89,186 +94,52 @@
         <div class="tab-content jump">
             <div class="tab-pane active">
                 <div class="featured-product-active owl-carousel product-nav">
-                    <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30 shadow rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src=" assets/img/product/product-1.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Alpine Premium CTC</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
+
+                    <?php
+                    $sql = "SELECT * FROM products";
+
+                    $result = $conn->query($sql);
+                    $result->fetch_all(MYSQLI_ASSOC);
+
+                    foreach ($result as $index => $product) {
+                        echo "<div class='product-wrapper-single'>";
+                        for ($i = 0; $i < 2; $i++) {
+                            echo "
+                             <div class='product-wrapper mb-30 shadow rounded'>
+                        <div class='rounded'>";
+
+                            $sql = "select * from product_image where id=" . $product['id'];
+                            $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+
+                            echo "
+                            <img alt='Product'
+                                style='object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;'
+                                src=' assets/img/product/product-1.jpg' />
                         </div>
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-2.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Alpine Honey</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-3.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Green Tea</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-4.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Green Tea Leaf</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
+                        <div class='blog-content px-2 py-3'>
+                            <h4> $product[name]</h4>";
+                            $description = $product['description'];
+                            if (strlen($description) > 100) {
+                                $description = trim(substr($description, 0, 100));
+                                $description .= "...";
+                            }
+                            echo "<p>$description</p>
+                            <a class='action-compare' href='#' data-bs-target='#productModal$product[id]' data-bs-toggle='modal'
+                                title='Quick View'>
+                                Read More
+                            </a>
                         </div>
                     </div>
-                    <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-5.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Black Tea</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-6.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Tea and Chai</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-7.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Green Tea</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-8.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Alpine Honey</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-single">
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-9.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Mint Tea</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-wrapper mb-30 shadow border-none rounded">
-                            <div class="rounded">
-                                <img alt="Product"
-                                    style="object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;"
-                                    src="assets/img/product/product-4.jpg" />
-                            </div>
-                            <div class="blog-content px-2 py-3">
-                                <h4> Green Tea Leaf</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor
-                                    incididunt
-                                    ut labore et dolore</p>
-                                <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                    title="Quick View">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                            ";
+                        }
+                        echo "</div>";
+                    }
+                    ?>
+
+
+
+
 
                 </div>
             </div>
@@ -444,59 +315,63 @@
 <!-- News Area End -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">x</span>
+
+
+<?php
+$sql = "SELECT * FROM products";
+
+$result = $conn->query($sql);
+$result->fetch_all(MYSQLI_ASSOC);
+
+foreach ($result as $product) {
+
+    echo "
+<div class='modal fade exampleModal' id='productModal$product[id]' tabindex='-1' role='dialog'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-bs-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>x</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-5 col-sm-5 col-xs-12">
-                        <!-- Thumbnail Large Image start -->
-                        <div class="tab-content">
-                            <div id="pro-1" class="tab-pane fade show active">
-                                <img src="assets/img/product-details/product-detalis-l1.jpg" alt="" />
+            <div class='modal-body'>
+                <div class='row'>
+                    <div class='col-md-5 col-sm-5 col-xs-12'>
+                        <div class='tab-content'>
+                            <div id='pro-1' class='tab-pane fade show active'>
+                                <img src='assets/img/product-details/product-detalis-l1.jpg' alt='' />
                             </div>
-                            <div id="pro-2" class="tab-pane fade">
-                                <img src="assets/img/product-details/product-detalis-l2.jpg" alt="" />
+                            <div id='pro-2' class='tab-pane fade'>
+                                <img src='assets/img/product-details/product-detalis-l2.jpg' alt='' />
                             </div>
-                            <div id="pro-3" class="tab-pane fade">
-                                <img src="assets/img/product-details/product-detalis-l3.jpg" alt="" />
+                            <div id='pro-3' class='tab-pane fade'>
+                                <img src='assets/img/product-details/product-detalis-l3.jpg' alt='' />
                             </div>
-                            <div id="pro-4" class="tab-pane fade">
-                                <img src="assets/img/product-details/product-detalis-l4.jpg" alt="" />
-                            </div>
-                        </div>
-                        <!-- Thumbnail Large Image End -->
-                        <!-- Thumbnail Image End -->
-                        <div class="product-thumbnail">
-                            <div class="thumb-menu owl-carousel nav nav-style" role="tablist">
-                                <a class="active" data-bs-toggle="tab" href="#pro-1"><img
-                                        src="assets/img/product-details/product-detalis-s1.jpg" alt="" /></a>
-                                <a data-bs-toggle="tab" href="#pro-2"><img
-                                        src="assets/img/product-details/product-detalis-s2.jpg" alt="" /></a>
-                                <a data-bs-toggle="tab" href="#pro-3"><img
-                                        src="assets/img/product-details/product-detalis-s3.jpg" alt="" /></a>
-                                <a data-bs-toggle="tab" href="#pro-4"><img
-                                        src="assets/img/product-details/product-detalis-s4.jpg" alt="" /></a>
+                            <div id='pro-4' class='tab-pane fade'>
+                                <img src='assets/img/product-details/product-detalis-l4.jpg' alt='' />
                             </div>
                         </div>
-                        <!-- Thumbnail image end -->
+                        <div class='product-thumbnail'>
+                            <div class='thumb-menu owl-carousel nav nav-style' role='tablist'>
+                                <a class='active' data-bs-toggle='tab' href='#pro-1'><img
+                                        src='assets/img/product-details/product-detalis-s1.jpg' alt='' /></a>
+                                <a data-bs-toggle='tab' href='#pro-2'><img
+                                        src='assets/img/product-details/product-detalis-s2.jpg' alt='' /></a>
+                                <a data-bs-toggle='tab' href='#pro-3'><img
+                                        src='assets/img/product-details/product-detalis-s3.jpg' alt='' /></a>
+                                <a data-bs-toggle='tab' href='#pro-4'><img
+                                        src='assets/img/product-details/product-detalis-s4.jpg' alt='' /></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-7 col-sm-7 col-xs-12">
-                        <div class="modal-pro-content">
-                            <h3>Dutchman's Breeches</h3>
-                            <div class="product-price-wrapper">
-                                <span>Consumable Goods</span>
+                    <div class='col-md-7 col-sm-7 col-xs-12'>
+                        <div class='modal-pro-content'>
+                            <h3>$product[name]</h3>
+                            <div class='product-price-wrapper'>
+                                <span>$product[category]</span>
                             </div>
                             <p>
-                                Pellentesque habitant morbi tristique senectus et netus et
-                                malesuada fames ac turpis egestas. Vestibulum tortor quam,
-                                feugiat vitae, ultricies eget, tempor sit amet.
+                                $product[description]
                             </p>
                         </div>
                     </div>
@@ -505,6 +380,12 @@
         </div>
     </div>
 </div>
+
+    ";
+}
+
+?>
+
 <!-- Modal end -->
 
 
