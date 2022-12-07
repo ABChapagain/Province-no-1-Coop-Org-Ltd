@@ -4,16 +4,6 @@
 <!-- Slider Start -->
 <div class="slider-area">
     <div class="slider-active owl-dot-style owl-carousel">
-        <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-1.jpg)">
-            <div class="container">
-                <div style="height: 13.3rem;" class="slider-content slider-amimated-1">
-                    <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
-                    <h1 class="animated">drink matcha.</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
-                        magna aliqua.</p>
-                </div>
-            </div>
-        </div>
         <div class="single-slider ptb-240 bg-img" style="background-image: url(assets/img/slider/slider-2.jpeg)">
             <div class="container">
                 <div style="height: 13.3rem;" class="slider-content slider-animated-1">
@@ -430,36 +420,5 @@
 </div>
 <!-- Modal end -->
 
-<!-- Start Brand Area -->
-<div class="brand-logo-area ptb-100">
-    <div class="container">
-        <div class="product-top-bar section-border mb-55">
-            <div class="section-title-wrap text-center">
-                <h3 class="section-title">Our Members</h3>
-            </div>
-        </div>
-        <div class="brand-logo-active owl-carousel">
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/1.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/2.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/3.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/4.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/5.jpg">
-            </div>
-            <div class="single-brand-logo">
-                <img alt="" src="assets/img/brand-logo/2.jpg">
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Brand Area -->
 
 <?php require_once('./useable/footer.php') ?>

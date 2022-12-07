@@ -1,3 +1,4 @@
+<!-- custom script -->
 <!-- jQuery -->
 <script src="<?php echo url ?>plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -32,12 +33,11 @@
 <script src="<?php echo url ?>dist/js/pages/dashboard.js"></script>
 
 <!-- custom script -->
-<script src="<?php echo url ?>dist/js/script.js?v=<?php echo uniqid() ?>" type="module"></script>
 
 <!-- SweetAlert2 -->
 <script src="<?php echo url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- Toastr -->
-<!-- <script src="../../plugins/toastr/toastr.min.js"></script> -->
+<script src="<?php echo url ?>plugins/toastr/toastr.min.js"></script>
 
 <!-- Ekko Lightbox -->
 <script src="<?php echo url ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
@@ -57,3 +57,8 @@
 <script src="<?php echo url ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo url ?>dist/js/adminlte.min.js"></script>
+
+
+
+
+<script src="<?php echo url ?>dist/js/script.js?v=<?php echo uniqid() ?>"></script>
