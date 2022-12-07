@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             for ($i = 0; $i < $countfiles; $i++) {
                 $filename = $_FILES['img']['name'][$i];
                 // Upload file
-                $filename = "/uploads/products/" . uniqid() . ".jpg";
+                $filename = "/../uploads/products/" . uniqid() . ".jpg";
                 move_uploaded_file($_FILES['img']['tmp_name'][$i],  app . $filename);
                 $sql = "insert into product_image (id,name) values('$id','$filename')";
                 $conn->query($sql);
