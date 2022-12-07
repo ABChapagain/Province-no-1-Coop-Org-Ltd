@@ -74,10 +74,21 @@
     <div class="container">
         <div class="product-top-bar section-border mb-50">
             <div class="section-title-wrap style-two text-center">
-                <h3 class="section-title">Team Members</h3>
+                <h3 class="section-title">Our Members</h3>
             </div>
         </div>
         <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-wrapper mb-30">
+                    <div class="team-img">
+                        <img src="assets/img/team/santosh_mandal.jpg" alt="Team" />
+                    </div>
+                    <div class="team-content text-center">
+                        <h4>Mr. Mahendra Kumar Giri</h4>
+                        <span>Chairperson </span>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team-wrapper mb-30">
                     <div class="team-img">
@@ -111,17 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <img src="assets/img/team/rukmani_karki.jpg" alt="Team" />
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr. Rukmani Karki</h4>
-                        <span>Member </span>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

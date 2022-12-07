@@ -61,13 +61,14 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             </td>
                                             <td>
                                                 <div>
+
                                                     <?php
                                                     $sql = "select * from product_image where id=" . $rows['id'];
                                                     $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                                     foreach ($image as $img) :
                                                     ?>
-                                                        <a href="<?php echo product_url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
-                                                            <img src="<?php echo product_url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
+                                                        <a href="<?php echo image . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
+                                                            <img src="<?php echo image . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
                                                         </a>
                                                     <?php
                                                     endforeach;
@@ -86,7 +87,9 @@ $result->fetch_all(MYSQLI_ASSOC);
                                     <?php
                                     endforeach;
                                     ?>
+
                                 </tbody>
+
                             </table>
                         </div>
                         <!-- /.card-body -->

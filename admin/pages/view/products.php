@@ -56,8 +56,8 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <?php foreach ($images as $image) :
                         ?>
                             <div class="image">
-                                <a href="<?php echo image . $image['name'] ?>" data-toggle="lightbox">
-                                    <img src="<?php echo image . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
+                                <a href="<?php echo product_url . $image['name'] ?>" data-toggle="lightbox">
+                                    <img src="<?php echo product_url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
                                 </a>
                             </div>
                         <?php endforeach; ?>
