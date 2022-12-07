@@ -101,40 +101,49 @@ require_once('./config/db_config.php');
                     $result = $conn->query($sql);
                     $result->fetch_all(MYSQLI_ASSOC);
 
-                    foreach ($result as $index => $product) {
-                        echo "<div class='product-wrapper-single'>";
-                        for ($i = 0; $i < 2; $i++) {
-                            echo "
-                             <div class='product-wrapper mb-30 shadow rounded'>
-                        <div class='rounded'>";
 
-                            $sql = "select * from product_image where id=" . $product['id'];
-                            $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-
-
-                            echo "
-                            <img alt='Product'
-                                style='object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;'
-                                src=' assets/img/product/product-1.jpg' />
-                        </div>
-                        <div class='blog-content px-2 py-3'>
-                            <h4> $product[name]</h4>";
-                            $description = $product['description'];
-                            if (strlen($description) > 100) {
-                                $description = trim(substr($description, 0, 100));
-                                $description .= "...";
-                            }
-                            echo "<p>$description</p>
-                            <a class='action-compare' href='#' data-bs-target='#productModal$product[id]' data-bs-toggle='modal'
-                                title='Quick View'>
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-                            ";
+                    $count = 0;
+                    foreach ($result as $product) {
+                        if ($count == 0) {
+                            echo "<div class='product-wrapper-single'>";
                         }
-                        echo "</div>";
+
+
+                        if ($count == 2) {
+                            echo "</div>";
+                        }
+                        echo "<div class='product-wrapper mb-30 shadow rounded'>
+                                <div class='rounded'>";
+
+                        $sql = "select * from product_image where id = $product[id]";
+                        $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+                        $image = $image[0];
+                        echo "<img alt='Product'
+                                style='object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;'
+                                src='uploads/products/$image[name]' />
+                            </div> 
+                                <div class='blog-content px-2 py-3'>
+                                    <h4> $product[name]</h4>";
+                        $description = $product['description'];
+                        if (strlen($description) > 100) {
+                            $description = trim(substr($description, 0, 100));
+                            $description .= "...";
+                        }
+                        echo "<p>$description</p>
+                                    <a class='action-compare' href='#' data-bs-target='#productModal$product[id]' data-bs-toggle='modal'
+                                        title='Quick View'>
+                                        Read More
+                                    </a>
+                                </div>
+                            </div>
+                            ";
+
+
+                        $count++;
                     }
+
+
+
                     ?>
 
 
@@ -337,30 +346,54 @@ foreach ($result as $product) {
             <div class='modal-body'>
                 <div class='row'>
                     <div class='col-md-5 col-sm-5 col-xs-12'>
-                        <div class='tab-content'>
-                            <div id='pro-1' class='tab-pane fade show active'>
-                                <img src='assets/img/product-details/product-detalis-l1.jpg' alt='' />
-                            </div>
-                            <div id='pro-2' class='tab-pane fade'>
-                                <img src='assets/img/product-details/product-detalis-l2.jpg' alt='' />
-                            </div>
-                            <div id='pro-3' class='tab-pane fade'>
-                                <img src='assets/img/product-details/product-detalis-l3.jpg' alt='' />
-                            </div>
-                            <div id='pro-4' class='tab-pane fade'>
-                                <img src='assets/img/product-details/product-detalis-l4.jpg' alt='' />
-                            </div>
+                    <div class='tab-content'>";
+
+
+    $sql = "select * from product_image where id = $product[id]";
+    $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+    foreach ($images as $index => $image) {
+
+        if ($index == 0) {
+            echo  "
+            <div id='pro-$image[id]' class='tab-pane fade show active'>
+                <img src='uploads/products/$image[name]' alt='' />
+            </div>
+            ";
+        } else {
+
+            echo "
+            <div id='pro-$image[id]' class='tab-pane fade'>
+            <img src='uploads/products/$image[name]' alt='' />
+            </div>
+            ";
+        }
+    }
+    echo "
                         </div>
                         <div class='product-thumbnail'>
-                            <div class='thumb-menu owl-carousel nav nav-style' role='tablist'>
-                                <a class='active' data-bs-toggle='tab' href='#pro-1'><img
-                                        src='assets/img/product-details/product-detalis-s1.jpg' alt='' /></a>
-                                <a data-bs-toggle='tab' href='#pro-2'><img
-                                        src='assets/img/product-details/product-detalis-s2.jpg' alt='' /></a>
-                                <a data-bs-toggle='tab' href='#pro-3'><img
-                                        src='assets/img/product-details/product-detalis-s3.jpg' alt='' /></a>
-                                <a data-bs-toggle='tab' href='#pro-4'><img
-                                        src='assets/img/product-details/product-detalis-s4.jpg' alt='' /></a>
+                            <div class='thumb-menu owl-carousel nav nav-style' role='tablist'>";
+    foreach ($images as $index => $image) {
+
+        if ($index == 0) {
+            echo  "
+            <a class='active' data-bs-toggle='tab' href='#pro-$image[id]'><img
+                                        src='uploads/products/$image[name]' alt='' /></a>
+            ";
+        } else {
+
+            echo "
+            <a data-bs-toggle='tab' href='#pro-$image[id]'><img
+                                        src='uploads/products/$image[name]' alt='' /></a>
+                                <a data-bs-toggle='tab' href='#pro-$image[id]'><img
+                                        src='uploads/products/$image[name]' alt='' /></a>
+                                <a data-bs-toggle='tab' href='#pro-$image[id]'><img
+                                        src='uploads/products/$image[name]' alt='' /></a>
+            ";
+        }
+    }
+    echo "
+                                
                             </div>
                         </div>
                     </div>

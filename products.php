@@ -53,18 +53,19 @@ require_once('./config/db_config.php');
                         <div class="row">
                             <?php
                             $sql = "SELECT * FROM products";
-
                             $result = $conn->query($sql);
                             $result->fetch_all(MYSQLI_ASSOC);
-
                             foreach ($result as $product) {
+                                $sql = "select * from product_image where id = $product[id]";
+                                $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+                                $image = $image[0];
                                 echo "
                                 <div class='product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30'>
                                 <div class='product-wrapper mb-30 shadow rounded'>
                                     <div class='rounded'>
                                         <img alt='Product'
                                             style='height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;'
-                                            src=' assets/img/product/product-1.jpg' />
+                                            src='uploads/products/$image[name]' />
                                     </div>
                                     <div class='blog-content px-2 py-3'>
                                         <h4>$product[name]</h4>";
