@@ -44,6 +44,7 @@
                             <div class="main-menu">
                                 <nav>
                                     <ul>
+                                        <li><a href="index.php">Home</a></li>
                                         <li><a href="about-us.php">About Us</a></li>
                                         <li><a href="products.php">Products</a></li>
                                         <li class="top-hover">
@@ -56,8 +57,7 @@
                                             <a href="events.php">events</a>
                                         </li>
                                         <li class="top-hover">
-                                            <a class="btn py-3 px-4 rounded text-white bg-project"
-                                                href="career.php">career</a>
+                                            <a class="btn py-3 px-4 rounded text-white bg-project" href="career.php">career</a>
                                         </li>
                                     </ul>
                                 </nav>
