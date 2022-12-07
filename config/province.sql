@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2022 at 01:16 PM
+-- Generation Time: Dec 07, 2022 at 11:14 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35,6 +35,13 @@ CREATE TABLE `branches` (
   `map_coord` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `branches`
+--
+
+INSERT INTO `branches` (`id`, `name`, `address`, `phone`, `map_coord`) VALUES
+(3, 'rejens', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -51,7 +58,14 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'grape');
+(3, 'agricultural and machinery'),
+(4, 'consumable'),
+(1, 'handicraft'),
+(10, 'Hello'),
+(9, 'Hello World'),
+(11, 'Lell'),
+(12, 'sdka'),
+(2, 'stationary');
 
 -- --------------------------------------------------------
 
@@ -117,7 +131,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `category`) VALUES
-(1, 'rejens', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nobis harum minus incidunt reprehenderit soluta molestiae ratione porro consequatur illum dignissimos laborum qui iure debitis, perferendis vitae distinctio quisquam magni accusantium veritatis. Accusamus eius porro fugit laudantium dolore amet dolorem alias molestiae labore, esse atque, nesciunt vel ducimus! Reiciendis, laborum.', NULL);
+(39, 'rejens', 'asdfasd', 'agricultural and machinery');
 
 -- --------------------------------------------------------
 
@@ -129,6 +143,14 @@ CREATE TABLE `product_image` (
   `id` int(11) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_image`
+--
+
+INSERT INTO `product_image` (`id`, `name`) VALUES
+(39, '/../uploads/products/63906609ae59d.jpg'),
+(39, '/../uploads/products/63906609aed7f.jpg');
 
 -- --------------------------------------------------------
 
@@ -214,7 +236,7 @@ ALTER TABLE `notices`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `category` (`category`);
+  ADD KEY `category` (`category`);
 
 --
 -- Indexes for table `product_image`
@@ -248,13 +270,13 @@ ALTER TABLE `vacancy`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `job_application`
@@ -278,7 +300,7 @@ ALTER TABLE `notices`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `reports`

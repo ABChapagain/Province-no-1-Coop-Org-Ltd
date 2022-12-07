@@ -4,9 +4,6 @@ include "./includes.php";
 $sql = "select * from products";
 $result = $conn->query($sql);
 $result->fetch_all(MYSQLI_ASSOC);
-
-
-
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -63,18 +60,20 @@ $result->fetch_all(MYSQLI_ASSOC);
                                                 ?>
                                             </td>
                                             <td>
+                                                <div>
 
-                                                <?php
-                                                $sql = "select * from product_image where id=" . $rows['id'];
-                                                $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-                                                foreach ($image as $img) :
-                                                ?>
-                                                    <a href="<?php echo url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
-                                                        <img src="<?php echo url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
-                                                    </a>
-                                                <?php
-                                                endforeach;
-                                                ?>
+                                                    <?php
+                                                    $sql = "select * from product_image where id=" . $rows['id'];
+                                                    $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+                                                    foreach ($image as $img) :
+                                                    ?>
+                                                        <a href="<?php echo image . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
+                                                            <img src="<?php echo image . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
+                                                        </a>
+                                                    <?php
+                                                    endforeach;
+                                                    ?>
+                                                </div>
                                             </td>
                                             <td>
                                                 <?php echo $rows['category'] ?>
