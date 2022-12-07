@@ -12,7 +12,7 @@ if ($conn->query($sql)) {
     if ($conn->query($sql)) {
         $_SESSION['product_deleted'] = "successful";
         foreach ($result as $key) {
-            unlink(app . $key['name']);
+            unlink(product_upload . $key['name']);
         }
     } else
         $_SESSION['product_deleted'] = "error";
