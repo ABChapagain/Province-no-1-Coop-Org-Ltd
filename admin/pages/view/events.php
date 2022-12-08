@@ -3,12 +3,9 @@ include "../../includes.php";
 
 
 $id = $_GET['id'];
-$sql = "select * from products where id='$id'";
+$sql = "select * from events where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
-
-$sql = "select * from product_image where id='$id'";
-$images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!-- Google Font: Source Sans Pro -->
@@ -26,42 +23,25 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     <div class="items">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">View Products</h3>
+                <h3 class="card-title">View Events</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
             <div class="card-body" style="height: fit-content;">
                 <div class="title">
-                    <span class="font-weight-bold">Product Name:</span>
-                    <?php echo $rows['name'] ?>
+                    <span class="font-weight-bold">Title:</span>
+                    <?php echo $rows['title'] ?>
                 </div>
                 <hr>
 
                 <div class="category">
-                    <span class="font-weight-bold">Category:</span>
-                    <?php echo $rows['category'] ?>
-                </div>
-                <hr>
-
-                <div class="description">
                     <span class="font-weight-bold">Description:</span>
-                    <?php echo $rows['description'] ?>
-                </div>
-                <hr>
-
-                <div class="description">
-                    <span class="font-weight-bold">Images:</span>
-                    <div class="image-preview">
-                        <?php foreach ($images as $image) :
-                        ?>
-                            <div class="image">
-                                <a href="<?php echo product_url . $image['name'] ?>" data-toggle="lightbox">
-                                    <img src="<?php echo product_url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
-                                </a>
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="card-body">
+                        <textarea id="summernote" name="description"> <?php echo $rows['description'] ?>
+                        </textarea>
                     </div>
                 </div>
+                <hr>
             </div>
         </div>
     </div>

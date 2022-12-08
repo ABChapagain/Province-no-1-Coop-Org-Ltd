@@ -1,8 +1,8 @@
 <?php
 
-include "../../config/config.php";
-require app . "/pages/includes/header.php";
-require app . "/pages/includes/sidebar.php";
+
+include "../../includes.php";
+
 
 $sql = "select * from category";
 $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
@@ -47,6 +47,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                 <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
                                 <label class="custom-file-label" for="image">Choose file</label>
                             </div>
+
                         </div>
                     </div>
                 </div>
