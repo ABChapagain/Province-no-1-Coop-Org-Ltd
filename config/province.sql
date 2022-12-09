@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 03:40 PM
+-- Generation Time: Dec 09, 2022 at 05:49 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -66,6 +66,28 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `id` int(11) NOT NULL,
+  `department_name` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`id`, `department_name`) VALUES
+(1, 'accounting'),
+(2, 'it'),
+(3, 'management'),
+(4, 'science'),
+(5, 'research');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `events`
 --
 
@@ -74,6 +96,36 @@ CREATE TABLE `events` (
   `title` varchar(200) DEFAULT NULL,
   `description` varchar(5000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `description`) VALUES
+(7, '', '       '),
+(8, 'nbd', '   today is nbd   ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_images`
+--
+
+CREATE TABLE `event_images` (
+  `event_id` int(11) NOT NULL,
+  `id` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `featured` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `event_images`
+--
+
+INSERT INTO `event_images` (`event_id`, `id`, `name`, `featured`) VALUES
+(3, 7, '63935888c7d07.jpg', 1),
+(4, 8, '63936222542c5.jpg', 1),
+(9, 8, '6393622fefd7e.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -102,9 +154,16 @@ CREATE TABLE `members` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `position` varchar(20) DEFAULT NULL,
-  `department` varchar(20) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `name`, `position`, `department_id`, `image`) VALUES
+(17, 'rejens', 'ceo', 2, '639350290edd0.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,15 +198,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `category`) VALUES
-(43, 'chai', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eligendi rerum accusamus suscipit nulla praesentium deserunt at pariatur soluta reiciendis.', 'consumable'),
-(44, 'chai', 'lorem epsum', 'consumable'),
-(45, 'rejens', 'asdfa', 'agricultural and machinery'),
-(46, 'rejens', NULL, NULL),
-(47, 'rjens', NULL, NULL),
-(48, 'rjens', NULL, NULL),
-(49, 'rjens', NULL, NULL),
-(50, 'rjens', NULL, NULL),
-(51, 'rjens', NULL, NULL);
+(69, 'chai', 'tea', 'consumable'),
+(70, 'tea', 'teaaa', 'consumable'),
+(71, 'chai', 'asdkfla', 'consumable'),
+(79, 'rejens', '', 'consumable');
 
 -- --------------------------------------------------------
 
@@ -158,16 +212,19 @@ INSERT INTO `products` (`id`, `name`, `description`, `category`) VALUES
 CREATE TABLE `product_image` (
   `image_id` int(11) NOT NULL,
   `id` int(11) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL
+  `name` varchar(50) DEFAULT NULL,
+  `featured` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product_image`
 --
 
-INSERT INTO `product_image` (`image_id`, `id`, `name`) VALUES
-(1, 43, '6390b26d46f50.jpg'),
-(2, 45, '6391bd49d6e07.jpg');
+INSERT INTO `product_image` (`image_id`, `id`, `name`, `featured`) VALUES
+(13, 70, '63932d6f79aeb.jpg', 0),
+(27, 79, '63934c486db01.jpg', 1),
+(29, 79, '63934b5921b0b.jpg', 0),
+(30, 79, '63934b5926cd3.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -231,10 +288,23 @@ ALTER TABLE `category`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `event_images`
+--
+ALTER TABLE `event_images`
+  ADD PRIMARY KEY (`event_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `job_application`
@@ -246,7 +316,8 @@ ALTER TABLE `job_application`
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department` (`department_id`);
 
 --
 -- Indexes for table `notices`
@@ -303,10 +374,22 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `event_images`
+--
+ALTER TABLE `event_images`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `job_application`
@@ -318,7 +401,7 @@ ALTER TABLE `job_application`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `notices`
@@ -330,13 +413,13 @@ ALTER TABLE `notices`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `reports`
@@ -353,6 +436,18 @@ ALTER TABLE `vacancy`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `event_images`
+--
+ALTER TABLE `event_images`
+  ADD CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `events` (`id`);
+
+--
+-- Constraints for table `members`
+--
+ALTER TABLE `members`
+  ADD CONSTRAINT `department` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`);
 
 --
 -- Constraints for table `products`
