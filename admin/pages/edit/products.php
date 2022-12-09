@@ -50,36 +50,60 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <textarea class="form-control" id="description" rows="3" placeholder="Enter ..." name="description"><?php echo $rows['description'] ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="image">Image</label>
+                        <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <label class="custom-file-label" for="featured_image"> Replace featured image</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Gallery</label>
+                        <div class="input-group">
+
+                            <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
-                                <label class="custom-file-label" for="image">add image</label>
+                                <label class="custom-file-label" for="image"> Add images</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- /.card-body -->
-
-
                 <div class="card-footer">
                     <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
 
         </div>
+        <div class="image-preview mt-3">
+            <?php foreach ($images as $image) :
+            ?>
+                <div class="position-relative">
+                    <div class="image">
+
+                        <?php if ($image['featured']) :  ?>
+                            <a href="<?php echo product_url . $image['name'] ?>" data-toggle="lightbox" data-title="">
+                                <img src="<?php echo product_url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
+                                <div class="ribbon-wrapper">
+                                    <div class="ribbon bg-info">
+                                        Featured
+                                    </div>
+                                </div>
+
+                            <?php else : ?>
+                                <a href="<?php echo product_url . $image['name'] ?>" data-toggle="lightbox" data-title="<button class='btn btn-danger' onclick='deleteProductImage(<?php echo $image['id'] ?>,`<?php echo $image['name'] ?>`)'>Delete</button>">
+                                    <img src="<?php echo product_url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
+                                <?php endif; ?>
+                                </a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 
-    <div class="image-preview">
-        <?php foreach ($images as $image) :
-        ?>
-            <div class="image">
-                <a href="<?php echo product_url . $image['name'] ?>" data-toggle="lightbox" data-title="<button class='btn btn-danger' onclick='deleteImage(<?php echo $image['id'] ?>,`<?php echo $image['name'] ?>`)'>Delete</button>">
-                    <img src="<?php echo product_url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
-                </a>
-            </div>
-        <?php endforeach; ?>
-    </div>
+
     <?php
     require app . "/pages/includes/js_links.php";
     ?>
@@ -87,7 +111,6 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
     <?php
     if (isset($_SESSION['product_updated'])) {
-        echo "<script>swalfire();</script>";
         if ($_SESSION['product_updated'] == "successful") {
             echo "<script>success('success', 'product updated successfully'); </script>";
         } else {

@@ -58,3 +58,9 @@ td,th{
 img{
   object-fit: cover;
 }
+
+.add-button{
+  display: flex;
+  justify-content: end;
+  margin-bottom: 5px;
+}

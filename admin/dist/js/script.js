@@ -82,13 +82,22 @@ const deleteEvent = async function (id) {
   }
 };
 
+//delete member
+const deleteMember = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/member.php?id=${id}`);
+  }
+};
+
+
 //delete image
-async function deleteImage(id, name) {
+async function deleteProductImage(id, name) {
   const result = await deleteConfirmation();
   if (result.isConfirmed) {
     $.ajax({
       type: "post",
-      url: "../../ajax/delete_image.php",
+      url: "../../ajax/delete_product_image.php",
       data: { id: id, name: name },
       success: function (response) {
         location.reload();
@@ -96,6 +105,21 @@ async function deleteImage(id, name) {
     });
   }
 }
+
+async function deleteEventImage(id, name) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    $.ajax({
+      type: "post",
+      url: "../../ajax/delete_event_image.php",
+      data: { id: id, name: name },
+      success: function (response) {
+        location.reload();
+      },
+    });
+  }
+}
+
 
 
 //data tables
@@ -111,3 +135,5 @@ $("table#example1").DataTable({
     
 //summernote
 $('#summernote').summernote({ minHeight: 150, maxHeight:500})
+
+

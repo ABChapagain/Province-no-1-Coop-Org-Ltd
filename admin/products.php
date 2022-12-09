@@ -28,7 +28,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
-                        <a href="<?php url ?>pages/add/products.php"> <button style="margin-left:auto;margin-bottom:5px" class="btn btn-primary d-flex">add</button></a>
+                        <div class="add-button"> <a href="<?php url ?>pages/add/products.php"> <button class="btn btn-primary">add</button></a></div>
                         <thead>
                             <tr>
                                 <th>Sn.</th>
