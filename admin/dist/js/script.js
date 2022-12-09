@@ -106,12 +106,12 @@ async function deleteProductImage(id, name) {
   }
 }
 
-async function deleteMembersImage(id, name) {
+async function deleteEventImage(id, name) {
   const result = await deleteConfirmation();
   if (result.isConfirmed) {
     $.ajax({
       type: "post",
-      url: "../../ajax/delete_members_image.php",
+      url: "../../ajax/delete_event_image.php",
       data: { id: id, name: name },
       success: function (response) {
         location.reload();
@@ -119,6 +119,7 @@ async function deleteMembersImage(id, name) {
     });
   }
 }
+
 
 
 //data tables

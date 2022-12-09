@@ -20,16 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $featured_img = $_FILES['featured_img']['name'];
             $filename =  uniqid() . ".jpg";
-            move_uploaded_file($_FILES['featured_img']['tmp_name'],  product_upload . $filename);
 
             $sql = "select id from products where name='$product'";
             $id = $conn->query($sql)->fetch_assoc()['id'];
 
             $sql = "insert into product_image(id,name,featured) values('$id','$filename','1')";
-            $conn->query($sql);
+            if ($conn->query($sql))
+                move_uploaded_file($_FILES['featured_img']['tmp_name'],  product_upload . $filename);
 
             if (strlen($_FILES['img']['name'][0]) != 0) {
-
                 for ($i = 0; $i < $countfiles; $i++) {
                     $filename = $_FILES['img']['name'][$i];
                     $ext = explode(".", $filename);

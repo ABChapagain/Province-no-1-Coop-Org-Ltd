@@ -51,7 +51,7 @@ $rows = $result->fetch_assoc();
                 </div>
                 <hr>
 
-                <div class="description">
+                <div class="images">
                     <span class="font-weight-bold">Images:</span>
                     <div class="image-preview">
 

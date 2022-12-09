@@ -49,7 +49,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 </div>
                 <hr>
 
-                <div class="description">
+                <div class="images">
                     <span class="font-weight-bold">Images:</span>
                     <div class="image-preview">
                         <?php foreach ($images as $image) :
@@ -71,6 +71,8 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <?php endforeach; ?>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>

@@ -34,6 +34,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                 <th>Sn.</th>
                                 <th>Title</th>
                                 <th>Description</th>
+                                <th>Images</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -52,7 +53,23 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             $description .= ".....";
                                         }
                                         echo $description;
-                                        ?></td>
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <?php
+                                            $sql = "select * from event_images where id=" . $rows['id'];
+                                            $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+                                            foreach ($image as $img) :
+                                            ?>
+                                                <a href="<?php echo event_url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['title'] ?>">
+                                                    <img src="<?php echo event_url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
+                                                </a>
+                                            <?php
+                                            endforeach;
+                                            ?>
+                                        </div>
+                                    </td>
                                     <td>
                                         <a href="<?php echo url ?>pages/view/events.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
                                         <a href="<?php echo url ?>pages/edit/events.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
