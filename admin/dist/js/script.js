@@ -74,6 +74,14 @@ const deleteCategory = async function (id) {
   }
 };
 
+//delete event
+const deleteEvent = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/event.php?id=${id}`);
+  }
+};
+
 //delete image
 async function deleteImage(id, name) {
   const result = await deleteConfirmation();
@@ -90,5 +98,16 @@ async function deleteImage(id, name) {
 }
 
 
+//data tables
+$("table#example1").DataTable({
+    "responsive": true,
+    "lengthChange": false,
+    "autoWidth": false,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+    scrollY:600,
+}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+
+    
 //summernote
-    $('#summernote').summernote({ height: 150})
+$('#summernote').summernote({ minHeight: 150, maxHeight:500})

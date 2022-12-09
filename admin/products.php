@@ -23,79 +23,74 @@ $result->fetch_all(MYSQLI_ASSOC);
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="table" class="table table-bordered table-striped">
-                                <a href="<?php url ?>pages/add/products.php"> <button style="margin-left:auto;margin-bottom:5px" class="btn btn-primary d-flex">add</button></a>
-                                <thead>
-                                    <tr>
-                                        <th>Sn.</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Category</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                    <?php
-                                    $i = 0;
-                                    foreach ($result as $rows) :
-                                    ?>
-                                        <tr>
-                                            <td><?php echo ++$i ?></td>
-                                            <td><?php echo $rows['name'] ?> </td>
-                                            <td>
-                                                <?php
-                                                $description = $rows['description'];
-                                                if (strlen($description) > 30) {
-                                                    $description = trim(substr($description, 0, 30));
-                                                    $description .= ".....";
-                                                }
-                                                echo $description;
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <?php
-                                                    $sql = "select * from product_image where id=" . $rows['id'];
-                                                    $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-                                                    foreach ($image as $img) :
-                                                    ?>
-                                                        <a href="<?php echo product_url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
-                                                            <img src="<?php echo product_url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
-                                                        </a>
-                                                    <?php
-                                                    endforeach;
-                                                    ?>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <?php echo $rows['category'] ?>
-                                            </td>
-                                            <td>
-                                                <a href="<?php echo url ?>pages/view/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-book-open"></i></button></a>
-                                                <a href="<?php echo url ?>pages/edit/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
-                                                <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteProduct(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                    endforeach;
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <a href="<?php url ?>pages/add/products.php"> <button style="margin-left:auto;margin-bottom:5px" class="btn btn-primary d-flex">add</button></a>
+                        <thead>
+                            <tr>
+                                <th>Sn.</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 0;
+                            foreach ($result as $rows) :
+                            ?>
+                                <tr>
+                                    <td><?php echo ++$i ?></td>
+                                    <td><?php echo $rows['name'] ?> </td>
+                                    <td>
+                                        <?php
+                                        $description = $rows['description'];
+                                        if (strlen($description) > 30) {
+                                            $description = trim(substr($description, 0, 30));
+                                            $description .= ".....";
+                                        }
+                                        echo $description;
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <?php
+                                            $sql = "select * from product_image where id=" . $rows['id'];
+                                            $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+                                            foreach ($image as $img) :
+                                            ?>
+                                                <a href="<?php echo product_url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
+                                                    <img src="<?php echo product_url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
+                                                </a>
+                                            <?php
+                                            endforeach;
+                                            ?>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows['category'] ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?php echo url ?>pages/view/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
+                                        <a href="<?php echo url ?>pages/edit/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
+                                        <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteProduct(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            <?php
+                            endforeach;
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- /.col -->
+                <!-- /.card-body -->
             </div>
-            <!-- /.row -->
+            <!-- /.card -->
+
         </div>
         <!-- /.container-fluid -->
     </section>
@@ -106,15 +101,6 @@ $result->fetch_all(MYSQLI_ASSOC);
 <?php include "./pages/includes/footer.php" ?>
 
 
-<script>
-    $('#table').dataTable({
-        // "columnDefs": [{
-        //     "width": "20%",
-        //     "targets": 0
-        // }]
-        "autoWidth": false
-    });
-</script>
 <?php
 if (isset($_SESSION['product_deleted'])) {
     echo $_SESSION['product_deleted'];

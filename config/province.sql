@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2022 at 11:14 AM
+-- Generation Time: Dec 08, 2022 at 03:40 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -61,11 +61,19 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (3, 'agricultural and machinery'),
 (4, 'consumable'),
 (1, 'handicraft'),
-(10, 'Hello'),
-(9, 'Hello World'),
-(11, 'Lell'),
-(12, 'sdka'),
 (2, 'stationary');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `description` varchar(5000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -131,7 +139,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `category`) VALUES
-(39, 'rejens', 'asdfasd', 'agricultural and machinery');
+(43, 'chai', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eligendi rerum accusamus suscipit nulla praesentium deserunt at pariatur soluta reiciendis.', 'consumable'),
+(44, 'chai', 'lorem epsum', 'consumable'),
+(45, 'rejens', 'asdfa', 'agricultural and machinery'),
+(46, 'rejens', NULL, NULL),
+(47, 'rjens', NULL, NULL),
+(48, 'rjens', NULL, NULL),
+(49, 'rjens', NULL, NULL),
+(50, 'rjens', NULL, NULL),
+(51, 'rjens', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -140,6 +156,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `category`) VALUES
 --
 
 CREATE TABLE `product_image` (
+  `image_id` int(11) NOT NULL,
   `id` int(11) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -148,9 +165,9 @@ CREATE TABLE `product_image` (
 -- Dumping data for table `product_image`
 --
 
-INSERT INTO `product_image` (`id`, `name`) VALUES
-(39, '/../uploads/products/63906609ae59d.jpg'),
-(39, '/../uploads/products/63906609aed7f.jpg');
+INSERT INTO `product_image` (`image_id`, `id`, `name`) VALUES
+(1, 43, '6390b26d46f50.jpg'),
+(2, 45, '6391bd49d6e07.jpg');
 
 -- --------------------------------------------------------
 
@@ -214,6 +231,12 @@ ALTER TABLE `category`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `job_application`
 --
 ALTER TABLE `job_application`
@@ -242,6 +265,7 @@ ALTER TABLE `products`
 -- Indexes for table `product_image`
 --
 ALTER TABLE `product_image`
+  ADD PRIMARY KEY (`image_id`),
   ADD KEY `image` (`id`);
 
 --
@@ -279,6 +303,12 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `job_application`
 --
 ALTER TABLE `job_application`
@@ -300,7 +330,13 @@ ALTER TABLE `notices`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `product_image`
+--
+ALTER TABLE `product_image`
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reports`
