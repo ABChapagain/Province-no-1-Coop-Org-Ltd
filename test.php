@@ -1,20 +1,30 @@
-<?php
-if (isset($_POST['submit'])) {
+<!DOCTYPE html>
+<html lang="en">
 
-    // Count total files
-    $countfiles = count($_FILES['file']['name']);
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
 
-    // Looping all files
-    for ($i = 0; $i < $countfiles; $i++) {
-        $filename = $_FILES['file']['name'][$i];
+<body>
 
-        // Upload file
-        move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/' . $filename);
-    }
-}
-?>
-<form method='post' action='' enctype='multipart/form-data'>
-    <input type="file" name="file[]" id="file" multiple>
+    <div class="row">
+        <?php
 
-    <input type='submit' name='submit' value='Upload'>
-</form>
+        $conn = new mysqli("Localhost", "root", "", "province");
+        $sql = "select * from department";
+        $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+        foreach ($result as $rows) {
+        ?>
+            <div class="col-3"><?php echo $rows['department_name'] ?></div>
+
+        <?php
+        } ?>
+    </div>
+</body>
+
+</html>

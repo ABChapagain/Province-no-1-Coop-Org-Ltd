@@ -34,7 +34,7 @@ $rows = $result->fetch_assoc();
                 </div>
                 <hr>
 
-                <div class="category">
+                <div class="Description">
                     <span class="font-weight-bold">Description:</span>
                     <div class="card-body">
                         <textarea id="summernote" name="description"> <?php echo $rows['description'] ?>

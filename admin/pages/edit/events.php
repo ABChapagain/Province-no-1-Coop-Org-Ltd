@@ -48,7 +48,6 @@ $rows = $result->fetch_assoc();
 
     <?php
     if (isset($_SESSION['event_updated'])) {
-        echo "<script>swalfire();</script>";
         if ($_SESSION['event_updated'] == "successful") {
             echo "<script>success('success', 'event updated successfully'); </script>";
         } else {
