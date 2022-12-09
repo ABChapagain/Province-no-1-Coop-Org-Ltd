@@ -13,7 +13,7 @@ require_once('./config/db_config.php');
             <div class="container">
                 <div style="height: 13.3rem;" class="slider-content slider-animated-1">
                     <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
-                    <h1 class="animated">drink matcha.</h1>
+                    <h1 class="animated">drink <span class="theme-color">Alpine</span>.</h1>
                     <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
                         magna aliqua.</p>
                 </div>
@@ -23,7 +23,7 @@ require_once('./config/db_config.php');
             <div class="container">
                 <div style="height: 13.3rem;" class="slider-content slider-animated-1">
                     <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
-                    <h1 class="animated">drink matcha.</h1>
+                    <h1 class="animated">drink <span class="theme-color">Alpine</span>.</h1>
                     <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
                         magna aliqua.</p>
                 </div>
@@ -33,7 +33,7 @@ require_once('./config/db_config.php');
             <div class="container">
                 <div style="height: 13.3rem;" class="slider-content slider-animated-1">
                     <h1 class="animated">Want to stay <span class="theme-color">healthy</span></h1>
-                    <h1 class="animated">drink matcha.</h1>
+                    <h1 class="animated">drink <span class="theme-color">Alpine</span>.</h1>
                     <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore
                         magna aliqua.</p>
                 </div>
@@ -83,84 +83,7 @@ require_once('./config/db_config.php');
 </div>
 <!-- About Us Area End -->
 
-<!-- New Products Start -->
-<div id="products" class="product-area gray-bg pt-90 pb-65">
-    <div class="container">
-        <div class="product-top-bar section-border mb-55">
-            <div class="section-title-wrap text-center">
-                <h3 class="section-title">Our Products</h3>
-            </div>
-        </div>
-        <div class="tab-content jump">
-            <div class="tab-pane active">
-                <div class="featured-product-active owl-carousel product-nav">
-
-                    <?php
-                    $sql = "SELECT * FROM products";
-
-                    $result = $conn->query($sql);
-                    $result->fetch_all(MYSQLI_ASSOC);
-
-
-                    $count = 0;
-                    foreach ($result as $product) {
-                        if ($count == 0) {
-                            echo "<div class='product-wrapper-single'>";
-                        }
-
-
-                        if ($count == 2) {
-                            echo "</div>";
-                        }
-                        echo "<div class='product-wrapper mb-30 shadow rounded'>
-                                <div class='rounded'>";
-
-                        $sql = "select * from product_image where id = $product[id]";
-                        $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-                        $image = $image[0];
-                        echo "<img alt='Product'
-                                style='object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;'
-                                src='uploads/products/$image[name]' />
-                            </div> 
-                                <div class='blog-content px-2 py-3'>
-                                    <h4> $product[name]</h4>";
-                        $description = $product['description'];
-                        if (strlen($description) > 100) {
-                            $description = trim(substr($description, 0, 100));
-                            $description .= "...";
-                        }
-                        echo "<p>$description</p>
-                                    <a class='action-compare' href='#' data-bs-target='#productModal$product[id]' data-bs-toggle='modal'
-                                        title='Quick View'>
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
-                            ";
-
-
-                        $count++;
-                    }
-
-
-
-                    ?>
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-        <div class="ms-auto text-end">
-
-            <a class="btn py-2 px-4 rounded text-white text-end bg-project" href="products.php">Show
-                More</a>
-        </div>
-    </div>
-</div>
-<!-- New Products End -->
+<?php require_once('./components/OurProducts.php') ?>
 
 <!-- Testimonial Area Start -->
 <div class="testimonials-area bg-image-2 bg-img pt-100 pb-100">
@@ -261,68 +184,7 @@ require_once('./config/db_config.php');
     </div>
 </div>
 
-
-<!-- News Area Start -->
-<div class="blog-area bg-image-1 pt-90 pb-70">
-    <div class="container">
-        <div class="product-top-bar section-border mb-55">
-            <div class="section-title-wrap text-center">
-                <h3 class="section-title">Latest Events</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30">
-                    <div class="blog-thumb">
-                        <a href="#"><img src="assets/img/blog/blog-single-1.jpg" alt="" /></a>
-                    </div>
-                    <div class="blog-content pt-25">
-                        <span class="blog-date">14 Sep</span>
-                        <h3><a href="#">Lorem ipsum sit ame co.</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
-                            labore et dolore</p>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30">
-                    <div class="blog-thumb">
-                        <a href="#"><img src="assets/img/blog/blog-single-2.jpg" alt="" /></a>
-                    </div>
-                    <div class="blog-content pt-25">
-                        <span class="blog-date">20 Dec</span>
-                        <h3><a href="#">Lorem ipsum sit ame co.</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
-                            labore et dolore</p>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30">
-                    <div class="blog-thumb">
-                        <a href="#"><img src="assets/img/blog/blog-single-3.jpg" alt="" /></a>
-                    </div>
-                    <div class="blog-content pt-25">
-                        <span class="blog-date">18 Aug</span>
-                        <h3><a href="#">Lorem ipsum sit ame co.</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
-                            labore et dolore</p>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ms-auto text-end">
-            <a class="btn py-2 px-4 rounded text-white text-end bg-project" href="events.php">Show
-                More</a>
-        </div>
-    </div>
-</div>
-<!-- News Area End -->
-
+<?php require_once('./components/LatestEvents.php') ?>
 
 
 
