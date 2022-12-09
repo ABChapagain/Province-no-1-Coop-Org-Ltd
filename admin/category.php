@@ -28,7 +28,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <a href="<?php url ?>pages/add/category.php"> <button style="margin-left:auto;margin-bottom:5px" class="btn btn-primary d-flex">add</button></a>
                                 <thead>
                                     <tr>
@@ -75,15 +75,6 @@ $result->fetch_all(MYSQLI_ASSOC);
 <?php include "./pages/includes/footer.php" ?>
 
 
-<script>
-    $('#table').dataTable({
-        // "columnDefs": [{
-        //     "width": "20%",
-        //     "targets": 0
-        // }]
-        "autoWidth": false
-    });
-</script>
 <?php
 if (isset($_SESSION['category_deleted'])) {
     echo $_SESSION['category_deleted'];

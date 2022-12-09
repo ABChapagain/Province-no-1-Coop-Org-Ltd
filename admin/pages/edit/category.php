@@ -1,7 +1,6 @@
 <?php
-include "../../config/config.php";
-require app . "/pages/includes/header.php";
-require app . "/pages/includes/sidebar.php";
+include "../../includes.php";
+
 
 $id = $_GET['id'];
 $sql = "select * from category where id='$id'";
