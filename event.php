@@ -9,12 +9,18 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $result = $conn->query($sql);
     $result = $result->fetch_assoc();
 
+    $sql = "select * from event_images where id = " . $result['id'] . " AND featured = 1";
+    $res = $conn->query($sql);
+    $image = $res->fetch_assoc();
+    $image = $image['name'];
+
 
 
 ?>
 
 <!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area bg-image-4 ptb-170">
+<div class="breadcrumb-area bg-image-4 ptb-170" style="background-image: url('uploads/events/<?php echo $image ?>');
+    background-position: center center; background-repeat: no-repeat; background-size: cover;">
     <div class="container">
         <div class="breadcrumb-content text-center">
             <h3><?php echo $result['title'] ?></h3>
@@ -36,7 +42,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                 <div class="blog-details-wrapper">
                     <div class="single-blog-wrapper">
                         <div class="blog-img mb-30">
-                            <img src="assets/img/blog/blog-3.jpg" alt="">
+                            <img src="uploads/events/<?php echo $image ?>" alt="">
                         </div>
                         <div class="blog-content">
                             <h2><?php echo $result['title'] ?></h2>
@@ -47,6 +53,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                 </ul>
                             </div>
                         </div>
+                        <?php echo $result['description'] ?>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprhendit in
@@ -211,7 +218,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
 
 <?php
-    require_once('./useable/footer.php');
+    require_once('./components/Footer.php');
 } else {
     echo "<script>window.location.href = 'events.php'</script>";
     exit();

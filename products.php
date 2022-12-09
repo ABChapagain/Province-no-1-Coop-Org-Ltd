@@ -219,6 +219,6 @@ foreach ($result as $product) {
 
 
 
-<?php require_once('./useable/footer.php');
+<?php require_once('./components/Footer.php');
 
 ?>
