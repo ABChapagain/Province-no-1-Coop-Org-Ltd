@@ -49,19 +49,30 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 </div>
                 <hr>
 
-                <div class="description">
+                <div class="images">
                     <span class="font-weight-bold">Images:</span>
                     <div class="image-preview">
                         <?php foreach ($images as $image) :
                         ?>
-                            <div class="image">
-                                <a href="<?php echo product_url . $image['name'] ?>" data-toggle="lightbox">
-                                    <img src="<?php echo product_url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
-                                </a>
+                            <div class="position-relative">
+                                <div class="image">
+                                    <a href="<?php echo product_url . $image['name'] ?>" data-toggle="lightbox">
+                                        <img src="<?php echo product_url . $image['name'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
+                                        <?php if ($image['featured']) :  ?>
+                                            <div class="ribbon-wrapper">
+                                                <div class="ribbon bg-info">
+                                                    Featured
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    </a>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>

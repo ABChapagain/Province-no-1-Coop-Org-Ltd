@@ -23,10 +23,35 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
                     </div>
 
-                    <div class="card-body">
-                        <textarea id="summernote" name="description">
-              </textarea>
+                    <div class="form-group">
+                        <label for="summernote">Description</label>
+                        <div class="card-body">
+                            <textarea id="summernote" name="description">       </textarea>
+                        </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="image">Featured Image</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <label class="custom-file-label" for="featured_image"> Select image</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Gallery</label>
+                        <div class="input-group">
+
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
+                                <label class="custom-file-label" for="image"> Select images</label>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -45,6 +70,8 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     if (isset($_SESSION['events_added'])) {
         if ($_SESSION['events_added'] == "successful") {
             echo "<script>success('success', 'events added successfully'); </script>";
+        } elseif ($_SESSION['events_added'] == "exists") {
+            echo "<script> success('warning','product already exists') </script>";
         } else {
             echo "<script>success('error', 'unable to add events'); </script>";
         }

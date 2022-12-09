@@ -37,6 +37,8 @@ include "../../includes.php";
     if (isset($_SESSION['category_added'])) {
         if ($_SESSION['category_added'] == "successful") {
             echo "<script>success('success', 'category added successfully'); </script>";
+        } elseif ($_SESSION['category_added'] == "exists") {
+            echo "<script> success('warning','category already exists') </script>";
         } else {
             echo "<script>success('error', 'unable to add category'); </script>";
         }

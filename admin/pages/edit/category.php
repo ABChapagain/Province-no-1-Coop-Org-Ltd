@@ -41,7 +41,6 @@ $rows = $result->fetch_assoc();
 
     <?php
     if (isset($_SESSION['category_updated'])) {
-        echo "<script>swalfire();</script>";
         if ($_SESSION['category_updated'] == "successful") {
             echo "<script>success('success', 'category updated successfully'); </script>";
         } else {
