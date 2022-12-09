@@ -129,7 +129,10 @@ require_once('./config/db_config.php');
                                 <?php
                                 foreach ($result as $category) {
                                     echo "
-                                    <li><input type='checkbox' /><a href='#'>$category[name]</a></li>
+                                    <li>
+                                    <input type='checkbox' />
+                                    <a href='#'>$category[name]</a>
+                                    </li>
                                     ";
                                 }
                                 ?>
