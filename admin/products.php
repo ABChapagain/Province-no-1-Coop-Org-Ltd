@@ -65,7 +65,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             foreach ($image as $img) :
                                             ?>
                                                 <a href="<?php echo product_url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['name'] ?>">
-                                                    <img src="<?php echo product_url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
+                                                    <img src="<?php echo product_url . $img['name'] ?>" class="img-fluid mb-2" alt="image" />
                                                 </a>
                                             <?php
                                             endforeach;

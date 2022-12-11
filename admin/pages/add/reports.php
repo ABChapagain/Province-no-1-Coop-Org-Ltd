@@ -12,11 +12,11 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     <div class="items">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Add Products</h3>
+                <h3 class="card-title">Add Reports</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" enctype="multipart/form-data" action="events_post.php">
+            <form method="POST" enctype="multipart/form-data" action="reports_post.php">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -31,27 +31,16 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     </div>
 
                     <div class="form-group">
-                        <label for="image">Featured Image</label>
+                        <label for="files">Files</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
-                                <label class="custom-file-label" for="featured_image"> Select image</label>
+                                <input type="file" class="custom-file-input" id="files" name="files[]" multiple>
+                                <label class="custom-file-label" for="files"> Select Files</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="image">Gallery</label>
-                        <div class="input-group">
-
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
-                                <label class="custom-file-label" for="image"> Select images</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Event Popup Date:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -61,8 +50,8 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                             </div>
                             <input type="text" class="form-control float-right" id="reservation" name="popupdate">
                         </div>
-                        <!-- /.input group -->
-                    </div>
+                    </div> -->
+                    <!-- /.input group -->
 
                 </div>
                 <!-- /.card-body -->

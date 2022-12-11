@@ -39,7 +39,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
-                                <label class="custom-file-label" for="featured_image"> Select image</label>
+                                <label class="custom-file-label" for="featured_image"> Replace image</label>
                             </div>
                         </div>
                     </div>
@@ -50,13 +50,29 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
-                                <label class="custom-file-label" for="image"> Select images</label>
+                                <label class="custom-file-label" for="image"> Add new images</label>
                             </div>
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label>Event Popup Date:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control float-right" id="reservation" name="popupdate">
+                        </div>
+                        <!-- /.input group -->
+                    </div>
+
+
                 </div>
                 <!-- /.card-body -->
+
+
 
 
                 <div class="card-footer">
@@ -96,6 +112,9 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     require app . "/pages/includes/js_links.php";
     ?>
 
+    <script>
+        changeDatePickerData("<?php echo $rows['start_popup'] ?>", "<?php echo $rows['end_popup'] ?>")
+    </script>
 
     <?php
     if (isset($_SESSION['event_updated'])) {

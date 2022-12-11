@@ -1,0 +1,6 @@
+alter table events add posted_date date;
+alter table events add start_popup date;
+alter table events add end_popup date;
+alter table reports drop file_location;
+create table reports_list (id int primary key AUTO_INCREMENT, report_id int , name varchar(50));
+alter table reports_list add constraint report_id foreign key(report_id) references reports (id);

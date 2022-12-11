@@ -61,4 +61,4 @@
 
 
 
-<script src="<?php echo url ?>dist/js/script.js?v=<?php echo uniqid() ?>"></script>
+<script src="<?php echo url ?>dist/js/script.js"></script>
