@@ -3,18 +3,25 @@ require "../../config/config.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $description =  $_POST['description'];
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
     $countfiles = count($_FILES['img']['name']);
+
+    $today = date("Y-m-d");
+
+    $popupdate = explode("-", $popupdate);
+    $popup_start = $popupdate[0];
+    $popup_end = $popupdate[1];
+
+
+
 
     $sql = "select * from events where title='$title'";
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if ($rowcount == 0) {
-        $sql = "insert into events (title,description) values('$title','$description')";
+        $sql = "insert into events (title,description,posted_date,start_popup,end_popup) values('$title','$description','$today','$popup_start','$popup_end')";
         if ($conn->query($sql)) {
-
-
-
             $featured_img = $_FILES['featured_img']['name'];
             $filename =  uniqid() . ".jpg";
 
@@ -42,13 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
             }
-
-
-
-
-
-
-
             $_SESSION['events_added'] = "successful";
         } else {
             $_SESSION['events_added'] = "unsuccessful";
