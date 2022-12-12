@@ -81,6 +81,6 @@
 </div>
 <!-- About Us Page Area End -->
 
-<?php require_once('./useable/footer.php');
+<?php require_once('./components/Footer.php');
 
 ?>

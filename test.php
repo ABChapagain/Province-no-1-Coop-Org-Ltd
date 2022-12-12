@@ -27,6 +27,14 @@
 </script>
 
 
+        foreach ($result as $rows) {
+        ?>
+        <div class="col-3"><?php echo $rows['department_name'] ?></div>
+        <?php
+        } ?>
 
+
+    </div>
+</body>
 
 </html>
