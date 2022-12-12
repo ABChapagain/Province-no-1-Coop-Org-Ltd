@@ -9,6 +9,8 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
 
+
+
 <body>
     <div class="items">
         <div class="card card-primary">
@@ -37,8 +39,16 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" rows="3" placeholder="Enter ..." name="description"></textarea>
+                        <label for="description">Short Description</label>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="summernote">Description</label>
+                        <div class="card-body">
+                            <textarea id="summernote" name="description"></textarea>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -61,7 +71,12 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                             </div>
                         </div>
                     </div>
-                    
+
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags">
+                    </div>
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -74,8 +89,6 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     <?php
     require app . "/pages/includes/js_links.php";
     ?>
-
-
     <?php
     if (isset($_SESSION['product_added'])) {
         if ($_SESSION['product_added'] == "successful") {

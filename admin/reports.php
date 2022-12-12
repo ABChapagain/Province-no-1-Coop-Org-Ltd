@@ -58,7 +58,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                     <td>
                                         <a href="<?php echo url ?>pages/view/reports.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
                                         <a href="<?php echo url ?>pages/edit/reports.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
-                                        <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteEvent(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+                                        <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteReport(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -84,13 +84,13 @@ $result->fetch_all(MYSQLI_ASSOC);
 
 
 <?php
-if (isset($_SESSION['event_deleted'])) {
-    echo $_SESSION['event_deleted'];
-    if ($_SESSION['event_deleted'] == "successful") {
-        echo "<script>success('success', 'event deleted successfully'); </script>";
+if (isset($_SESSION['report_deleted'])) {
+    echo $_SESSION['report_deleted'];
+    if ($_SESSION['report_deleted'] == "successful") {
+        echo "<script>success('success', 'report deleted successfully'); </script>";
     } else {
-        echo "<script>success('error', 'unable to delete event'); </script>";
+        echo "<script>success('error', 'unable to delete report'); </script>";
     }
-    unset($_SESSION['event_deleted']);
+    unset($_SESSION['report_deleted']);
 }
 ?>

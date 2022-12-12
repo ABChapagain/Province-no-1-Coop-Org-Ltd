@@ -9,6 +9,15 @@ $rows = $result->fetch_assoc();
 
 $sql = "select * from product_image where id='$id'";
 $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+$sql = "select * from product_tags where id='$id'";
+$tags = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+$tag = "";
+foreach ($tags as $t) {
+    $tag = $tag . $t['tag'] . ",";
+}
+$tag = rtrim($tag, ",");
 ?>
 
 
@@ -33,9 +42,21 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 </div>
                 <hr>
 
+                <div class="short_description">
+                    <span class="font-weight-bold">Short Description:</span>
+                    <?php echo $rows['short_description'] ?>
+                </div>
+                <hr>
+
                 <div class="description">
-                    <span class="font-weight-bold">Description:</span>
+                    <span class="font-weight-bold"> Description:</span>
                     <?php echo $rows['description'] ?>
+                </div>
+                <hr>
+
+                <div class="tags">
+                    <span class="font-weight-bold"> Tags:</span>
+                    <?php echo $tag ?>
                 </div>
                 <hr>
 

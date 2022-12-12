@@ -12,6 +12,15 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 $sql = "select * from category";
 $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+$sql = "select * from product_tags where id='$id'";
+$tags = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+$tag = "";
+foreach ($tags as $t) {
+    $tag = $tag . $t['tag'] . ",";
+}
+$tag = rtrim($tag, ",");
 ?>
 
 
@@ -46,9 +55,22 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" rows="3" placeholder="Enter ..." name="description"><?php echo $rows['description'] ?></textarea>
+                        <label for="short_description">Short Description</label>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
                     </div>
+
+                    <div class="form-group">
+                        <label for="summernote">Description</label>
+                        <div class="card-body">
+                            <textarea id="summernote" name="description"><?php echo $rows['description'] ?></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags" value="<?php echo $tag ?>">
+                    </div>
+
                     <div class="form-group">
                         <label for="image">Featured Image</label>
                         <div class="input-group">

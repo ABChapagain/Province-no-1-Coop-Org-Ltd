@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (1) { //in_array($ext, ["jpg", "png", "jpeg", "svg", "webp"])
                         // Upload file
                         $filename =  uniqid() . ".$ext";
-                        move_uploaded_file($_FILES['img']['tmp_name'][$i],  report_upload . $filename);
+                        move_uploaded_file($_FILES['files']['tmp_name'][$i],  report_upload . $filename);
                         $sql = "insert into reports_list (report_id,name) values('$id','$filename')";
                         $conn->query($sql);
                     } else {

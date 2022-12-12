@@ -33,7 +33,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                             <tr>
                                 <th>Sn.</th>
                                 <th>Name</th>
-                                <th>Description</th>
+                                <th>Short Description</th>
                                 <th>Image</th>
                                 <th>Category</th>
                                 <th>Action</th>

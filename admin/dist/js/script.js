@@ -90,6 +90,14 @@ const deleteMember = async function (id) {
   }
 };
 
+//delete report
+const deleteReport = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/report.php?id=${id}`);
+  }
+};
+
 //delete image
 async function deleteProductImage(id, name) {
   const result = await deleteConfirmation();
@@ -152,3 +160,10 @@ const datePicker = function () {
   $("#reservation").daterangepicker(datePickerdata);
 };
 datePicker();
+
+
+//file upload
+$(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });

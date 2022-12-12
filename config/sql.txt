@@ -4,3 +4,13 @@ alter table events add end_popup date;
 alter table reports drop file_location;
 create table reports_list (id int primary key AUTO_INCREMENT, report_id int , name varchar(50));
 alter table reports_list add constraint report_id foreign key(report_id) references reports (id);
+alter table products add short_description varchar(500);
+create table product_tags (tag_id int primary key AUTO_INCREMENT , id int ,tag varchar(20));
+alter table product_tags add constraint tag_id foreign key(id) references products(id);
+
+
+
+
+
+short description
+short description in products, tags,

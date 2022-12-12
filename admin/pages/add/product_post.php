@@ -8,21 +8,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $countfiles = count($_FILES['img']['name']);
 
     $product = mysqli_real_escape_string($conn, $_POST['name']);
+    $short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $category = mysqli_real_escape_string($conn, $_POST['category']);
+    $tags = mysqli_real_escape_string($conn, $_POST['tags']);
+    $tags = explode(",", $tags);
 
     $sql = "select * from products where name='$product'";
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if ($rowcount == 0) {
-        $sql = "insert into products (name,description,category) values('$product','$description','$category')";
+        $sql = "insert into products (name,description,category,short_description) values('$product','$description','$category','$short_description')";
         if ($conn->query($sql)) {
+
+            $sql = "select id from products where name='$product'";
+            $id = $conn->query($sql)->fetch_assoc()['id'];
+
+            foreach ($tags as $tag) {
+                $sql = "insert into product_tags(id,tag) values('$id','$tag')";
+                $conn->query($sql);
+            }
 
             $featured_img = $_FILES['featured_img']['name'];
             $filename =  uniqid() . ".jpg";
 
-            $sql = "select id from products where name='$product'";
-            $id = $conn->query($sql)->fetch_assoc()['id'];
+
 
             $sql = "insert into product_image(id,name,featured) values('$id','$filename','1')";
             if ($conn->query($sql))

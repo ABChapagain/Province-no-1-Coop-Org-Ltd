@@ -4,11 +4,24 @@ include "../../config/config.php";
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 $name = mysqli_real_escape_string($conn, $_POST['name']);
+$short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
 $description = mysqli_real_escape_string($conn, $_POST['description']);
 $category = mysqli_real_escape_string($conn, $_POST['category']);
+$tags = mysqli_real_escape_string($conn, $_POST['tags']);
+$tags = explode(",", $tags);
 
-$sql = "update products set name='$name', description='$description',category='$category' where id='$id'";
+
+$sql = "update products set name='$name', description='$description',short_description='$short_description',category='$category' where id='$id'";
 if ($conn->query($sql)) {
+
+    $sql = "delete from product_tags where id='$id'";
+    $conn->query($sql);
+
+    foreach ($tags as $tag) {
+        $sql = "insert into product_tags(id,tag) values('$id','$tag')";
+        $conn->query($sql);
+    }
+
     if (strlen($_FILES['featured_img']['name']) > 0) {
 
         $sql = "select name from product_image where id='$id' and featured='1'";

@@ -67,15 +67,15 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     ?>
 
     <?php
-    if (isset($_SESSION['events_added'])) {
-        if ($_SESSION['events_added'] == "successful") {
-            echo "<script>success('success', 'events added successfully'); </script>";
-        } elseif ($_SESSION['events_added'] == "exists") {
+    if (isset($_SESSION['reports_added'])) {
+        if ($_SESSION['reports_added'] == "successful") {
+            echo "<script>success('success', 'report added successfully'); </script>";
+        } elseif ($_SESSION['reports_added'] == "exists") {
             echo "<script> success('warning','product already exists') </script>";
         } else {
-            echo "<script>success('error', 'unable to add events'); </script>";
+            echo "<script>success('error', 'unable to add report'); </script>";
         }
-        unset($_SESSION['events_added']);
+        unset($_SESSION['reports_added']);
     }
     ?>
 
