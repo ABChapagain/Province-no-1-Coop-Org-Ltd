@@ -24,7 +24,7 @@ require_once('./config/db_config.php');
     <div class="container">
         <div class="row flex-row-reverse">
             <div class="col-lg-9">
-                <div class="shop-topbar-wrapper">
+                <!-- <div class="shop-topbar-wrapper">
                     <div class="shop-topbar-left">
                         <ul class="view-mode">
                             <li class="active">
@@ -47,7 +47,7 @@ require_once('./config/db_config.php');
                         </div>
 
                     </div>
-                </div>
+                </div> -->
                 <div class="grid-list-product-wrapper">
                     <div class="product-grid product-view pb-20">
                         <div class="row">
@@ -75,8 +75,7 @@ require_once('./config/db_config.php');
                                     $description .= "...";
                                 }
                                 echo "<p>$description</p>
-                                <a class='action-compare' href='#' data-bs-target='#productModal$product[id]'
-                                            data-bs-toggle='modal' title='Quick View'>
+                                <a class='action-compare' href='product.php?id=$product[id]' >
                                             Read More
                                         </a>
                                     </div>
@@ -89,7 +88,7 @@ require_once('./config/db_config.php');
 
                         </div>
                     </div>
-                    <div class="pagination-total-pages">
+                    <!-- <div class="pagination-total-pages">
                         <div class="pagination-style">
                             <ul>
                                 <li>
@@ -109,7 +108,7 @@ require_once('./config/db_config.php');
                         <div class="total-pages">
                             <p>Showing 1 - 6 of 20 results</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

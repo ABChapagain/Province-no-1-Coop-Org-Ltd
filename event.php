@@ -113,18 +113,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                 </ul>
                             </div>
                         </div>
-                        <div class="administrator-wrapper">
-                            <div class="administrator-img">
-                                <img src="assets/img/blog/blog-administrator.png" alt="">
-                            </div>
-                            <div class="administrator-content">
-                                <h4>Mildred Barnett</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolor magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea coma consequat. Duis aute irure
-                                    dolor in reprehenderit</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
