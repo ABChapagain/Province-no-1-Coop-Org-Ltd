@@ -453,6 +453,7 @@
 /* small mobile :320px. */
 
 @media (max-width: 767px) {
+
 	.mobile-menu-area {
         display: block;
     }
@@ -1111,6 +1112,7 @@
 /* Large Mobile :480px. */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+
     .account-curr-lang-wrap ul li {
         margin-right: 20px;
     }
@@ -1168,4 +1170,10 @@
 	  font-size: 24px;
 	}
     
+}
+
+@media only screen and (max-width: 576px) {
+  .product-image  {
+      height: auto;
+  }
 }
