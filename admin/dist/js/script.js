@@ -90,6 +90,13 @@ const deleteMember = async function (id) {
   }
 };
 
+//delete report
+const deleteReport = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/report.php?id=${id}`);
+  }
+};
 
 //delete image
 async function deleteProductImage(id, name) {
@@ -120,20 +127,43 @@ async function deleteEventImage(id, name) {
   }
 }
 
-
-
 //data tables
-$("table#example1").DataTable({
-    "responsive": true,
-    "lengthChange": false,
-    "autoWidth": false,
-    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-    scrollY:600,
-}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+$("table#example1")
+  .DataTable({
+    responsive: true,
+    lengthChange: false,
+    autoWidth: false,
+    buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+    scrollY: 600,
+  })
+  .buttons()
+  .container()
+  .appendTo("#example1_wrapper .col-md-6:eq(0)");
 
-
-    
 //summernote
-$('#summernote').summernote({ minHeight: 150, maxHeight:500})
+$("#summernote").summernote({ minHeight: 150, maxHeight: 500 });
+
+//date range picker
+const datePickerdata = {
+  locale: {
+    format: "YYYY/MM/DD",
+  },
+};
+//setting starting and ending date in date range picker
+const changeDatePickerData = function (startDate, endDate) {
+  datePickerdata.startDate = startDate;
+  datePickerdata.endDate = endDate;
+  datePicker();
+};
+
+const datePicker = function () {
+  $("#reservation").daterangepicker(datePickerdata);
+};
+datePicker();
 
 
+//file upload
+$(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
