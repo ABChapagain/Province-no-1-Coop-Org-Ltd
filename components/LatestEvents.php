@@ -18,20 +18,29 @@ if ($res->num_rows !== 0) {
         <div class="row">
             <?php
                 foreach ($result as $index => $event) {
+                    $sql = "select * from event_images where id = " . $event['id'] . " AND featured = 1";
+                    $res = $conn->query($sql);
+                    $image = $res->fetch_assoc();
+                    $image = $image['name'];
 
                 ?>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30">
-                    <div class="blog-thumb">
-                        <a href="event.php?id=<?php echo $event['id'] ?>"><img src="assets/img/blog/blog-single-1.jpg"
-                                alt="" /></a>
+            <div class="col-lg-4 col-md-6 blog-grid-item">
+                <div class="single-blog-wrapper mb-40">
+                    <div class="blog-img mb-30">
+                        <a href="event.php?id=<?php echo $event['id'] ?>">
+                            <img src="uploads/events/<?php echo $image ?>" alt="">
+                        </a>
                     </div>
-                    <div class="blog-content pt-25">
-                        <span class="blog-date">14 Sep</span>
+                    <div class="blog-content">
+                        <span class="blog-date">October 14, 2018</span>
                         <h3><a href="event.php?id=<?php echo $event['id'] ?>"><?php echo $event['title'] ?></a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
-                            labore et dolore</p>
-                        <a href="event.php?id=<?php echo $event['id'] ?>">Read More</a>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
+                        labore et dolore</p>
+                    <div class="blog-btn-social mt-30">
+                        <div class="blog-btn">
+                            <a href="event.php?id=<?php echo $event['id'] ?>">read more</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -40,14 +40,17 @@ if ($res->num_rows !== 0) {
 
             <?php
                 foreach ($result as $index => $event) {
-
+                    $sql = "select * from event_images where id = " . $event['id'] . " AND featured = 1";
+                    $res = $conn->query($sql);
+                    $image = $res->fetch_assoc();
+                    $image = $image['name'];
                 ?>
 
             <div class="col-lg-4 col-md-6 blog-grid-item">
                 <div class="single-blog-wrapper mb-40">
                     <div class="blog-img mb-30">
                         <a href="event.php?id=<?php echo $event['id'] ?>">
-                            <img src="assets/img/blog/blog-masonry-1.jpg" alt="">
+                            <img src="uploads/events/<?php echo $image ?>" alt="">
                         </a>
                     </div>
                     <div class="blog-content">
@@ -90,6 +93,6 @@ if ($res->num_rows !== 0) {
 
 <?php
 }
-require_once('./useable/footer.php');
+require_once('./components/Footer.php');
 
 ?>

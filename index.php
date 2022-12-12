@@ -218,14 +218,14 @@ foreach ($result as $product) {
 
         if ($index == 0) {
             echo  "
-            <div id='pro-$image[id]' class='tab-pane fade show active'>
+            <div id='pro-$image[image_id]' class='tab-pane fade show active'>
                 <img src='uploads/products/$image[name]' alt='' />
             </div>
             ";
         } else {
 
             echo "
-            <div id='pro-$image[id]' class='tab-pane fade'>
+            <div id='pro-$image[image_id]' class='tab-pane fade'>
             <img src='uploads/products/$image[name]' alt='' />
             </div>
             ";
@@ -239,17 +239,17 @@ foreach ($result as $product) {
 
         if ($index == 0) {
             echo  "
-            <a class='active' data-bs-toggle='tab' href='#pro-$image[id]'><img
+            <a class='active' data-bs-toggle='tab' href='#pro-$image[image_id]'><img
                                         src='uploads/products/$image[name]' alt='' /></a>
             ";
         } else {
 
             echo "
-            <a data-bs-toggle='tab' href='#pro-$image[id]'><img
+            <a data-bs-toggle='tab' href='#pro-$image[image_id]'><img
                                         src='uploads/products/$image[name]' alt='' /></a>
-                                <a data-bs-toggle='tab' href='#pro-$image[id]'><img
+                                <a data-bs-toggle='tab' href='#pro-$image[image_id]'><img
                                         src='uploads/products/$image[name]' alt='' /></a>
-                                <a data-bs-toggle='tab' href='#pro-$image[id]'><img
+                                <a data-bs-toggle='tab' href='#pro-$image[image_id]'><img
                                         src='uploads/products/$image[name]' alt='' /></a>
             ";
         }
@@ -284,4 +284,4 @@ foreach ($result as $product) {
 <!-- Modal end -->
 
 
-<?php require_once('./useable/footer.php') ?>
+<?php require_once('./components/Footer.php') ?>

@@ -44,7 +44,7 @@ if ($res->num_rows !== 0) {
                                 }
 
                                 echo "<p>$description</p>
-                            <a class='action-compare' href='#' data-bs-target='#productModal" . $result[$i]['id'] . "' data-bs-toggle='modal' title='Quick View'>
+                            <a class='action-compare' href='product.php?id=" . $result[$i]['id'] . "'" . " >
                                         Read More
                                 </a>";
 
