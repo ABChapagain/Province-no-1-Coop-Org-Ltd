@@ -19,7 +19,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
 <!-- Breadcrumb Area Start -->
 <div class="breadcrumb-area bg-image-3 ptb-150"
-    style="background: url('uploads/products/<?php echo $images[0]['name'] ?>') center center/cover;">
+    style="background: url('uploads/products/<?php echo $images[0]['name'] ?>') no-repeat center center/cover;">
     <div class="container">
         <div class="breadcrumb-content text-center">
             <h3><?php echo $result['name'] ?></h3>
