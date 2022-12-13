@@ -18,8 +18,8 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 ?>
 
 <!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area bg-image-3 ptb-150"
-    style="background: url('uploads/products/<?php echo $images[0]['name'] ?>') center center/cover;">
+<!-- <div class="breadcrumb-area bg-image-3 ptb-150"
+    style="background: url('uploads/products/<?php echo $images[0]['name'] ?>') no-repeat center center/cover;">
     <div class="container">
         <div class="breadcrumb-content text-center">
             <h3><?php echo $result['name'] ?></h3>
@@ -30,7 +30,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             </ul>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Breadcrumb Area End -->
 
 <!-- Product Deatils Area Start -->
@@ -63,18 +63,15 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     <h4 class="mb-4">
                         <?php echo $result['name'] ?>
                     </h4>
-
-                    <p class="mt-4"><?php echo $result['description'] ?></p>
-
-
-                    <hr />
-
                     <div class="pro-dec-categories">
                         <ul>
                             <li class="categories-title">Category: </li>
                             <li><a href="#"><?php echo $result['category'] ?></a></li>
                         </ul>
                     </div>
+
+                    <p class="mt-4 mb-4"><?php echo $result['short_description'] ?></p>
+
                     <div class="pro-dec-categories">
                         <ul>
                             <li class="categories-title">Tags: </li>
@@ -112,23 +109,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             <div class="tab-content description-review-bottom">
                 <div id="des-details1" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
-                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam
-                            liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim
-                            placerat facer possim assum. Typi non habent claritatem insitam est usus legentis in iis qui
-                            facit eorum claritatem. </p>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                            nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                        </p>
-                        <ul>
-                            <li>- Typi non habent claritatem insitam</li>
-                            <li>- Est usus legentis in iis qui facit eorum claritatem. </li>
-                            <li>- Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</li>
-                            <li>- Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
-                            </li>
-                        </ul>
+                        <?php echo $result['description'] ?>
                     </div>
                 </div>
                 <div id="des-details2" class="tab-pane">
