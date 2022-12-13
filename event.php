@@ -119,17 +119,6 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             </div>
             <div class="col-lg-4 col-xl-3 col-md-4">
                 <div class="blog-sidebar-wrapper sidebar-mrg">
-                    <div class="blog-widget mb-50">
-                        <div class="blog-search">
-                            <form class="news-form">
-                                <input type="text" placeholder="Search.....">
-                                <button type="submit">
-                                    <i class="ion-ios-search-strong"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
                     <div class="blog-widget mb-45">
                         <h4 class="blog-widget-title mb-25">Recent post</h4>
                         <div class="blog-recent-post">
