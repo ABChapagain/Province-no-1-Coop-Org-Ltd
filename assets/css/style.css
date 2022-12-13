@@ -3102,6 +3102,13 @@ h4.shop-sidebar-title {
     4. Shop list style
 -----------------------------*/
 
+.product-image {
+    height: 190px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
 #product-list .product-list-wrapper .product-img {
     display: inline-block;
     float: left;
@@ -3524,11 +3531,14 @@ h4.shop-sidebar-title {
 }
 .product-description-wrapper li {
     color: #242424;
-    display: block;
     font-size: 14px;
-    list-style: outside none none;
     margin-bottom: 10px;
 }
+
+.product-description-wrapper ul {
+    margin-left: 14px;
+}
+
 .product-description-wrapper li:last-child {
     margin-bottom: 0px;
 }
@@ -4290,6 +4300,10 @@ h5.panel-title span {
     background-color: #fff;
     padding: 30px 20px;
 }
+.billing-information-wrapper > ul {
+    margin-left: 14px;
+}
+
 .billing-info>label {
     color: #242424;
     font-size: 14px;

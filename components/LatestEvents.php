@@ -28,7 +28,8 @@ if ($res->num_rows !== 0) {
                 <div class="single-blog-wrapper mb-40">
                     <div class="blog-img mb-30">
                         <a href="event.php?id=<?php echo $event['id'] ?>">
-                            <img src="uploads/events/<?php echo $image ?>" alt="">
+                            <img style="object-fit: cover;" width="100%" height="347px"
+                                src="uploads/events/<?php echo $image ?>" alt="">
                         </a>
                     </div>
                     <div class="blog-content">

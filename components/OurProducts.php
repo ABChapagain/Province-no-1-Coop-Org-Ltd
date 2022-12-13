@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM products LIMIT 10";
+$sql = "SELECT * FROM products ORDER BY id DESC LIMIT 10";
 
 $res = $conn->query($sql);
 $result = $res->fetch_all(MYSQLI_ASSOC);
@@ -32,12 +32,12 @@ if ($res->num_rows !== 0) {
                                 $image = $image[0]['name'];
 
                                 echo "<img alt='Product'
-                                style='object-fit:cover; height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;'
+                                width='100%' class='product-image'
                                 src='uploads/products/" . $image . "' />
                                 </div>
                                 <div class='blog-content px-2 py-3'>
                                 <h4>" . $result[$i]['name'] . "</h4>";
-                                $description = $result[$i]['description'];
+                                $description = $result[$i]['short_description'];
                                 if (strlen($description) > 100) {
                                     $description = trim(substr($description, 0, 100));
                                     $description .= "...";

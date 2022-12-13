@@ -52,7 +52,7 @@ require_once('./config/db_config.php');
                     <div class="product-grid product-view pb-20">
                         <div class="row">
                             <?php
-                            $sql = "SELECT * FROM products";
+                            $sql = "SELECT * FROM products ORDER BY id DESC";
                             $result = $conn->query($sql);
                             $result->fetch_all(MYSQLI_ASSOC);
                             foreach ($result as $product) {
@@ -63,13 +63,13 @@ require_once('./config/db_config.php');
                                 <div class='product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30'>
                                 <div class='product-wrapper mb-30 shadow rounded'>
                                     <div class='rounded'>
-                                        <img alt='Product'
-                                            style='height: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;'
+                                        <img alt='Product' class='product-image'
+                                            width='100%'
                                             src='uploads/products/$image[name]' />
                                     </div>
                                     <div class='blog-content px-2 py-3'>
                                         <h4>$product[name]</h4>";
-                                $description = $product['description'];
+                                $description = $product['short_description'];
                                 if (strlen($description) > 100) {
                                     $description = trim(substr($description, 0, 100));
                                     $description .= "...";

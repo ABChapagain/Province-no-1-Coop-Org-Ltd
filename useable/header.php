@@ -57,7 +57,8 @@
                                             <a href="events.php">events</a>
                                         </li>
                                         <li class="top-hover">
-                                            <a class="btn py-3 px-4 rounded text-white bg-project" href="career.php">career</a>
+                                            <a class="btn py-3 px-4 rounded text-white bg-project"
+                                                href="career.php">career</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -69,18 +70,13 @@
                     <div class="mobile-menu">
                         <nav id="mobile-menu-active">
                             <ul class="menu-overflow">
-                                <li>
-                                    <a href="#">HOME</a>
-                                </li>
-                                <li>
-                                    <a href="#about-us">about</a>
-                                </li>
-                                <li>
-                                    <a href="#products">products</a>
-                                </li>
-                                <li>
-                                    <a href="#contact">contact</a>
-                                </li>
+                                <li><a href="index.php">HOME</a></li>
+                                <li><a href="about-us.php">About Us</a></li>
+                                <li><a href="products.php">Products</a></li>
+                                <li><a href="contact-us.php">contact</a></li>
+                                <li><a href="notice.php">notice</a></li>
+                                <li><a href="events.php">events</a></li>
+                                <li><a href="career.php">career</a></li>
                             </ul>
                         </nav>
                     </div>
