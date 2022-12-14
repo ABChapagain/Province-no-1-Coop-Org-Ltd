@@ -71,3 +71,14 @@ td a img {
   height: 50px;
   object-fit: cover;
 }
+
+.file{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(170, 170, 170);
+  
+}
+.file span{
+  color: black;
+}

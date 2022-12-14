@@ -98,6 +98,14 @@ const deleteReport = async function (id) {
   }
 };
 
+//delete branch
+const deleteBranch = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/branch.php?id=${id}`);
+  }
+};
+
 //delete image
 async function deleteProductImage(id, name) {
   const result = await deleteConfirmation();
@@ -141,7 +149,20 @@ $("table#example1")
   .appendTo("#example1_wrapper .col-md-6:eq(0)");
 
 //summernote
-$("#summernote").summernote({ minHeight: 150, maxHeight: 500 });
+// $("#summernote").summernote({ minHeight: 150, maxHeight: 500 });
+$("#summernote").summernote({
+        minHeight: 150,
+        maxHeight:500,
+        toolbar: [
+            [ 'style', [ 'style' ] ],
+            [ 'font', [ 'bold', 'italic', 'underline'] ],
+            [ 'fontname', [ 'fontname' ] ],
+            [ 'fontsize', [ 'fontsize' ] ],
+            [ 'color', [ 'color' ] ],
+            [ 'insert', [ 'link'] ],
+            [ 'view', [  'fullscreen', 'codeview', 'help' ] ]
+        ]
+    });
 
 //date range picker
 const datePickerdata = {

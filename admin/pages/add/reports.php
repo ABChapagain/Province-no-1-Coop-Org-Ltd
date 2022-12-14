@@ -35,7 +35,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="files" name="files[]" multiple>
-                                <label class="custom-file-label" for="files"> Select Files</label>
+                                <label class="custom-file-label" for="files"> Select Files </label>
                             </div>
                         </div>
                     </div>

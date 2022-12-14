@@ -13,14 +13,6 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 $sql = "select * from category";
 $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
-$sql = "select * from product_tags where id='$id'";
-$tags = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-
-$tag = "";
-foreach ($tags as $t) {
-    $tag = $tag . $t['tag'] . ",";
-}
-$tag = rtrim($tag, ",");
 ?>
 
 
@@ -68,7 +60,7 @@ $tag = rtrim($tag, ",");
 
                     <div class="form-group">
                         <label for="tags">Tags</label>
-                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags" value="<?php echo $tag ?>">
+                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags" value="<?php echo $rows['tags'] ?>">
                     </div>
 
                     <div class="form-group">
