@@ -23,11 +23,11 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" enctype="multipart/form-data" action="product_post.php?id=<?php echo $id ?>">
+            <form method="POST" enctype="multipart/form-data" action="reports_post.php?id=<?php echo $id ?>">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Title</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['title'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="title" value="<?php echo $rows['title'] ?>">
                     </div>
 
                     <div class="form-group">
@@ -78,13 +78,13 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 
     <?php
-    if (isset($_SESSION['product_updated'])) {
-        if ($_SESSION['product_updated'] == "successful") {
-            echo "<script>success('success', 'product updated successfully'); </script>";
+    if (isset($_SESSION['report_updated'])) {
+        if ($_SESSION['report_updated'] == "successful") {
+            echo "<script>success('success', 'report updated successfully'); </script>";
         } else {
-            echo "<script>success('error', 'unable to update product'); </script>";
+            echo "<script>success('error', 'unable to update report'); </script>";
         }
-        unset($_SESSION['product_updated']);
+        unset($_SESSION['report_updated']);
     }
     ?>
 

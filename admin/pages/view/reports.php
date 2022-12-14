@@ -7,7 +7,7 @@ $sql = "select * from reports where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
 
-$sql = "select * from reports_list where id='$id'";
+$sql = "select * from reports_list where report_id='$id'";
 $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
@@ -56,14 +56,23 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     <span class="font-weight-bold">Files:</span>
                     <?php foreach ($files as $file) :
                     ?>
-                        <div class="position-relative">
+                        <div class="file-collection">
+                            <div class="del_button hide_del_button">
+                                <button class="btn btn-danger">delete</button>
+                            </div>
                             <div class="file">
-                                <a target="_blank" class="file" href="<?php echo report_url . $file['name'] ?>">
-                                    <i class="fas fa-file fa-3x"></i>
+                                <div class="link">
+                                    <a target="_blank" class="file" href="<?php echo report_url . $file['name'] ?>">
+                                        <i class="fas fa-file fa-3x"></i>
+
+                                </div>
+                                <div class="file_name">
                                     <span><?php echo $file['name'] ?></span>
+                                </div>
                                 </a>
                             </div>
                         </div>
+
                     <?php endforeach;
                     ?>
                 </div>

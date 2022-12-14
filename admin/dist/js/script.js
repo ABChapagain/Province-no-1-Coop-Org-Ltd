@@ -188,3 +188,14 @@ $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
+
+
+$(".file-collection").hover(function () {
+    // over
+    $(".del-button").removeClass("hide_del_button");
+    
+  }, function () {
+    // out
+        $(".del-button").addClass("hide_del_button");
+  }
+);
