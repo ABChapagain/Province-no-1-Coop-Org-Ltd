@@ -23,6 +23,11 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
                     </div>
 
+                     <div class="form-group">
+                        <label for="description">Short Description</label>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
+                    </div>
+
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">

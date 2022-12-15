@@ -4,6 +4,7 @@ include "../../config/config.php";
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 $title = mysqli_real_escape_string($conn, $_POST['title']);
 $description = mysqli_real_escape_string($conn, $_POST['description']);
+$short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
 $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
 
 $popupdate = explode("-", $popupdate);
@@ -12,7 +13,7 @@ $popup_end = $popupdate[1];
 
 echo $popup_end;
 echo $popup_start;
-$sql = "update events set title='$title', description='$description',start_popup='$popup_start',end_popup='$popup_end' where id='$id'";
+$sql = "update events set title='$title', description='$description',short_description='$short_description',start_popup='$popup_start',end_popup='$popup_end' where id='$id'";
 if ($conn->query($sql)) {
     if (strlen($_FILES['featured_img']['name']) > 0) {
 

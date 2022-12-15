@@ -33,7 +33,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                             <tr>
                                 <th>Sn.</th>
                                 <th>Title</th>
-                                <th>Description</th>
+                                <th>Short Description</th>
                                 <th>Images</th>
                                 <th>Action</th>
                             </tr>
@@ -47,9 +47,9 @@ $result->fetch_all(MYSQLI_ASSOC);
                                     <td><?php echo ++$i ?></td>
                                     <td><?php echo $rows['title'] ?> </td>
                                     <td><?php
-                                        $description = $rows['description'];
-                                        if (strlen($description) > 10) {
-                                            $description = trim(substr($description, 0, 10));
+                                        $description = $rows['short_description'];
+                                        if (strlen($description) > 30) {
+                                            $description = trim(substr($description, 0, 30));
                                             $description .= ".....";
                                         }
                                         echo $description;

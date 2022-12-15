@@ -8,8 +8,7 @@ $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 $sql = "delete from product_image where id='$id'";
 if ($conn->query($sql)) {
-    $sql = "delete from product_tags where id='$id'";
-    $conn->query($sql);
+
     $sql = "delete from products where id='$id'";
     if ($conn->query($sql)) {
         $_SESSION['product_deleted'] = "successful";
