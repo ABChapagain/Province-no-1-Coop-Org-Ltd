@@ -50,7 +50,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             <td><?php echo $rows['name'] ?> </td>
                                             <td><?php echo $rows['address'] ?> </td>
                                             <td><?php echo $rows['phone'] ?> </td>
-                                            <td><?php echo $rows['map_coord'] ?> </td>
+                                            <td><?php echo $rows['coords'] ?> </td>
                                             <td>
                                                 <a href="<?php echo url ?>pages/edit/branches.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
                                                 <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteBranch(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>

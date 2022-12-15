@@ -26,6 +26,12 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 </div>
                 <hr>
 
+                <div class="short_description">
+                    <span class="font-weight-bold">Short Description:</span>
+                    <?php echo $rows['short_description'] ?>
+                </div>
+                <hr>
+
                 <div class="Description">
                     <span class="font-weight-bold">Description:</span>
                     <div class="card-body">

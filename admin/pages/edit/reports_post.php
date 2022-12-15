@@ -4,11 +4,16 @@ include "../../config/config.php";
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 $title = mysqli_real_escape_string($conn, $_POST['title']);
 $description = mysqli_real_escape_string($conn, $_POST['description']);
-// $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
+$short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
+$popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
 $countfiles = count($_FILES['files']['name']);
 
+$popupdate = explode("-", $popupdate);
+$popup_start = $popupdate[0];
+$popup_end = $popupdate[1];
 
-$sql = "update reports set title='$title', description='$description' where id='$id'";
+
+$sql = "update reports set title='$title', description='$description',short_description='$short_description',start_popup='$popup_start',end_popup='$popup_end' where id='$id' ";
 if ($conn->query($sql)) {
 
     $countfiles = count($_FILES['files']['name']);
@@ -38,4 +43,4 @@ if ($conn->query($sql)) {
 } else {
     $_SESSION['report_updated'] = "unsuccessful";
 }
-// header("Location:reports.php?id=$id");
+header("Location:reports.php?id=$id");

@@ -30,6 +30,11 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="title" value="<?php echo $rows['title'] ?>">
                     </div>
 
+                     <div class="form-group">
+                        <label for="short_description">Short Description</label>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
@@ -46,6 +51,20 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="form-group">
+                        <label>Event Popup Date:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control float-right" id="reservation" name="popupdate">
+                        </div>
+                    </div>
+
                 </div>
         </div>
         <!-- /.card-body -->
@@ -71,10 +90,13 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
         ?>
     </div>
 
-
     <?php
     require app . "/pages/includes/js_links.php";
     ?>
+    
+         <script>
+            changeDatePickerData("<?php echo $rows['start_popup'] ?>", "<?php echo $rows['end_popup'] ?>")
+        </script>
 
 
     <?php
