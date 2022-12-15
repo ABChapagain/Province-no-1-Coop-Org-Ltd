@@ -6,7 +6,7 @@ require "../../config/config.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $sql = "select * from products where name='$name'";
+    $sql = "select * from category where name='$name'";
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if ($rowcount == 0) {

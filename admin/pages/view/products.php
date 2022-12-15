@@ -10,14 +10,7 @@ $rows = $result->fetch_assoc();
 $sql = "select * from product_image where id='$id'";
 $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
-$sql = "select * from product_tags where id='$id'";
-$tags = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
-$tag = "";
-foreach ($tags as $t) {
-    $tag = $tag . $t['tag'] . ",";
-}
-$tag = rtrim($tag, ",");
 ?>
 
 
@@ -56,7 +49,7 @@ $tag = rtrim($tag, ",");
 
                 <div class="tags">
                     <span class="font-weight-bold"> Tags:</span>
-                    <?php echo $tag ?>
+                    <?php echo $rows['tags'] ?>
                 </div>
                 <hr>
 
@@ -93,15 +86,7 @@ $tag = rtrim($tag, ",");
 
 
 
-    <?php
-    if (isset($_SESSION['product_added'])) {
-        if ($_SESSION['product_added'] == "successful") {
-            echo "<script>success('success', 'product added successfully'); </script>";
-        } else {
-            echo "<script>success('error', 'unable to add product'); </script>";
-        }
-        unset($_SESSION['product_added']);
-    }
-    ?>
+  
+
 
 </body>

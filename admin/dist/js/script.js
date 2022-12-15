@@ -98,6 +98,14 @@ const deleteReport = async function (id) {
   }
 };
 
+//delete branch
+const deleteBranch = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/branch.php?id=${id}`);
+  }
+};
+
 //delete image
 async function deleteProductImage(id, name) {
   const result = await deleteConfirmation();
@@ -141,7 +149,20 @@ $("table#example1")
   .appendTo("#example1_wrapper .col-md-6:eq(0)");
 
 //summernote
-$("#summernote").summernote({ minHeight: 150, maxHeight: 500 });
+// $("#summernote").summernote({ minHeight: 150, maxHeight: 500 });
+$("#summernote").summernote({
+  minHeight: 150,
+  maxHeight: 500,
+  toolbar: [
+    ["style", ["style"]],
+    ["font", ["bold", "italic", "underline"]],
+    ["fontname", ["fontname"]],
+    ["fontsize", ["fontsize"]],
+    ["color", ["color"]],
+    ["insert", ["link"]],
+    ["view", ["fullscreen", "codeview", "help"]],
+  ],
+});
 
 //date range picker
 const datePickerdata = {
@@ -161,9 +182,19 @@ const datePicker = function () {
 };
 datePicker();
 
-
 //file upload
-$(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
+$(".custom-file-input").on("change", function () {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+
+$(".file-collection").hover(
+  function () {
+    // over
+    $(".del-button").removeClass("hide_del_button");
+  },
+  function () {
+    // out
+    $(".del-button").addClass("hide_del_button");
+  }
+);

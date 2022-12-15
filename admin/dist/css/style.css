@@ -71,3 +71,36 @@ td a img {
   height: 50px;
   object-fit: cover;
 }
+
+.files{
+  
+  display: flex;
+  gap: 1rem;
+}
+
+
+.hide_del_button{
+visibility: hidden;
+
+}
+
+.file{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+/* remove arrow from input type number */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -8,19 +8,12 @@ $short_description = mysqli_real_escape_string($conn, $_POST['short_description'
 $description = mysqli_real_escape_string($conn, $_POST['description']);
 $category = mysqli_real_escape_string($conn, $_POST['category']);
 $tags = mysqli_real_escape_string($conn, $_POST['tags']);
-$tags = explode(",", $tags);
 
 
-$sql = "update products set name='$name', description='$description',short_description='$short_description',category='$category' where id='$id'";
+$sql = "update products set name='$name', description='$description',short_description='$short_description',category='$category', tags='$tags' where id='$id'";
 if ($conn->query($sql)) {
 
-    $sql = "delete from product_tags where id='$id'";
-    $conn->query($sql);
 
-    foreach ($tags as $tag) {
-        $sql = "insert into product_tags(id,tag) values('$id','$tag')";
-        $conn->query($sql);
-    }
 
     if (strlen($_FILES['featured_img']['name']) > 0) {
 

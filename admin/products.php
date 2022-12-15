@@ -49,7 +49,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                     <td><?php echo $rows['name'] ?> </td>
                                     <td>
                                         <?php
-                                        $description = $rows['description'];
+                                        $description = $rows['short_description'];
                                         if (strlen($description) > 30) {
                                             $description = trim(substr($description, 0, 30));
                                             $description .= ".....";
