@@ -53,6 +53,12 @@
                         <p class="text">Branches</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?php echo url ?>vacancy.php" class="nav-link branches">
+                        <i class="nav-icon fas fa-paperclip"></i>
+                        <p class="text">Vacancy Notice</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
