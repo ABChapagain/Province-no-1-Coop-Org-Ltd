@@ -67,7 +67,7 @@ if ($res->num_rows !== 0) {
                         dolore mag aliqua. Ut enim ad minim veniam</p>
                     <div class="blog-btn-social mt-30">
                         <div class="blog-btn">
-                            <a href="event.php?id=<?php echo $event['id'] ?>">read more</a>
+                            <a href="event.php?id=<?php echo $event['id'] ?>">Read more</a>
                         </div>
                     </div>
                 </div>
