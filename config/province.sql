@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2022 at 05:49 PM
+-- Generation Time: Dec 16, 2022 at 04:23 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -32,15 +32,15 @@ CREATE TABLE `branches` (
   `name` varchar(50) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `map_coord` varchar(20) DEFAULT NULL
+  `coords` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `branches`
 --
 
-INSERT INTO `branches` (`id`, `name`, `address`, `phone`, `map_coord`) VALUES
-(3, 'rejens', NULL, NULL, NULL);
+INSERT INTO `branches` (`id`, `name`, `address`, `phone`, `coords`) VALUES
+(4, 'rejens', 'dlb', '123', '20,30');
 
 -- --------------------------------------------------------
 
@@ -58,10 +58,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(3, 'agricultural and machinery'),
-(4, 'consumable'),
-(1, 'handicraft'),
-(2, 'stationary');
+(16, 'Agricultural and Machinery'),
+(14, 'Consumable Goods'),
+(13, 'Handicraft'),
+(18, 'rejens'),
+(15, 'Stationary');
 
 -- --------------------------------------------------------
 
@@ -94,16 +95,19 @@ INSERT INTO `department` (`id`, `department_name`) VALUES
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `title` varchar(200) DEFAULT NULL,
-  `description` varchar(5000) DEFAULT NULL
+  `description` varchar(5000) DEFAULT NULL,
+  `posted_date` date DEFAULT NULL,
+  `start_popup` date DEFAULT NULL,
+  `end_popup` date DEFAULT NULL,
+  `short_description` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `description`) VALUES
-(7, '', '       '),
-(8, 'nbd', '   today is nbd   ');
+INSERT INTO `events` (`id`, `title`, `description`, `posted_date`, `start_popup`, `end_popup`, `short_description`) VALUES
+(13, 'nbd', '  this is long description modified', '2022-12-15', '2022-12-15', '2022-12-24', 'short description modified');
 
 -- --------------------------------------------------------
 
@@ -123,9 +127,8 @@ CREATE TABLE `event_images` (
 --
 
 INSERT INTO `event_images` (`event_id`, `id`, `name`, `featured`) VALUES
-(3, 7, '63935888c7d07.jpg', 1),
-(4, 8, '63936222542c5.jpg', 1),
-(9, 8, '6393622fefd7e.jpg', 0);
+(17, 13, '639ac6ee0d291.jpg', 1),
+(18, 13, '639ac6ee0e3b3.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -158,13 +161,6 @@ CREATE TABLE `members` (
   `image` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `members`
---
-
-INSERT INTO `members` (`id`, `name`, `position`, `department_id`, `image`) VALUES
-(17, 'rejens', 'ceo', 2, '639350290edd0.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -190,18 +186,18 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(20) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
-  `category` varchar(50) DEFAULT NULL
+  `category` varchar(50) DEFAULT NULL,
+  `short_description` varchar(500) DEFAULT NULL,
+  `tags` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `category`) VALUES
-(69, 'chai', 'tea', 'consumable'),
-(70, 'tea', 'teaaa', 'consumable'),
-(71, 'chai', 'asdkfla', 'consumable'),
-(79, 'rejens', '', 'consumable');
+INSERT INTO `products` (`id`, `name`, `description`, `category`, `short_description`, `tags`) VALUES
+(80, 'Red Tea', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprhendit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat', 'Consumable Goods', 'this is hort description', ''),
+(81, 'Milk Tea', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprhendit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat', 'Consumable Goods', 'this is short description', '');
 
 -- --------------------------------------------------------
 
@@ -221,10 +217,12 @@ CREATE TABLE `product_image` (
 --
 
 INSERT INTO `product_image` (`image_id`, `id`, `name`, `featured`) VALUES
-(13, 70, '63932d6f79aeb.jpg', 0),
-(27, 79, '63934c486db01.jpg', 1),
-(29, 79, '63934b5921b0b.jpg', 0),
-(30, 79, '63934b5926cd3.jpg', 0);
+(31, 80, '63936e8f81489.jpg', 1),
+(32, 80, '63936e8f82f59.jpg', 0),
+(33, 80, '63936e8f842b1.jpg', 0),
+(34, 81, '63936f0839ba0.jpg', 1),
+(35, 81, '63936f083d10c.jpg', 0),
+(36, 81, '63936f083fd7b.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -236,9 +234,44 @@ CREATE TABLE `reports` (
   `id` int(11) NOT NULL,
   `title` varchar(100) DEFAULT NULL,
   `description` varchar(1500) DEFAULT NULL,
-  `file_location` varchar(200) DEFAULT NULL,
-  `published_date` date DEFAULT NULL
+  `published_date` date DEFAULT NULL,
+  `start_popup` date DEFAULT NULL,
+  `end_popup` date DEFAULT NULL,
+  `short_description` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `title`, `description`, `published_date`, `start_popup`, `end_popup`, `short_description`) VALUES
+(2, 'test ', 'long', '2022-12-14', '0000-00-00', '0000-00-00', 'short'),
+(4, 'report new', 'long description', '2022-12-15', '2022-12-15', '2022-12-24', 'short description');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports_list`
+--
+
+CREATE TABLE `reports_list` (
+  `id` int(11) NOT NULL,
+  `report_id` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reports_list`
+--
+
+INSERT INTO `reports_list` (`id`, `report_id`, `name`) VALUES
+(2, 2, 'test1.pdf'),
+(3, 2, '1.pdf'),
+(4, 2, 'test_1.pdf'),
+(5, 2, 'test_1.pdf'),
+(6, 2, 'test_1.pdf'),
+(7, 2, 'test_1.gif'),
+(8, 2, 'test_2.gif');
 
 -- --------------------------------------------------------
 
@@ -346,6 +379,13 @@ ALTER TABLE `reports`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reports_list`
+--
+ALTER TABLE `reports_list`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `report_id` (`report_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -365,13 +405,13 @@ ALTER TABLE `vacancy`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -383,13 +423,13 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `event_images`
 --
 ALTER TABLE `event_images`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `job_application`
@@ -413,19 +453,25 @@ ALTER TABLE `notices`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `reports_list`
+--
+ALTER TABLE `reports_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `vacancy`
@@ -460,6 +506,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `product_image`
   ADD CONSTRAINT `image` FOREIGN KEY (`id`) REFERENCES `products` (`id`);
+
+--
+-- Constraints for table `reports_list`
+--
+ALTER TABLE `reports_list`
+  ADD CONSTRAINT `report_id` FOREIGN KEY (`report_id`) REFERENCES `reports` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
