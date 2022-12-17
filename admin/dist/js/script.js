@@ -106,6 +106,15 @@ const deleteBranch = async function (id) {
   }
 };
 
+//delete notice
+const deleteNotice = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/notice.php?id=${id}`);
+  }
+};
+
+
 //delete image
 async function deleteProductImage(id, name) {
   const result = await deleteConfirmation();
