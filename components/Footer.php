@@ -87,7 +87,9 @@
     <script src="assets/js/ajax-mail.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/branchMap.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>
+
     <script>
 function init() {
     var mapOptions = {

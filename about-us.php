@@ -112,6 +112,50 @@ if ($res->num_rows !== 0) {
 }
 ?>
 
+<!-- Testimonial Area Start -->
+<div class="branch-area pt-100 pb-100">
+    <div class="container">
+        <div class="section-title-wrap style-two text-center mb-50">
+            <h3 class="section-title">Our Branches</h3>
+        </div>
+        <div class="row">
+            <div class="col-4 border p-2" style="height: 700px; overflow-y: scroll;">
+                <div class="section-title-wrap style-two text-center">
+                    <h3 class="section-title">Branch Locator</h3>
+                </div>
+                <div class="my-5">
+                    <input type="search" placeholder="Search Branch...">
+                </div>
+
+                <?php
+                $sql = "SELECT * FROM branches";
+                $res = $conn->query($sql);
+                $branches = $res->fetch_all(MYSQLI_ASSOC);
+
+                foreach ($branches as $branch) :
+                ?>
+                <div class="col-12 px-3">
+                    <h5><?php echo $branch['name'] ?></h5>
+                    <h5><?php echo $branch['address'] ?></h5>
+                    <a href="#">
+                        <h5 class="text-green"><?php echo $branch['phone'] ?></h5>
+                    </a>
+                    <!-- <h5><?php echo $branch['email'] ?></h5> -->
+                    <h5>email</h5>
+                </div>
+                <hr>
+                <?php
+                endforeach;
+                ?>
+            </div>
+            <div class="col-8">
+                <div id="mapId" style="height: 100%; width: 100%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial Area End -->
+
 
 <!-- Testimonial Area Start -->
 <div class="testimonials-area bg-image-2 bg-img pt-100 pb-100">
@@ -162,6 +206,56 @@ if ($res->num_rows !== 0) {
 
 
 
-<?php require_once('./components/Footer.php');
+
+<?php
+echo "<script>
+var map = L.map('mapId').setView([27.1027, 87.2975], 9)
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+maxZoom: 19,
+attribution:
+`&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>`,
+}).addTo(map)";
+
+$coords = [];
+$branch_names = [];
+$branch_addresses = [];
+foreach ($branches as $branch) {
+    array_push($coords, $branch['coords']);
+}
+echo "
+
+let coords = [
+[26.6412, 87.8879],
+[26.651, 87.708],
+[26.6584, 87.2733],
+]
+let names = ['Surunga Branch', 'Damak Branch', 'Itahari Branch'];
+let address = ['Surunga', 'Damak', 'Itahari'];
+";
+
+echo "
+let len = coords.length
+
+for (let i = 0; i < len; i++) {
+  // popups
+    var popups = L.popup({
+        closeOnClick: true
+    }).setContent(address[i])
+
+    // markers
+    var marker = L.marker(coords[i]).addTo(map).bindPopup(popups);
+
+    // labels
+    var toollip = L.tooltip({
+        parmanent: true,
+    }).setContent(names[i]);
+    marker.bindTooltip(toollip);
+
+  
+}
+</script>";
+
+require_once('./components/Footer.php');
 
 ?>
