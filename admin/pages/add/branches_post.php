@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-    $coords = mysqli_real_escape_string($conn, $_POST['coords']);
+    $coords = mysqli_real_escape_string($conn, $_POST['coord']);
 
     $sql = "select * from branches where name='$name'";
     $result = $conn->query($sql);

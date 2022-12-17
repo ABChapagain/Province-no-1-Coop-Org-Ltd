@@ -2,7 +2,6 @@
 
 include "../../includes.php";
 
-
 ?>
 
 
@@ -10,11 +9,11 @@ include "../../includes.php";
     <div class="items">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Add Event</h3>
+                <h3 class="card-title">Add Notice</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" enctype="multipart/form-data" action="events_post.php">
+            <form method="POST" enctype="multipart/form-data" action="notices_post.php">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -33,7 +32,7 @@ include "../../includes.php";
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
@@ -41,7 +40,7 @@ include "../../includes.php";
                                 <label class="custom-file-label" for="featured_image"> Select image</label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label for="image">Gallery</label>
@@ -55,7 +54,7 @@ include "../../includes.php";
                     </div>
 
                     <div class="form-group">
-                        <label>Event Popup Date:</label>
+                        <label>Notice Popup Date:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -81,15 +80,15 @@ include "../../includes.php";
     ?>
 
     <?php
-    if (isset($_SESSION['events_added'])) {
-        if ($_SESSION['events_added'] == "successful") {
-            echo "<script>success('success', 'events added successfully'); </script>";
-        } elseif ($_SESSION['events_added'] == "exists") {
+    if (isset($_SESSION['notice_added'])) {
+        if ($_SESSION['notice_added'] == "successful") {
+            echo "<script>success('success', 'notice added successfully'); </script>";
+        } elseif ($_SESSION['notice_added'] == "exists") {
             echo "<script> success('warning','product already exists') </script>";
         } else {
-            echo "<script>success('error', 'unable to add events'); </script>";
+            echo "<script>success('error', 'unable to add notice'); </script>";
         }
-        unset($_SESSION['events_added']);
+        unset($_SESSION['notice_added']);
     }
     ?>
 

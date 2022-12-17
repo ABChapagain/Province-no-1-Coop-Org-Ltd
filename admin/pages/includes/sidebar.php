@@ -48,13 +48,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?php echo url ?>notices.php" class="nav-link notices">
+                        <i class="nav-icon fas fa-paperclip"></i>
+                        <p class="text">Notices</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?php echo url ?>branches.php" class="nav-link branches">
                         <i class="nav-icon fas fa-sitemap"></i>
                         <p class="text">Branches</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo url ?>vacancy.php" class="nav-link branches">
+                    <a href="<?php echo url ?>vacancy.php" class="nav-link vacancy">
                         <i class="nav-icon fas fa-paperclip"></i>
                         <p class="text">Vacancy Notice</p>
                     </a>
