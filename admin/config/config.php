@@ -15,5 +15,8 @@ define("event_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/events/")
 define("report_url", url . "../uploads/reports/");
 define("report_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/reports/");
 
+define("notice_url", url . "../uploads/notices/");
+define("notice_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/notices/");
+
 
 require app . "/../config/db_config.php";
