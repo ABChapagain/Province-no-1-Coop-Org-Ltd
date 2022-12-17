@@ -1,4 +1,6 @@
-<?php require_once('./useable/header.php');
+<?php
+require_once('./useable/header.php');
+require_once('./config/db_config.php');
 ?>
 
 
@@ -67,6 +69,14 @@
 <!-- About Us Page Area End -->
 
 
+<?php
+$sql = "SELECT * FROM members";
+$res = $conn->query($sql);
+$members = $res->fetch_all(MYSQLI_ASSOC);
+
+if ($res->num_rows !== 0) {
+
+?>
 
 
 <!-- Team Area Start -->
@@ -78,56 +88,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <?php
+                foreach ($members as $member) :
+                ?>
+            <div class="col-lg-3 col-md-6 col-6">
                 <div class="team-wrapper mb-30">
                     <div class="team-img">
-                        <img src="assets/img/team/santosh_mandal.jpg" alt="Team" />
+                        <img src="uploads/members/<?php echo $member['image'] ?>" alt="Team" />
                     </div>
                     <div class="team-content text-center">
-                        <h4>Mr. Mahendra Kumar Giri</h4>
-                        <span>Chairperson </span>
+                        <h4><?php echo $member['name'] ?></h4>
+                        <span style="color: #519f10"><?php echo $member['position'] ?></span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <img src="assets/img/team/nabin_kharel.jpg" alt="Team" />
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr. Nabin Kharel</h4>
-                        <span>Member</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <img src="assets/img/team/santosh_mandal.jpg" alt="Team" />
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr. Santosh Kumar Mandal</h4>
-                        <span>Member </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <img src="assets/img/team/rukmani_karki.jpg" alt="Team" />
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr. Rukmani Karki</h4>
-                        <span>Member </span>
-                    </div>
-                </div>
-            </div>
-
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
 <!-- Team Area End -->
 
+<?php
+}
+?>
 
 
 <!-- Testimonial Area Start -->
