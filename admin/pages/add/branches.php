@@ -30,6 +30,11 @@ include "../../includes.php";
                         <input type="tel" class="form-control" id="phone" placeholder="Enter Telephone Number" name="phone">
                     </div>
 
+                     <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="tel" class="form-control" id="email" placeholder="Enter Email" name="email">
+                    </div>
+
                     <div class="form-group">
                         <label for="coord">Coordinates</label>
                         <input type="text" class="form-control" id="coord" placeholder="latitude,longitude" name="coord">

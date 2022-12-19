@@ -1,4 +1,0 @@
-alter table vacancy add start_popup_date date;
-alter table vacancy add end_popup_date date;
-alter table vacancy add short_description varchar(500);
-alter table branches add email varchar(50);
