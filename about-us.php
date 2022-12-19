@@ -205,7 +205,6 @@ if ($res->num_rows !== 0) {
 
 
 
-
 <?php
 
 require_once('./components/Footer.php');
