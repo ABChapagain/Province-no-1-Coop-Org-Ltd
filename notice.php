@@ -69,7 +69,8 @@ require_once('./useable/header.php');
                                             if ($res->num_rows > 0) :
                                                 while ($notice_images = $res->fetch_assoc()) :
                                             ?>
-                                        <img width="100%" src="./uploads/notices/<?php echo $notice_images['image'] ?>"
+                                        <img class="my-2" width="100%"
+                                            src="./uploads/notices/<?php echo $notice_images['image'] ?>"
                                             alt="<?php echo $notice['title'] ?>" />
 
 
