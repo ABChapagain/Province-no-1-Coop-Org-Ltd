@@ -76,6 +76,7 @@ td a img {
   
   display: flex;
   gap: 1rem;
+  height: 400px;
 }
 
 
@@ -104,3 +105,39 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+.pdf img{
+            width: 100px;
+            /* height: 120px; */
+            height:100%
+        }
+        
+.pdf{
+    position: relative;
+}
+      .overlay{
+        /* display: none; */
+
+        /* opacity: 0; */
+        visibility: hidden;
+
+        position: absolute;
+        bottom: 1%;
+        border-radius: 0px 0px 10px 10px;
+        text-align: center;
+        height: 30%;
+        width: 100%;
+        background-color:rgba(0, 0, 0,0.5) !important;
+        transition: all;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+
+      }
+
+   .pdf_img:hover + .overlay,
+   .overlay:hover{
+        /* opacity: 1; */
+        visibility: visible;
+
+      }

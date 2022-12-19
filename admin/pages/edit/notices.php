@@ -3,12 +3,12 @@ include "../../includes.php";
 
 
 $id = $_GET['id'];
-$sql = "select * from reports where id='$id'";
+$sql = "select * from notices where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
 
-$sql = "select * from reports_list where report_id='$id'";
-$files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+$sql = "select * from notice_images where id='$id'";
+$images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
 
@@ -16,11 +16,11 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     <div class="items">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Edit Reports</h3>
+                <h3 class="card-title">Edit Notice</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" enctype="multipart/form-data" action="reports_post.php?id=<?php echo $id ?>">
+            <form method="POST" enctype="multipart/form-data" action="notices_post.php?id=<?php echo $id ?>">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -39,15 +39,23 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         </div>
                     </div>
 
-
+                    <!-- <div class="form-group">
+                        <label for="image">Featured Image</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <label class="custom-file-label" for="featured_image"> Replace image</label>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <div class="form-group">
-                        <label for="file">Files</label>
+                        <label for="image">Gallery</label>
                         <div class="input-group">
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="file" name="files[]" multiple>
-                                <label class="custom-file-label" for="file"> Add new files</label>
+                                <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
+                                <label class="custom-file-label" for="image"> Add new images</label>
                             </div>
                         </div>
                     </div>
@@ -64,51 +72,25 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         </div>
                         <!-- /.input group -->
                     </div>
-
-
                 </div>
                 <!-- /.card-body -->
-
-
-
-
                 <div class="card-footer">
                     <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>
 
-        <div class="files">
-            <span class="font-weight-bold">Files:</span>
-            <?php foreach ($files as $file) :
+        <div class="image-preview mt-3">
+            <?php foreach ($images as $image) :
             ?>
-                <div class="file-collection">
-                    <div class="del_button hide_del_button">
-                        <button class="btn btn-danger">delete</button>
-                    </div>
-                    <div class="file">
-                        <div class="link">
-                            <div class="pdf">
-                                <div class="pdf_img">
-                                    <a target="_blank" class="file" href="<?php echo report_url . $file['name'] ?>">
-                                        <img class="" src="<?php echo url ?>dist/img/pdf.png" alt="" height="50px">
-                                    </a>
-                                </div>
-                                <div class="overlay">
-
-                                    <button style="width:100%; border-radius:50%" class="btn btn-danger" onclick="deleteReportFile( <?php echo $id ?>,'<?php echo $file['name'] ?>')"><i class="fas fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="file_name">
-                            <span><?php echo $file['name'] ?></span>
-                        </div>
-
+                <div class="position-relative">
+                    <div class="image">
+                        <a href="<?php echo notice_url . $image['image'] ?>" data-toggle="lightbox" data-title="<button class='btn btn-danger' onclick='deleteNoticeImage(<?php echo $image['id'] ?>,`<?php echo $image['image'] ?>`)'>Delete</button>">
+                            <img src="<?php echo notice_url . $image['image'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
+                        </a>
                     </div>
                 </div>
-
-            <?php endforeach;
-            ?>
+            <?php endforeach; ?>
         </div>
     </div>
 
@@ -118,7 +100,7 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     ?>
 
     <script>
-        changeDatePickerData("<?php echo $rows['start_popup'] ?>", "<?php echo $rows['end_popup'] ?>")
+        changeDatePickerData("<?php echo $rows['popup_start_date'] ?>", "<?php echo $rows['popup_end_date'] ?>")
     </script>
 
     <?php
