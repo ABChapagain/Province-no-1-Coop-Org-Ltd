@@ -11,8 +11,7 @@ $popupdate = explode("-", $popupdate);
 $popup_start = $popupdate[0];
 $popup_end = $popupdate[1];
 
-echo $popup_end;
-echo $popup_start;
+
 $sql = "update notices set title='$title', description='$description',short_description='$short_description',popup_start_date='$popup_start',popup_end_date='$popup_end' where id='$id'";
 if ($conn->query($sql)) {
     // if (strlen($_FILES['featured_img']['name']) > 0) {
@@ -34,7 +33,7 @@ if ($conn->query($sql)) {
             // Upload file
             $filename = uniqid() . ".jpg";
             move_uploaded_file($_FILES['img']['tmp_name'][$i],  notice_upload . $filename);
-            $sql = "insert into event_images (id,name) values('$id','$filename')";
+            $sql = "insert into notice_images (id,image) values('$id','$filename')";
             $conn->query($sql);
         }
     $_SESSION['notice_updated'] = "successful";

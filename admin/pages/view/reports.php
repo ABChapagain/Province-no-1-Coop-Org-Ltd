@@ -31,7 +31,7 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     <?php echo $rows['short_description'] ?>
                 </div>
                 <hr>
-                
+
                 <div class="Description">
                     <span class="font-weight-bold">Description:</span>
                     <div class="card-body">
@@ -68,14 +68,23 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                             </div>
                             <div class="file">
                                 <div class="link">
-                                    <a target="_blank" class="file" href="<?php echo report_url . $file['name'] ?>">
-                                        <i class="fas fa-file fa-3x"></i>
-
+                                    <div class="pdf">
+                                        <div class="pdf_img">
+                                            <a target="_blank" class="file" href="<?php echo report_url . $file['name'] ?>">
+                                                <img class="" src="<?php echo url ?>dist/img/pdf.png" alt="" height="50px">
+                                            </a>
+                                        </div>
+                                        <!-- <div class="overlay">
+                                            <?php //$name = $file['name'] 
+                                            ?>
+                                            <button class="btn btn-danger" onclick="deleteReportFile( <?php echo $id ?>,'<?php echo $name ?>')">del</button>
+                                        </div> -->
+                                    </div>
                                 </div>
                                 <div class="file_name">
                                     <span><?php echo $file['name'] ?></span>
                                 </div>
-                                </a>
+
                             </div>
                         </div>
 

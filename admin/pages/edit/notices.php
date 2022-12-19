@@ -20,7 +20,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" enctype="multipart/form-data" action="events_post.php?id=<?php echo $id ?>">
+            <form method="POST" enctype="multipart/form-data" action="notices_post.php?id=<?php echo $id ?>">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -85,7 +85,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             ?>
                 <div class="position-relative">
                     <div class="image">
-                        <a href="<?php echo notice_url . $image['image'] ?>" data-toggle="lightbox" data-title="<button class='btn btn-danger' onclick='deleteEventImage(<?php echo $image['id'] ?>,`<?php echo $image['image'] ?>`)'>Delete</button>">
+                        <a href="<?php echo notice_url . $image['image'] ?>" data-toggle="lightbox" data-title="<button class='btn btn-danger' onclick='deleteNoticeImage(<?php echo $image['id'] ?>,`<?php echo $image['image'] ?>`)'>Delete</button>">
                             <img src="<?php echo notice_url . $image['image'] ?>" width=" 80px" class="img-fluid mb-2" alt="image" />
                         </a>
                     </div>
@@ -100,7 +100,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     ?>
 
     <script>
-        changeDatePickerData("<?php echo $rows['start_popup'] ?>", "<?php echo $rows['end_popup'] ?>")
+        changeDatePickerData("<?php echo $rows['popup_start_date'] ?>", "<?php echo $rows['popup_end_date'] ?>")
     </script>
 
     <?php

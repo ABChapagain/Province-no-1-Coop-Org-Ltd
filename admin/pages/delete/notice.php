@@ -12,7 +12,7 @@ $sql = "delete from notices where id='$id'";
 if ($conn->query($sql)) {
     $_SESSION['notice_deleted'] = "successful";
     foreach ($result as $key) {
-        unlink(notice_upload . $key['name']);
+        unlink(notice_upload . $key['image']);
     }
 } else {
     $_SESSION['notice_deleted'] = "error";

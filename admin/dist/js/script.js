@@ -130,6 +130,23 @@ async function deleteProductImage(id, name) {
   }
 }
 
+//delete report
+async function deleteReportFile(id, name) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    $.ajax({
+      type: "post",
+      url: "../../ajax/delete_report_pdf.php",
+      data: { id: id, name: name },
+      success: function (response) {
+        location.reload();
+      },
+    });
+  }
+}
+
+
+
 async function deleteEventImage(id, name) {
   const result = await deleteConfirmation();
   if (result.isConfirmed) {
@@ -143,6 +160,23 @@ async function deleteEventImage(id, name) {
     });
   }
 }
+
+//notice image
+
+async function deleteNoticeImage(id, name) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    $.ajax({
+      type: "post",
+      url: "../../ajax/delete_notice_image.php",
+      data: { id: id, name: name },
+      success: function (response) {
+        location.reload();
+      },
+    });
+  }
+}
+
 
 //data tables
 $("table#example1")
@@ -173,6 +207,8 @@ $("#summernote").summernote({
   ],
 });
 
+
+////////////////////////////////////
 //date range picker
 const datePickerdata = {
   locale: {
@@ -190,6 +226,9 @@ const datePicker = function () {
   $("#reservation").daterangepicker(datePickerdata);
 };
 datePicker();
+////////////////////////////////////
+
+
 
 //file upload
 $(".custom-file-input").on("change", function () {
@@ -207,3 +246,6 @@ $(".file-collection").hover(
     $(".del-button").addClass("hide_del_button");
   }
 );
+
+
+
