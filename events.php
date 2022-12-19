@@ -57,14 +57,17 @@ if ($res->num_rows !== 0) {
                     <div class="blog-content">
                         <h2><a href="event.php?id=<?php echo $event['id'] ?>"><?php echo $event['title'] ?></a></h2>
                         <div class="blog-date-categori">
-                            <ul>
-                                <li>October 14, 2018 </li>
-                                <li>Admin</li>
-                            </ul>
+                            <li><?php echo date('F d, Y', strtotime('2022-12-17')) ?></li>
                         </div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicin sed do eiusmod tempor incididunt ut labore
-                        dolore mag aliqua. Ut enim ad minim veniam</p>
+                    <?php
+                            $description = $event['short_description'];
+                            if (strlen($description) > 150) {
+                                $description = trim(substr($description, 0, 150));
+                                $description .= "...";
+                            }
+                            ?>
+                    <p><?php echo $description ?></p>
                     <div class="blog-btn-social mt-30">
                         <div class="blog-btn">
                             <a href="event.php?id=<?php echo $event['id'] ?>">Read more</a>

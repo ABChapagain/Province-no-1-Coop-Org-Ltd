@@ -75,10 +75,16 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     <div class="pro-dec-categories">
                         <ul>
                             <li class="categories-title">Tags: </li>
-                            <li><a href="#"> Oolong, </a></li>
-                            <li><a href="#"> Pu'erh,</a></li>
-                            <li><a href="#"> Dark,</a></li>
-                            <li><a href="#"> Special </a></li>
+
+                            <?php
+                                    $tags = explode(",", $result['tags']);
+                                    foreach ($tags as $tag) {
+                                        echo " ";
+                                        echo "<li><a href='#'> $tag, </a></li>";
+                                        echo " ";
+                                    }
+                                    ?>
+
                         </ul>
                     </div>
                     <div class="pro-dec-social">
@@ -116,12 +122,13 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     <div class="product-anotherinfo-wrapper">
                         <ul>
                             <li><span>Tags:</span></li>
-                            <li><a href="#"> Green,</a></li>
-                            <li><a href="#"> Herbal,</a></li>
-                            <li><a href="#"> Loose,</a></li>
-                            <li><a href="#"> Mate,</a></li>
-                            <li><a href="#"> Organic ,</a></li>
-                            <li><a href="#"> special</a></li>
+                            <?php
+                                    foreach ($tags as $tag) {
+                                        echo " ";
+                                        echo "<li><a href='#'> $tag, </a></li>";
+                                        echo " ";
+                                    }
+                                    ?>
                         </ul>
                     </div>
                 </div>
