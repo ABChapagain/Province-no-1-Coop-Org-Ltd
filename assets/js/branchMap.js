@@ -1,43 +1,40 @@
-const branches = []
-// Create an XMLHttpRequest object
-var xhr = new XMLHttpRequest()
+fetch('ajax/branches.php')
+  .then((response) => response.json())
+  .then((branches) => initMap(branches))
+  .catch((error) => console.log(error))
 
-// Set the callback function
-xhr.onreadystatechange = function () {
-  if (xhr.readyState == 4 && xhr.status == 200) {
-    // Process the response
-    let response = JSON.parse(xhr.responseText)
-    branches.push(...response)
+const initMap = (branches) => {
+  let coords = []
+  let names = []
+  let address = []
+  for (var i = 0; i < branches.length; i++) {
+    let lat = Number(branches[i].coords.split(',')[0])
+    let long = Number(branches[i].coords.split(',')[1])
+    coords.push([lat, long])
+    names.push(branches[i].name)
+    address.push(branches[i].address)
   }
-}
 
-// Set the request URL and send the request
-xhr.open('POST', 'ajax/branches.php', true)
-xhr.send()
+  var map = L.map('mapId').setView([27.1027, 87.2975], 9)
 
-console.log(branches)
-var map = L.map('mapId').setView([27.1027, 87.2975], 9)
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: `&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>`,
+  }).addTo(map)
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: `&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>`,
-}).addTo(map)
+  for (let i = 0; i < branches.length; i++) {
+    // popups
+    var popups = L.popup({
+      closeOnClick: true,
+    }).setContent(address[i])
 
-let len = branches.length
-console.log(len)
+    // markers
+    var marker = L.marker(coords[i]).addTo(map).bindPopup(popups)
 
-for (let i = 0; i < len; i++) {
-  // popups
-  var popups = L.popup({
-    closeOnClick: true,
-  }).setContent(address[i])
-
-  // markers
-  var marker = L.marker(coords[i]).addTo(map).bindPopup(popups)
-
-  // labels
-  var toollip = L.tooltip({
-    parmanent: true,
-  }).setContent(names[i])
-  marker.bindTooltip(toollip)
+    // labels
+    var toollip = L.tooltip({
+      parmanent: true,
+    }).setContent(names[i])
+    marker.bindTooltip(toollip)
+  }
 }
