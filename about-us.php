@@ -123,30 +123,10 @@ if ($res->num_rows !== 0) {
                 <div class="section-title-wrap style-two text-center">
                     <h3 class="section-title">Branch Locator</h3>
                 </div>
-                <div class="my-5">
-                    <input type="search" placeholder="Search Branch...">
+                <div class="my-5" id="branchesInfoContainer">
+
                 </div>
 
-                <?php
-                $sql = "SELECT * FROM branches";
-                $res = $conn->query($sql);
-                $branches = $res->fetch_all(MYSQLI_ASSOC);
-
-                foreach ($branches as $branch) :
-                ?>
-                <div class="col-12 px-3">
-                    <h5><?php echo $branch['name'] ?></h5>
-                    <h5><?php echo $branch['address'] ?></h5>
-                    <a href="#">
-                        <h5 class="text-green"><?php echo $branch['phone'] ?></h5>
-                    </a>
-                    <!-- <h5><?php echo $branch['email'] ?></h5> -->
-                    <h5>email</h5>
-                </div>
-                <hr>
-                <?php
-                endforeach;
-                ?>
             </div>
             <div class="col-8">
                 <div id="mapId" style="height: 100%; width: 100%"></div>
@@ -203,7 +183,72 @@ if ($res->num_rows !== 0) {
 </div>
 <!-- Testimonial Area End -->
 
+<script>
+fetch('ajax/branches.php')
+    .then((response) => response.json())
+    .then((branches) => initMap(branches))
+    .catch((error) => console.log(error))
 
+const initMap = (branches) => {
+    const branchesInfoContainer = document.querySelector('#branchesInfoContainer')
+
+    let branchesInfoHtml = ``
+
+    branches.forEach((branch) => {
+        branchesInfoHtml += `<div class="col-12 px-3" id="branchesInfo-${branch.id}">
+                        <h5>${branch.name}</h5>
+                        <h5>${branch.address}</h5>
+                        <a href="#">
+                            <h5 class="text-green">${branch.phone}</h5>
+                        </a>
+                    </div>
+                    <hr>`
+    })
+
+    branchesInfoContainer.innerHTML = branchesInfoHtml
+
+    let coords = []
+    let names = []
+    let address = []
+    for (var i = 0; i < branches.length; i++) {
+        let lat = Number(branches[i].coords.split(',')[0])
+        let long = Number(branches[i].coords.split(',')[1])
+        coords.push([lat, long])
+        names.push(branches[i].name)
+        address.push(branches[i].address)
+    }
+
+    var map = L.map('mapId').setView([27.1027, 87.2975], 9)
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: `&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>`,
+    }).addTo(map)
+
+    for (let i = 0; i < branches.length; i++) {
+        const branchesInfo = document.querySelector(
+            `#branchesInfo-${branches[i].id}`
+        )
+        // popups
+        var popups = L.popup({
+            closeOnClick: true,
+        }).setContent(address[i])
+
+        // markers
+        var marker = L.marker(coords[i]).addTo(map).bindPopup(popups)
+
+        // labels
+        var toollip = L.tooltip({
+            parmanent: true,
+        }).setContent(names[i])
+        marker.bindTooltip(toollip)
+
+        branchesInfo.addEventListener('mouseover', () => {
+            map.flyTo(coords[i], 12)
+        })
+    }
+}
+</script>
 
 <?php
 
