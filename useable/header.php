@@ -23,7 +23,14 @@
     <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <link rel="stylesheet" href="plugins/leaflet/leaflet.css">
+    <script src="plugins/leaflet/leaflet.js"></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script> -->
+    <script src=" assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
 </head>
 
 <body>

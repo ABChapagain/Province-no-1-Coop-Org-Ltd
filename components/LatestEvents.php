@@ -33,11 +33,17 @@ if ($res->num_rows !== 0) {
                         </a>
                     </div>
                     <div class="blog-content">
-                        <span class="blog-date">October 14, 2018</span>
+                        <span class="blog-date"><?php echo date('F d, Y', strtotime($event['posted_date'])) ?></span>
                         <h3><a href="event.php?id=<?php echo $event['id'] ?>"><?php echo $event['title'] ?></a></h3>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius tempor incididunt ut
-                        labore et dolore</p>
+                    <?php
+                            $description = $event['short_description'];
+                            if (strlen($description) > 150) {
+                                $description = trim(substr($description, 0, 150));
+                                $description .= "...";
+                            }
+                            ?>
+                    <p><?php echo $description ?></p>
                     <div class="blog-btn-social mt-30">
                         <div class="blog-btn">
                             <a href="event.php?id=<?php echo $event['id'] ?>">read more</a>

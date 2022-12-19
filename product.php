@@ -18,7 +18,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 ?>
 
 <!-- Breadcrumb Area Start -->
-<!-- <div class="breadcrumb-area bg-image-3 ptb-150"
+<div class="breadcrumb-area bg-image-3 ptb-150"
     style="background: url('uploads/products/<?php echo $images[0]['name'] ?>') no-repeat center center/cover;">
     <div class="container">
         <div class="breadcrumb-content text-center">
@@ -26,11 +26,10 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="products.php">Products</a></li>
-                <li class="active"><?php echo $result['name'] ?></li>
             </ul>
         </div>
     </div>
-</div> -->
+</div>
 <!-- Breadcrumb Area End -->
 
 <!-- Product Deatils Area Start -->
@@ -132,59 +131,13 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                         </ul>
                     </div>
                 </div>
-                <div id="des-details3" class="tab-pane">
-                    <div class="rattings-wrapper">
-                        <div class="sin-rattings">
-                            <div class="star-author-all">
-                                <div class="ratting-star f-left">
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <span>(5)</span>
-                                </div>
-                                <div class="ratting-author f-right">
-                                    <h3>Potanu Leos</h3>
-                                    <span>12:24</span>
-                                    <span>9 March 2018</span>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
-                                sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Utenim ad minim veniam, quis nost.</p>
-                        </div>
-                        <div class="sin-rattings">
-                            <div class="star-author-all">
-                                <div class="ratting-star f-left">
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <i class="ion-star theme-color"></i>
-                                    <span>(5)</span>
-                                </div>
-                                <div class="ratting-author f-right">
-                                    <h3>Kahipo Khila</h3>
-                                    <span>12:24</span>
-                                    <span>9 March 2018</span>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
-                                sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Utenim ad minim veniam, quis nost.</p>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 <div class="product-area pb-100">
     <div class="container">
@@ -194,184 +147,50 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             </div>
         </div>
         <div class="featured-product-active hot-flower owl-carousel product-nav">
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img alt="" src="assets/img/product/handicraft/IMG_3785-min.jpg">
-                    </a>
-                    <span>-30%</span>
-                    <div class="product-action">
-                        <a class="action-wishlist" href="#" title="Wishlist">
-                            <i class="ion-android-favorite-outline"></i>
-                        </a>
-                        <a class="action-cart" href="#" title="Add To Cart">
-                            <i class="ion-ios-shuffle-strong"></i>
-                        </a>
-                        <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                            title="Quick View">
-                            <i class="ion-ios-search-strong"></i>
-                        </a>
-                    </div>
+
+            <?php
+
+                    $sql = "SELECT * from products where category = '$result[category]' AND id <> $result[id]";
+
+                    $res = $conn->query($sql);
+
+                    $products = $res->fetch_all(MYSQLI_ASSOC);
+
+
+                    foreach ($products as $product) :
+                        $sql = "SELECT * FROM product_image WHERE id = $product[id] AND featured = 1";
+                        $res = $conn->query($sql);
+                        $image = $res->fetch_all(MYSQLI_ASSOC);
+
+                    ?>
+            <div class="product-wrapper mb-30 shadow rounded">
+                <div class='rounded'>
+                    <img alt='Product' class='product-image' width='100%'
+                        src='./uploads/products/<?php echo $image[0]['name'] ?>' />
                 </div>
-                <div class="product-content text-left">
-                    <div class="product-hover-style">
-                        <div class="product-title">
-                            <h4>
-                                <a href="product-details.html">Le Bongai Tea</a>
-                            </h4>
-                        </div>
-                        <div class="cart-hover">
-                            <h4><a href="product-details.html">+ Add to cart</a></h4>
-                        </div>
-                    </div>
-                    <div class="product-price-wrapper">
-                        <span>$100.00 -</span>
-                        <span class="product-price-old">$120.00 </span>
-                    </div>
+                <div class='blog-content px-2 py-3'>
+                    <h4>
+                        <?php echo $product['name'] ?>
+                    </h4>
+
+                    <?php
+                                $description = $product['short_description'];
+                                if (strlen($description) > 100) {
+                                    $description = trim(substr($description, 0, 100));
+                                    $description .= "...";
+                                }
+                                ?>
+
+                    <p><?php echo $description ?></p>
+                    <a class='action-compare' href='product.php?id=<?php echo $product['id'] ?>'>
+                        Read More
+                    </a>
                 </div>
             </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img alt="" src="assets/img/product/handicraft/IMG_3785-min.jpg">
-                    </a>
-                    <div class="product-action">
-                        <a class="action-wishlist" href="#" title="Wishlist">
-                            <i class="ion-android-favorite-outline"></i>
-                        </a>
-                        <a class="action-cart" href="#" title="Add To Cart">
-                            <i class="ion-ios-shuffle-strong"></i>
-                        </a>
-                        <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                            title="Quick View">
-                            <i class="ion-ios-search-strong"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="product-content text-left">
-                    <div class="product-hover-style">
-                        <div class="product-title">
-                            <h4>
-                                <a href="product-details.html">Society Ice Tea</a>
-                            </h4>
-                        </div>
-                        <div class="cart-hover">
-                            <h4><a href="product-details.html">+ Add to cart</a></h4>
-                        </div>
-                    </div>
-                    <div class="product-price-wrapper">
-                        <span>$100.00 -</span>
-                        <span class="product-price-old">$120.00 </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img alt="" src="assets/img/product/handicraft/IMG_3785-min.jpg">
-                    </a>
-                    <span>-30%</span>
-                    <div class="product-action">
-                        <a class="action-wishlist" href="#" title="Wishlist">
-                            <i class="ion-android-favorite-outline"></i>
-                        </a>
-                        <a class="action-cart" href="#" title="Add To Cart">
-                            <i class="ion-ios-shuffle-strong"></i>
-                        </a>
-                        <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                            title="Quick View">
-                            <i class="ion-ios-search-strong"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="product-content text-left">
-                    <div class="product-hover-style">
-                        <div class="product-title">
-                            <h4>
-                                <a href="product-details.html">Green Tea Tulsi</a>
-                            </h4>
-                        </div>
-                        <div class="cart-hover">
-                            <h4><a href="product-details.html">+ Add to cart</a></h4>
-                        </div>
-                    </div>
-                    <div class="product-price-wrapper">
-                        <span>$100.00 -</span>
-                        <span class="product-price-old">$120.00 </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img alt="" src="assets/img/product/handicraft/IMG_3785-min.jpg">
-                    </a>
-                    <div class="product-action">
-                        <a class="action-wishlist" href="#" title="Wishlist">
-                            <i class="ion-android-favorite-outline"></i>
-                        </a>
-                        <a class="action-cart" href="#" title="Add To Cart">
-                            <i class="ion-ios-shuffle-strong"></i>
-                        </a>
-                        <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                            title="Quick View">
-                            <i class="ion-ios-search-strong"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="product-content text-left">
-                    <div class="product-hover-style">
-                        <div class="product-title">
-                            <h4>
-                                <a href="product-details.html">Best Friends Tea</a>
-                            </h4>
-                        </div>
-                        <div class="cart-hover">
-                            <h4><a href="product-details.html">+ Add to cart</a></h4>
-                        </div>
-                    </div>
-                    <div class="product-price-wrapper">
-                        <span>$100.00 -</span>
-                        <span class="product-price-old">$120.00 </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-wrapper">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img alt="" src="assets/img/product/handicraft/IMG_3785-min.jpg">
-                    </a>
-                    <span>-30%</span>
-                    <div class="product-action">
-                        <a class="action-wishlist" href="#" title="Wishlist">
-                            <i class="ion-android-favorite-outline"></i>
-                        </a>
-                        <a class="action-cart" href="#" title="Add To Cart">
-                            <i class="ion-ios-shuffle-strong"></i>
-                        </a>
-                        <a class="action-compare" href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                            title="Quick View">
-                            <i class="ion-ios-search-strong"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="product-content text-left">
-                    <div class="product-hover-style">
-                        <div class="product-title">
-                            <h4>
-                                <a href="product-details.html">Instant Tea Premix</a>
-                            </h4>
-                        </div>
-                        <div class="cart-hover">
-                            <h4><a href="product-details.html">+ Add to cart</a></h4>
-                        </div>
-                    </div>
-                    <div class="product-price-wrapper">
-                        <span>$100.00 -</span>
-                        <span class="product-price-old">$120.00 </span>
-                    </div>
-                </div>
-            </div>
+            <?php
+                    endforeach; ?>
+
+
         </div>
     </div>
 </div>
