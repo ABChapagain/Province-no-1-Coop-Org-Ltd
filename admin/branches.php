@@ -36,6 +36,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                         <th>Name</th>
                                         <th>Address</th>
                                         <th>Phone</th>
+                                        <th>Email</th>
                                         <th>Coordinates</th>
                                         <th>Action</th>
                                     </tr>
@@ -50,6 +51,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                             <td><?php echo $rows['name'] ?> </td>
                                             <td><?php echo $rows['address'] ?> </td>
                                             <td><?php echo $rows['phone'] ?> </td>
+                                            <td><?php echo $rows['email'] ?></td>
                                             <td><?php echo $rows['coords'] ?> </td>
                                             <td>
                                                 <a href="<?php echo url ?>pages/edit/branches.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
