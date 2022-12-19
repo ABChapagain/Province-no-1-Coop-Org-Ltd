@@ -1,7 +1,7 @@
 <?php
 include "./includes.php";
 
-$sql = "select * from events";
+$sql = "select * from vacancy";
 $result = $conn->query($sql);
 $result->fetch_all(MYSQLI_ASSOC);
 ?>
@@ -13,7 +13,7 @@ $result->fetch_all(MYSQLI_ASSOC);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Events</h1>
+                    <h1>Vacancy</h1>
                 </div>
 
             </div>
@@ -28,13 +28,13 @@ $result->fetch_all(MYSQLI_ASSOC);
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
-                        <div class="add-button"> <a href="<?php url ?>pages/add/events.php"> <button class="btn btn-primary">add</button></a></div>
+                        <div class="add-button"> <a href="<?php url ?>pages/add/vacancy.php"> <button class="btn btn-primary">add</button></a></div>
                         <thead>
                             <tr>
                                 <th>Sn.</th>
                                 <th>Title</th>
                                 <th>Short Description</th>
-                                <th>Images</th>
+                                <th>Registration Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -56,24 +56,12 @@ $result->fetch_all(MYSQLI_ASSOC);
                                         ?>
                                     </td>
                                     <td>
-                                        <div>
-                                            <?php
-                                            $sql = "select * from event_images where id=" . $rows['id'];
-                                            $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-                                            foreach ($image as $img) :
-                                            ?>
-                                                <a href="<?php echo event_url . $img['name'] ?>" data-toggle="lightbox" data-title="<?php echo $rows['title'] ?>">
-                                                    <img src="<?php echo event_url . $img['name'] ?>" width="50px" class="img-fluid mb-2" alt="image" />
-                                                </a>
-                                            <?php
-                                            endforeach;
-                                            ?>
-                                        </div>
+                                       <?php echo $rows['starting_date'] ." to ". $rows['termination_date'] ?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo url ?>pages/view/events.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
-                                        <a href="<?php echo url ?>pages/edit/events.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
-                                        <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteEvent(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+                                        <a href="<?php echo url ?>pages/view/vacancy.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
+                                        <a href="<?php echo url ?>pages/edit/vacancy.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
+                                        <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteVacancy(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -99,13 +87,13 @@ $result->fetch_all(MYSQLI_ASSOC);
 
 
 <?php
-if (isset($_SESSION['event_deleted'])) {
-    echo $_SESSION['event_deleted'];
-    if ($_SESSION['event_deleted'] == "successful") {
-        echo "<script>success('success', 'event deleted successfully'); </script>";
+if (isset($_SESSION['vacancy_deleted'])) {
+    echo $_SESSION['vacancy_deleted'];
+    if ($_SESSION['vacancy_deleted'] == "successful") {
+        echo "<script>success('success', 'vacancy deleted successfully'); </script>";
     } else {
-        echo "<script>success('error', 'unable to delete event'); </script>";
+        echo "<script>success('error', 'unable to delete vacancy'); </script>";
     }
-    unset($_SESSION['event_deleted']);
+    unset($_SESSION['vacancy_deleted']);
 }
 ?>
