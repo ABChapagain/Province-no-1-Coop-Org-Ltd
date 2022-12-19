@@ -113,27 +113,12 @@ if ($res->num_rows !== 0) {
 ?>
 
 <!-- Testimonial Area Start -->
-<div class="branch-area pt-100 pb-100">
-    <div class="container">
-        <div class="section-title-wrap style-two text-center mb-50">
-            <h3 class="section-title">Our Branches</h3>
-        </div>
-        <div class="row">
-            <div class="col-4 border p-2" style="height: 700px; overflow-y: scroll;">
-                <div class="section-title-wrap style-two text-center">
-                    <h3 class="section-title">Branch Locator</h3>
-                </div>
-                <div class="my-5" id="branchesInfoContainer">
+<div id="branchesInfoContainer">
 
-                </div>
-
-            </div>
-            <div class="col-8">
-                <div id="mapId" style="height: 100%; width: 100%"></div>
-            </div>
-        </div>
-    </div>
 </div>
+
+
+
 <!-- Testimonial Area End -->
 
 
@@ -192,10 +177,24 @@ fetch('ajax/branches.php')
 const initMap = (branches) => {
     const branchesInfoContainer = document.querySelector('#branchesInfoContainer')
 
-    let branchesInfoHtml = ``
+    let branchesInfoHtml = ''
+    if (branches.length !== 0) {
+        branchesInfoHtml = `<div class="branch-area pt-100 pb-100">
+    <div class="container">
+        <div class="section-title-wrap style-two text-center mb-50">
+            <h3 class="section-title">Our Branches</h3>
+        </div>
+        <div class="row">
+            <div class="col-4 border p-2" style="height: 700px; overflow-y: scroll;">
+                <div class="section-title-wrap style-two text-center">
+                    <h3 class="section-title">Branch Locator</h3>
+                </div>
+                <div class="my-5">
 
-    branches.forEach((branch) => {
-        branchesInfoHtml += `<div class="col-12 px-3" id="branchesInfo-${branch.id}">
+               `
+
+        branches.forEach((branch) => {
+            branchesInfoHtml += `<div class="col-12 px-3" id="branchesInfo-${branch.id}">
                         <h5>${branch.name}</h5>
                         <h5>${branch.address}</h5>
                         <a href="#">
@@ -203,7 +202,19 @@ const initMap = (branches) => {
                         </a>
                     </div>
                     <hr>`
-    })
+        })
+        branchesInfoHtml += `</div>
+
+            </div>
+            <div class="col-8">
+                <div id="mapId" style="height: 100%; width: 100%"></div>
+            </div>
+            </div>
+</div>
+</div>`;
+
+    }
+
 
     branchesInfoContainer.innerHTML = branchesInfoHtml
 
@@ -222,7 +233,7 @@ const initMap = (branches) => {
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: `&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>`,
+        attribution: ` & copy; < a href = 'http://www.openstreetmap.org/copyright' > OpenStreetMap < /a>`,
     }).addTo(map)
 
     for (let i = 0; i < branches.length; i++) {
