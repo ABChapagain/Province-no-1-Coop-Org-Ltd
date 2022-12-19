@@ -206,55 +206,7 @@ if ($res->num_rows !== 0) {
 
 
 
-
 <?php
-echo "<script>
-var map = L.map('mapId').setView([27.1027, 87.2975], 9)
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-maxZoom: 19,
-attribution:
-`&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>`,
-}).addTo(map)";
-
-$coords = [];
-$branch_names = [];
-$branch_addresses = [];
-foreach ($branches as $branch) {
-    array_push($coords, $branch['coords']);
-}
-echo "
-
-let coords = [
-[26.6412, 87.8879],
-[26.651, 87.708],
-[26.6584, 87.2733],
-]
-let names = ['Surunga Branch', 'Damak Branch', 'Itahari Branch'];
-let address = ['Surunga', 'Damak', 'Itahari'];
-";
-
-echo "
-let len = coords.length
-
-for (let i = 0; i < len; i++) {
-  // popups
-    var popups = L.popup({
-        closeOnClick: true
-    }).setContent(address[i])
-
-    // markers
-    var marker = L.marker(coords[i]).addTo(map).bindPopup(popups);
-
-    // labels
-    var toollip = L.tooltip({
-        parmanent: true,
-    }).setContent(names[i]);
-    marker.bindTooltip(toollip);
-
-  
-}
-</script>";
 
 require_once('./components/Footer.php');
 
