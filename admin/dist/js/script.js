@@ -114,6 +114,13 @@ const deleteNotice = async function (id) {
   }
 };
 
+//delete vacancy
+const deleteVacancy = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/vacancy.php?id=${id}`);
+  }
+};
 
 //delete image
 async function deleteProductImage(id, name) {
@@ -145,8 +152,6 @@ async function deleteReportFile(id, name) {
   }
 }
 
-
-
 async function deleteEventImage(id, name) {
   const result = await deleteConfirmation();
   if (result.isConfirmed) {
@@ -177,7 +182,6 @@ async function deleteNoticeImage(id, name) {
   }
 }
 
-
 //data tables
 $("table#example1")
   .DataTable({
@@ -203,10 +207,10 @@ $("#summernote").summernote({
     ["fontsize", ["fontsize"]],
     ["color", ["color"]],
     ["insert", ["link"]],
+    ["para", ["ul", "ol", "paragraph"]],
     ["view", ["fullscreen", "codeview", "help"]],
   ],
 });
-
 
 ////////////////////////////////////
 //date range picker
@@ -228,8 +232,6 @@ const datePicker = function () {
 datePicker();
 ////////////////////////////////////
 
-
-
 //file upload
 $(".custom-file-input").on("change", function () {
   var fileName = $(this).val().split("\\").pop();
@@ -246,6 +248,3 @@ $(".file-collection").hover(
     $(".del-button").addClass("hide_del_button");
   }
 );
-
-
-

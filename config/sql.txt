@@ -1,3 +1,4 @@
-alter table notices add short_description varchar(500);
-create table notice_images (notice_id int primary key AUTO_INCREMENT, id int , image varchar(50));
-alter table notice_images add constraint notice_id foreign key(id) references notices(id);
+alter table vacancy add start_popup_date date;
+alter table vacancy add end_popup_date date;
+alter table vacancy add short_description varchar(500);
+alter table branches add email varchar(50);
