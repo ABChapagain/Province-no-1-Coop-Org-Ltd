@@ -16,7 +16,7 @@
                                     Foundation
                                     Pvt. Ltd.’ has long established its roots in Nepalese.
                                 </p>
-                                <div id="map" style="height: 200px;"></div>
+                                <!-- <div id="map" style="height: 200px;"></div> -->
                             </div>
 
                         </div>
@@ -88,9 +88,9 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/branchMap.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script> -->
 
-    <script>
+    <!-- <script>
 function init() {
     var mapOptions = {
         zoom: 11,
@@ -327,7 +327,7 @@ function init() {
     })
 }
 google.maps.event.addDomListener(window, 'load', init)
-    </script>
+    </script> -->
     <script src="assets/js/main.js"></script>
     </body>
 
