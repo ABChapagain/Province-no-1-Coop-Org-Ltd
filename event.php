@@ -37,7 +37,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 <!-- blog-area start -->
 <div class="blog-page-area ptb-100">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-9 col-md-8">
                 <div class="blog-details-wrapper">
                     <div class="single-blog-wrapper">
@@ -48,7 +48,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                         <div class="blog-content">
                             <h2><?php echo $result['title'] ?></h2>
                             <div class="blog-date-categori">
-                                <li><?php echo date('F d, Y', strtotime('2022-12-17')) ?></li>
+                                <li><?php echo date('F d, Y', strtotime($result['posted_date'])) ?></li>
                             </div>
                         </div>
                         <p style="text-align: justify;">
@@ -93,22 +93,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-xl-3 col-md-4">
-                <div class="blog-sidebar-wrapper sidebar-mrg">
-                    <div class="blog-widget mb-35">
-                        <h4 class="blog-widget-title mb-20">follow us </h4>
-                        <div class="blog-sidebar-social">
-                            <ul>
-                                <li><a href="#"><i class="ion-social-instagram"></i></a></li>
-                                <li><a href="#"><i class="ion-social-skype"></i></a></li>
-                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
         </div>
     </div>
 </div>

@@ -57,7 +57,7 @@ if ($res->num_rows !== 0) {
                     <div class="blog-content">
                         <h2><a href="event.php?id=<?php echo $event['id'] ?>"><?php echo $event['title'] ?></a></h2>
                         <div class="blog-date-categori">
-                            <li><?php echo date('F d, Y', strtotime('2022-12-17')) ?></li>
+                            <li><?php echo date('F d, Y', strtotime($event['posted_date'])) ?></li>
                         </div>
                     </div>
                     <?php
