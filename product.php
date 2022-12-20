@@ -83,7 +83,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                     $tags = explode(",", $result['tags']);
                                     foreach ($tags as $tag) {
                                         echo " ";
-                                        echo "<li><a href='#'> $tag, </a></li>";
+                                        echo "<li><a style='text-transform: capitalize;'  href='#'> $tag, </a></li>";
                                         echo " ";
                                     }
                                     ?>
@@ -127,7 +127,9 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             <div class="tab-content description-review-bottom">
                 <div id="des-details1" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <?php echo $result['description'] ?>
+                        <p>
+                            <?php echo $result['description'] ?>
+                        </p>
                     </div>
                 </div>
                 <div id="des-details2" class="tab-pane">

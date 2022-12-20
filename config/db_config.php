@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Kathmandu');
+
 $db_name = 'province';
 $host = 'localhost';
 $password = "";

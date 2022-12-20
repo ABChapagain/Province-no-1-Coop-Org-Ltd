@@ -31,7 +31,6 @@ require_once('./config/db_config.php');
         if ($result->num_rows > 0) {
 
         ?>
-        <h3 class="page-title">Your Reports</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="table-content table-responsive wishlist">
@@ -54,7 +53,8 @@ require_once('./config/db_config.php');
                                 <td><?php echo date('F d, Y', strtotime($report['published_date'])) ?>
                                 </td>
                                 <td class="product-wishlist-cart">
-                                    <a href="#">Download</a>
+                                    <a target="_blank"
+                                        href="./uploads/reports/<?php echo $report['file_name'] ?>">Download</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
