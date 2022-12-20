@@ -51,9 +51,6 @@
                                         <li><a href="about-us.php">About Us</a></li>
                                         <li><a href="products.php">Products</a></li>
                                         <li class="top-hover">
-                                            <a href="contact-us.php">contact</a>
-                                        </li>
-                                        <li class="top-hover">
                                             <a href="notice.php">notice</a>
                                         </li>
                                         <li class="top-hover">
@@ -61,6 +58,9 @@
                                         </li>
                                         <li class="top-hover">
                                             <a href="reports.php">reports</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a href="contact-us.php">contact</a>
                                         </li>
                                         <li class="top-hover">
                                             <a class="btn py-3 px-4 rounded text-white bg-project"
@@ -79,11 +79,11 @@
                                 <li><a href="index.php">HOME</a></li>
                                 <li><a href="about-us.php">About Us</a></li>
                                 <li><a href="products.php">Products</a></li>
-                                <li><a href="contact-us.php">contact</a></li>
                                 <li><a href="notice.php">notice</a></li>
                                 <li><a href="events.php">events</a></li>
                                 <li><a href="reports.php">reports</a></li>
                                 <li><a href="career.php">career</a></li>
+                                <li><a href="contact-us.php">contact</a></li>
                             </ul>
                         </nav>
                     </div>
