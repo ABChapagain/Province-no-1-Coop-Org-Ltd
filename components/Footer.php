@@ -28,11 +28,13 @@
                             </div>
                             <div class="footer-content">
                                 <ul>
+                                    <li><a href="products.php">Products</a></li>
                                     <li><a href="about-us.php">About Us</a></li>
                                     <li><a href="message-from-ceo.php">Message From CEO</a></li>
                                     <li><a href="notice.php">Notice</a></li>
                                     <li><a href="events.php">Events</a></li>
-                                    <li><a href="career.php">Career</a></li>
+                                    <li><a href="reports.php">Reports</a></li>
+                                    <li><a href="careers.php">Career</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -65,7 +67,8 @@
         <div class="footer-bottom pb-25 pt-25 gray-bg-2">
             <div class="container">
                 <div class="copyright">
-                    <p class="copy-text text-center"> © 2022 <strong>Province no. 1 Wholesale Consumer
+                    <p class="copy-text text-center"> © <?php echo date('Y') ?> <strong>Province no. 1 Wholesale
+                            Consumer
                             Specialized
                             Cooperative Union Ltd</strong>. All Rights Reserved.</p>
                     </p>

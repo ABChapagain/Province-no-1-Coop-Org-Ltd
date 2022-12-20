@@ -258,7 +258,9 @@ textarea {
     Input
 *************************/
 
-input {
+input,
+select,
+option {
   background: #eceff8;
   border: 2px solid #eceff8;
   height: 45px;
@@ -268,24 +270,16 @@ input {
   color: #626262;
   width: 100%;
 }
-select {
-  width: 100%;
+input:focus,
+select:focus {
   background: transparent;
-  border: 0px solid #eceff8;
-  box-shadow: none;
-  font-size: 14px;
-  color: #626262;
+  border: 2px solid #519f10;
 }
-option {
-  background: #fff;
-  border: 0px solid #626262;
-  padding-left: 10px;
-  font-size: 14px;
+
+input[type='file'] {
+  padding-top: 6px;
 }
-input:focus {
-  background: transparent;
-  border: 2px solid #4fc1f0;
-}
+
 textarea {
   resize: vertical;
   background: #eceff8;
@@ -296,7 +290,7 @@ textarea {
 }
 textarea:focus {
   background: transparent;
-  border: 2px solid #4fc1f0;
+  border: 2px solid #519f10;
   outline: none;
 }
 .input-group.divcenter.input-group .form-control {
