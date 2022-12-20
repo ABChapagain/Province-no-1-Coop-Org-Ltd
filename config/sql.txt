@@ -1,0 +1,3 @@
+alter table reports add updated_date date;
+drop table reports_list;
+alter table reports add file_name varchar(50);

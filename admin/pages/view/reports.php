@@ -7,8 +7,7 @@ $sql = "select * from reports where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
 
-$sql = "select * from reports_list where report_id='$id'";
-$files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <body>
@@ -60,36 +59,28 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
                 <div class="files">
                     <span class="font-weight-bold">Files:</span>
-                    <?php foreach ($files as $file) :
-                    ?>
-                        <div class="file-collection">
-                            <div class="del_button hide_del_button">
-                                <button class="btn btn-danger">delete</button>
-                            </div>
-                            <div class="file">
-                                <div class="link">
-                                    <div class="pdf">
-                                        <div class="pdf_img">
-                                            <a target="_blank" class="file" href="<?php echo report_url . $file['name'] ?>">
-                                                <img class="" src="<?php echo url ?>dist/img/pdf.png" alt="" height="50px">
-                                            </a>
-                                        </div>
-                                        <!-- <div class="overlay">
-                                            <?php //$name = $file['name'] 
-                                            ?>
-                                            <button class="btn btn-danger" onclick="deleteReportFile( <?php echo $id ?>,'<?php echo $name ?>')">del</button>
-                                        </div> -->
+
+                    <div class="file-collection">
+
+                        <div class="file">
+                            <div class="link">
+                                <div class="pdf">
+                                    <div class="pdf_img">
+                                        <a target="_blank" class="file" href="<?php echo report_url . $rows['file_name'] ?>">
+                                            <img class="" src="<?php echo url ?>dist/img/pdf.png" alt="" height="50px">
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="file_name">
-                                    <span><?php echo $file['name'] ?></span>
-                                </div>
 
+                                </div>
                             </div>
-                        </div>
+                            <div class="file_name">
+                                <span><?php echo $rows['file_name'] ?></span>
+                            </div>
 
-                    <?php endforeach;
-                    ?>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
