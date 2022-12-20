@@ -33,6 +33,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                             <tr>
                                 <th>Sn.</th>
                                 <th>Title</th>
+                                <th>Vacant Seats</th>
                                 <th>Short Description</th>
                                 <th>Registration Date</th>
                                 <th>Action</th>
@@ -46,6 +47,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                 <tr>
                                     <td><?php echo ++$i ?></td>
                                     <td><?php echo $rows['title'] ?> </td>
+                                    <td><?php echo $rows['vacancy_seats'] ?></td>
                                     <td><?php
                                         $description = $rows['short_description'];
                                         if (strlen($description) > 30) {
@@ -56,7 +58,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                         ?>
                                     </td>
                                     <td>
-                                       <?php echo $rows['starting_date'] ." to ". $rows['termination_date'] ?>
+                                        <?php echo $rows['starting_date'] . " to " . $rows['termination_date'] ?>
                                     </td>
                                     <td>
                                         <a href="<?php echo url ?>pages/view/vacancy.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="View applications"><i class="fas fa-book-open"></i></button></a>

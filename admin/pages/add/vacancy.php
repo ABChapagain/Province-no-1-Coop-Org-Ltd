@@ -21,6 +21,11 @@ include "../../includes.php";
                     </div>
 
                     <div class="form-group">
+                        <label for="vacant">Vacant Seats</label>
+                        <input type="text" class="form-control" id="vacant" placeholder="Enter the number of vacant seats" name="vacant">
+                    </div>
+
+                    <div class="form-group">
                         <label for="description">Short Description</label>
                         <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
                     </div>
@@ -31,6 +36,8 @@ include "../../includes.php";
                             <textarea id="summernote" name="description">       </textarea>
                         </div>
                     </div>
+
+
 
                     <!-- <div class="form-group">
                         <label for="image">Featured Image</label>
