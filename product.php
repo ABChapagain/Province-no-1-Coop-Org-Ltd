@@ -2,6 +2,9 @@
 require_once('./useable/header.php');
 require_once('./config/db_config.php');
 
+$current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $product_id = $_GET['id'];
     $sql = "SELECT * FROM products WHERE id = $product_id";
@@ -88,11 +91,20 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     </div>
                     <div class="pro-dec-social">
                         <ul>
-                            <li><a class="tweet" href="#"><i class="ion-social-twitter"></i> Tweet</a></li>
-                            <li><a class="share" href="#"><i class="ion-social-facebook"></i> Share</a></li>
-                            <li><a class="google" href="#"><i class="ion-social-googleplus-outline"></i> Google+</a>
+
                             </li>
-                            <li><a class="pinterest" href="#"><i class="ion-social-pinterest"></i> Pinterest</a></li>
+                            <?php
+                                    $share_url = "https://www.facebook.com/sharer/sharer.php?u=$current_url";
+                                    ?>
+                            <li><a class="share" href="<?php echo $share_url ?>"><i class="ion-social-facebook"></i>
+                                    Share</a></li>
+                            <?php
+                                    $share_url = "https://twitter.com/intent/tweet?url=$current_url";
+                                    ?>
+                            <li><a class="tweet" href="<?php echo $share_url ?>"><i class="ion-social-twitter"></i>
+                                    Twitter</a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>

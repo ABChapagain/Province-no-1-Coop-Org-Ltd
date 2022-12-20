@@ -1,4 +1,7 @@
-<?php require_once('./useable/header.php');
+<?php
+require_once('./useable/header.php');
+require_once('./config/db_config.php');
+
 ?>
 
 
@@ -15,6 +18,59 @@
     </div>
 </div>
 <!-- Breadcrumb Area End -->
+
+<!-- shopping-cart-area start -->
+<div class="cart-main-area ptb-100">
+    <div class="container">
+        <?php
+        $sql = "SELECT * FROM reports ORDER BY id DESC";
+        $result = $conn->query($sql);
+        $reports = $result->fetch_all(MYSQLI_ASSOC);
+
+        if ($result->num_rows > 0) {
+
+        ?>
+        <h3 class="page-title">Your Reports</h3>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="table-content table-responsive wishlist">
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Title</th>
+                                <th>Published Date</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                foreach ($reports as $index => $report) :
+                                ?>
+                            <tr>
+                                <td><?php echo $index + 1 ?></td>
+                                <td class="product-name"><?php echo $report['title'] ?></td>
+                                <td><?php echo date('F d, Y', strtotime($report['published_date'])) ?>
+                                </td>
+                                <td class="product-wishlist-cart">
+                                    <a href="#">Download</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <?php
+        } else {
+        ?>
+        <h3>NO REPORTS FOUND</h3>
+        <?php
+        }
+        ?>
+    </div>
+</div>
 
 <?php require_once('./components/Footer.php');
 
