@@ -24,6 +24,12 @@ $rows = $result->fetch_assoc();
                 </div>
                 <hr>
 
+                <div class="vacancy">
+                    <span class="font-weight-bold">Vacant Seats:</span>
+                    <?php echo $rows['vacancy_seats'] ?>
+                </div>
+                <hr>
+
                 <div class="short_description">
                     <span class="font-weight-bold">Short Description:</span>
                     <?php echo $rows['short_description'] ?>
