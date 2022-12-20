@@ -65,6 +65,12 @@
                         <p class="text">Vacancy Notice</p>
                     </a>
                 </li>
+                 <li class="nav-item">
+                    <a href="<?php echo url ?>applications.php" class="nav-link applications">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p class="text">Vacancy Applications</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

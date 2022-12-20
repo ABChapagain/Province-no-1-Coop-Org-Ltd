@@ -104,13 +104,13 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     </script>
 
     <?php
-    if (isset($_SESSION['event_updated'])) {
-        if ($_SESSION['event_updated'] == "successful") {
-            echo "<script>success('success', 'event updated successfully'); </script>";
+    if (isset($_SESSION['notice_updated'])) {
+        if ($_SESSION['notice_updated'] == "successful") {
+            echo "<script>success('success', 'notice updated successfully'); </script>";
         } else {
-            echo "<script>success('error', 'unable to update event'); </script>";
+            echo "<script>success('error', 'unable to update notice'); </script>";
         }
-        unset($_SESSION['event_updated']);
+        unset($_SESSION['notice_updated']);
     }
     ?>
 

@@ -23,9 +23,9 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
                     </div>
 
- <div class="form-group">
+                    <div class="form-group">
                         <label for="short_description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -36,11 +36,11 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     </div>
 
                     <div class="form-group">
-                        <label for="files">Files</label>
+                        <label for="files">File</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="files" name="files[]" multiple>
-                                <label class="custom-file-label" for="files"> Select Files </label>
+                                <input type="file" class="custom-file-input" id="files" name="files" multiple>
+                                <label class="custom-file-label" for="files"> Select File </label>
                             </div>
                         </div>
                     </div>
