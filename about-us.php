@@ -1,5 +1,5 @@
 <?php
-require_once('./useable/header.php');
+require_once('./components/Header.php');
 require_once('./config/db_config.php');
 ?>
 
@@ -197,8 +197,11 @@ const initMap = (branches) => {
             branchesInfoHtml += `<div class="col-12 px-3" id="branchesInfo-${branch.id}">
                         <h5>${branch.name}</h5>
                         <h5>${branch.address}</h5>
-                        <a href="#">
+                        <a href="tel:${branch.phone}">
                             <h5 class="text-green">${branch.phone}</h5>
+                        </a>
+                        <a href="mailto:${branch.email}">
+                            <h5 class="text-green">${branch.email}</h5>
                         </a>
                     </div>
                     <hr>`

@@ -25,10 +25,6 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="plugins/leaflet/leaflet.css">
     <script src="plugins/leaflet/leaflet.js"></script>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script> -->
     <script src=" assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
 </head>
@@ -55,13 +51,16 @@
                                         <li><a href="about-us.php">About Us</a></li>
                                         <li><a href="products.php">Products</a></li>
                                         <li class="top-hover">
-                                            <a href="contact-us.php">contact</a>
-                                        </li>
-                                        <li class="top-hover">
                                             <a href="notice.php">notice</a>
                                         </li>
                                         <li class="top-hover">
                                             <a href="events.php">events</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a href="reports.php">reports</a>
+                                        </li>
+                                        <li class="top-hover">
+                                            <a href="contact-us.php">contact</a>
                                         </li>
                                         <li class="top-hover">
                                             <a class="btn py-3 px-4 rounded text-white bg-project"
@@ -80,10 +79,11 @@
                                 <li><a href="index.php">HOME</a></li>
                                 <li><a href="about-us.php">About Us</a></li>
                                 <li><a href="products.php">Products</a></li>
-                                <li><a href="contact-us.php">contact</a></li>
                                 <li><a href="notice.php">notice</a></li>
                                 <li><a href="events.php">events</a></li>
+                                <li><a href="reports.php">reports</a></li>
                                 <li><a href="career.php">career</a></li>
+                                <li><a href="contact-us.php">contact</a></li>
                             </ul>
                         </nav>
                     </div>
