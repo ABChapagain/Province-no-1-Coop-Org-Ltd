@@ -18,5 +18,10 @@ define("report_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/reports/
 define("notice_url", url . "../uploads/notices/");
 define("notice_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/notices/");
 
+function url()
+{
+    return url;
+}
+
 
 require app . "/../config/db_config.php";
