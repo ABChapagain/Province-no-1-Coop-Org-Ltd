@@ -87,15 +87,9 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                         <input style="width: auto;" type="submit" name="submit" value="Apply Now"
                             class="btn btn-style-2">
                     </div>
-
                 </form>
             </div>
-
         </div>
-
-
-
-
     </div>
 </div>
 
