@@ -1,9 +1,10 @@
 <?php
-require "../../config/config.php";
-
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    require "../../config/config.php";
+    
     //count total files
     $countfiles = count($_FILES['img']['name']);
 

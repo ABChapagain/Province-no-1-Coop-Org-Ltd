@@ -1,7 +1,9 @@
 <?php
-require "../../config/config.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    require "../../config/config.php";
+
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
