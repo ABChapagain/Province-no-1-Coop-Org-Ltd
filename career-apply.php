@@ -84,18 +84,12 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                         <textarea name="cover-letter" id="cover-letter" cols="30" rows="7"></textarea>
                     </div>
                     <div class="mb-3 text-center">
-                        <input style="width: auto;" type="submit" value="Apply Now" class="btn btn-style-2">
-
+                        <input style="width: auto;" type="submit" name="submit" value="Apply Now"
+                            class="btn btn-style-2">
                     </div>
-
                 </form>
             </div>
-
         </div>
-
-
-
-
     </div>
 </div>
 
