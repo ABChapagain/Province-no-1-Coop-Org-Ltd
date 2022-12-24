@@ -91,13 +91,16 @@
 
 
 <?php
-if (isset($_SESSION['report_deleted'])) {
-    echo $_SESSION['report_deleted'];
-    if ($_SESSION['report_deleted'] == "successful") {
-        echo "<script>success('success', 'report deleted successfully'); </script>";
+if (isset($_SESSION['password_changed'])) {
+    if ($_SESSION['password_changed'] == "successful") {
+        echo "<script>success('success', 'password changed successfully'); </script>";
+    } elseif ($_SESSION['password_changed'] == "oldPassword") {
+        echo "<script>success('error', 'old password not matched'); </script>";
+    } elseif ($_SESSION['password_changed'] == "confirmPassword") {
+        echo "<script>success('error', 'confirm password not matched'); </script>";
     } else {
-        echo "<script>success('error', 'unable to delete report'); </script>";
+        echo "<script>success('error', 'sorry could not change the password'); </script>";
     }
-    unset($_SESSION['report_deleted']);
+    unset($_SESSION['password_changed']);
 }
 ?>
