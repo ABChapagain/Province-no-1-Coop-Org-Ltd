@@ -122,6 +122,16 @@ const deleteVacancy = async function (id) {
   }
 };
 
+//delete user
+const deleteUser = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/user.php?id=${id}`);
+  }
+};
+
+
+
 //delete image
 async function deleteProductImage(id, name) {
   const result = await deleteConfirmation();

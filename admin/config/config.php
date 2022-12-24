@@ -18,5 +18,12 @@ define("report_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/reports/
 define("notice_url", url . "../uploads/notices/");
 define("notice_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/notices/");
 
-
 require app . "/../config/db_config.php";
+
+$link = $_SERVER['REQUEST_URI'];
+
+$login = strpos($link, "login");
+
+
+if (!isset($_SESSION['user_name']) && !$login)
+    header("Location:" . url . "login.php");

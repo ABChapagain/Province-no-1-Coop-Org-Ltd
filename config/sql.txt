@@ -1,1 +1,6 @@
 alter table vacancy add vacancy_seats int;
+create table roles (id int primary key AUTO_INCREMENT,role_name varchar(20));
+alter table users add role int;
+alter table users add constraint role_id foreign key (role) references roles(id);
+insert into roles(role_name) VALUES ("admin"),("staff");
+alter table users add email varchar(50);

@@ -1,7 +1,10 @@
 <?php
-require "../../config/config.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    require "../../config/config.php";
+
+
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
     $short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
@@ -22,8 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if ($rowcount == 0) {
-        $sql = "insert into reports (title,description,published_date,start_popup,end_popup,short_description,file_name) values('$title','$description','$today','$popup_start','$popup_end','$short_description','$filename')";
-        if ($conn->query($sql)) {
+        $stmt = $conn->prepare("insert into reports (title,description,published_date,start_popup,end_popup,short_description,file_name) values(?,?,?,?,?,?,?)");
+        $stmt->bind_param("sssssss", $title, $description, $today, $popup_start, $popup_end, $short_description, $filename);
+        if ($stmt->execute()) {
             $_SESSION['reports_added'] = "successful";
         } else {
             $_SESSION['reports_added'] = "unsuccessful";
