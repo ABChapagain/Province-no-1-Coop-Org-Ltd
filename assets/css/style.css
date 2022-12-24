@@ -199,6 +199,17 @@ span.tooltip-content {
   overflow: hidden;
 }
 
+.career-opening {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 10px 0;
+  border-radius: 50%;
+  color: #519f10;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 @media only screen and (min-width: 992px) {
   .container {
     --bs-gutter-x: 15px;
@@ -247,7 +258,9 @@ textarea {
     Input
 *************************/
 
-input {
+input,
+select,
+option {
   background: #eceff8;
   border: 2px solid #eceff8;
   height: 45px;
@@ -257,24 +270,16 @@ input {
   color: #626262;
   width: 100%;
 }
-select {
-  width: 100%;
+input:focus,
+select:focus {
   background: transparent;
-  border: 0px solid #eceff8;
-  box-shadow: none;
-  font-size: 14px;
-  color: #626262;
+  border: 2px solid #519f10;
 }
-option {
-  background: #fff;
-  border: 0px solid #626262;
-  padding-left: 10px;
-  font-size: 14px;
+
+input[type='file'] {
+  padding-top: 6px;
 }
-input:focus {
-  background: transparent;
-  border: 2px solid #4fc1f0;
-}
+
 textarea {
   resize: vertical;
   background: #eceff8;
@@ -285,7 +290,7 @@ textarea {
 }
 textarea:focus {
   background: transparent;
-  border: 2px solid #4fc1f0;
+  border: 2px solid #519f10;
   outline: none;
 }
 .input-group.divcenter.input-group .form-control {
@@ -3680,9 +3685,11 @@ h4.shop-sidebar-title {
     6. Cart page
 -----------------------------*/
 
+.career-area table,
 .cart-main-area table {
   border: 1px solid #ebebeb;
 }
+.career-area .table-content table thead > tr,
 .cart-main-area .table-content table thead > tr {
   background-color: #f9f9f9;
   border: 1px solid #ebebeb;

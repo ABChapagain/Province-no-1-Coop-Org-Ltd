@@ -7,8 +7,6 @@ $sql = "select * from reports where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
 
-$sql = "select * from reports_list where report_id='$id'";
-$files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
 
@@ -46,8 +44,8 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <div class="input-group">
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="file" name="files[]" multiple>
-                                <label class="custom-file-label" for="file"> Add new files</label>
+                                <input type="file" class="custom-file-input" id="file" name="files" multiple>
+                                <label class="custom-file-label" for="file"> Replace File</label>
                             </div>
                         </div>
                     </div>
@@ -77,38 +75,29 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 </div>
             </form>
         </div>
+        <br>
 
         <div class="files">
-            <span class="font-weight-bold">Files:</span>
-            <?php foreach ($files as $file) :
-            ?>
-                <div class="file-collection">
-                    <div class="del_button hide_del_button">
-                        <button class="btn btn-danger">delete</button>
-                    </div>
-                    <div class="file">
-                        <div class="link">
-                            <div class="pdf">
-                                <div class="pdf_img">
-                                    <a target="_blank" class="file" href="<?php echo report_url . $file['name'] ?>">
-                                        <img class="" src="<?php echo url ?>dist/img/pdf.png" alt="" height="50px">
-                                    </a>
-                                </div>
-                                <div class="overlay">
+            <span class="font-weight-bold">File:</span>
 
-                                    <button style="width:100%; border-radius:50%" class="btn btn-danger" onclick="deleteReportFile( <?php echo $id ?>,'<?php echo $file['name'] ?>')"><i class="fas fa-trash"></i></button>
-                                </div>
+            <div class="file-collection">
+                <div class="file">
+                    <div class="link">
+                        <div class="pdf">
+                            <div class="pdf_img">
+                                <a target="_blank" class="file" href="<?php echo report_url . $rows['file_name'] ?>">
+                                    <img class="" src="<?php echo url ?>dist/img/pdf.png" alt="" height="50px">
+                                </a>
                             </div>
-                        </div>
-                        <div class="file_name">
-                            <span><?php echo $file['name'] ?></span>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
+                    <div class="file_name">
+                        <span><?php echo $rows['file_name'] ?></span>
+                    </div>
 
-            <?php endforeach;
-            ?>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -122,13 +111,13 @@ $files = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     </script>
 
     <?php
-    if (isset($_SESSION['event_updated'])) {
-        if ($_SESSION['event_updated'] == "successful") {
-            echo "<script>success('success', 'event updated successfully'); </script>";
+    if (isset($_SESSION['report_updated'])) {
+        if ($_SESSION['report_updated'] == "successful") {
+            echo "<script>success('success', 'report updated successfully'); </script>";
         } else {
-            echo "<script>success('error', 'unable to update event'); </script>";
+            echo "<script>success('error', 'unable to update report'); </script>";
         }
-        unset($_SESSION['event_updated']);
+        unset($_SESSION['report_updated']);
     }
     ?>
 

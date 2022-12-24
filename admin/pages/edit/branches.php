@@ -34,6 +34,10 @@ $rows = $result->fetch_assoc();
                         <input type="tel" class="form-control" id="phone" placeholder="Enter Telephone Number" name="phone" value="<?php echo $rows['phone'] ?>">
                     </div>
 
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="tel" class="form-control" id="email" placeholder="Enter Email" name="email" value="<?php echo $rows['email'] ?>">
+                    </div>
 
                     <div class="form-group">
                         <label for="coord">Coordinates</label>

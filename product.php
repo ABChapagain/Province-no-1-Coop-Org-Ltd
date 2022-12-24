@@ -1,6 +1,10 @@
 <?php
-require_once('./useable/header.php');
+require_once('./components/Header.php');
+
 require_once('./config/db_config.php');
+
+$current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $product_id = $_GET['id'];
@@ -79,7 +83,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                     $tags = explode(",", $result['tags']);
                                     foreach ($tags as $tag) {
                                         echo " ";
-                                        echo "<li><a href='#'> $tag, </a></li>";
+                                        echo "<li><a style='text-transform: capitalize;'  href='#'> $tag, </a></li>";
                                         echo " ";
                                     }
                                     ?>
@@ -88,11 +92,20 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     </div>
                     <div class="pro-dec-social">
                         <ul>
-                            <li><a class="tweet" href="#"><i class="ion-social-twitter"></i> Tweet</a></li>
-                            <li><a class="share" href="#"><i class="ion-social-facebook"></i> Share</a></li>
-                            <li><a class="google" href="#"><i class="ion-social-googleplus-outline"></i> Google+</a>
+
                             </li>
-                            <li><a class="pinterest" href="#"><i class="ion-social-pinterest"></i> Pinterest</a></li>
+                            <?php
+                                    $share_url = "https://www.facebook.com/sharer/sharer.php?u=$current_url";
+                                    ?>
+                            <li><a class="share" href="<?php echo $share_url ?>"><i class="ion-social-facebook"></i>
+                                    Share</a></li>
+                            <?php
+                                    $share_url = "https://twitter.com/intent/tweet?url=$current_url";
+                                    ?>
+                            <li><a class="tweet" href="<?php echo $share_url ?>"><i class="ion-social-twitter"></i>
+                                    Twitter</a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -114,7 +127,9 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             <div class="tab-content description-review-bottom">
                 <div id="des-details1" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <?php echo $result['description'] ?>
+                        <p>
+                            <?php echo $result['description'] ?>
+                        </p>
                     </div>
                 </div>
                 <div id="des-details2" class="tab-pane">

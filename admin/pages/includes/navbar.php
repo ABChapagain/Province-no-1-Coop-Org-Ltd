@@ -22,7 +22,25 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/Province-no-1-Coop-Org-Ltd/admin/profile.php" role="button">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <form method="post">
+                        <button type="submit" class="btn btn-danger" name="logout">logout</button>
+                    </form>
+                </li>
 
             </ul>
         </nav>
         <!-- /.navbar -->
+
+        <?php
+
+        if (isset($_POST['logout'])) {
+            session_destroy();
+            echo "<script> location.reload() </script>";
+        }
+        ?>

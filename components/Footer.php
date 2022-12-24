@@ -16,7 +16,7 @@
                                     Foundation
                                     Pvt. Ltd.’ has long established its roots in Nepalese.
                                 </p>
-                                <div id="map" style="height: 200px;"></div>
+                                <!-- <div id="map" style="height: 200px;"></div> -->
                             </div>
 
                         </div>
@@ -28,11 +28,13 @@
                             </div>
                             <div class="footer-content">
                                 <ul>
+                                    <li><a href="products.php">Products</a></li>
                                     <li><a href="about-us.php">About Us</a></li>
                                     <li><a href="message-from-ceo.php">Message From CEO</a></li>
                                     <li><a href="notice.php">Notice</a></li>
                                     <li><a href="events.php">Events</a></li>
-                                    <li><a href="career.php">Career</a></li>
+                                    <li><a href="reports.php">Reports</a></li>
+                                    <li><a href="careers.php">Career</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -65,7 +67,8 @@
         <div class="footer-bottom pb-25 pt-25 gray-bg-2">
             <div class="container">
                 <div class="copyright">
-                    <p class="copy-text text-center"> © 2022 <strong>Province no. 1 Wholesale Consumer
+                    <p class="copy-text text-center"> © <?php echo date('Y') ?> <strong>Province no. 1 Wholesale
+                            Consumer
                             Specialized
                             Cooperative Union Ltd</strong>. All Rights Reserved.</p>
                     </p>
@@ -87,10 +90,9 @@
     <!-- <script src="assets/js/ajax-mail.js"></script> -->
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/branchMap.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script> -->
 
-    <script>
+    <!-- <script>
 function init() {
     var mapOptions = {
         zoom: 11,
@@ -327,7 +329,7 @@ function init() {
     })
 }
 google.maps.event.addDomListener(window, 'load', init)
-    </script>
+    </script> -->
     <script src="assets/js/main.js"></script>
     </body>
 

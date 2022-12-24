@@ -1,12 +1,6 @@
 <?php
-require_once('./useable/header.php');
+require_once('./components/Header.php');
 require_once('./config/db_config.php');
-
-
-
-
-
-
 ?>
 
 

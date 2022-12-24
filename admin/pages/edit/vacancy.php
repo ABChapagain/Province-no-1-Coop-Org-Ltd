@@ -26,7 +26,12 @@ $rows = $result->fetch_assoc();
                         <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" value="<?php echo $rows['title'] ?>">
                     </div>
 
-                     <div class="form-group">
+                    <div class="form-group">
+                        <label for="vacant">Vacant Seats</label>
+                        <input type="text" class="form-control" id="vacant" placeholder="Enter the number of vacant seats" name="vacant" value="<?php echo $rows['vacancy_seats'] ?>">
+                    </div>
+
+                    <div class="form-group">
                         <label for="short_description">Short Description</label>
                         <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
                     </div>
@@ -37,8 +42,6 @@ $rows = $result->fetch_assoc();
                             <textarea id="summernote" name="description"> <?php echo $rows['description'] ?> </textarea>
                         </div>
                     </div>
-
-                  
 
                     <div class="form-group">
                         <label>Registration Date:</label>
@@ -66,7 +69,7 @@ $rows = $result->fetch_assoc();
             </form>
         </div>
 
-       
+
     </div>
 
 
