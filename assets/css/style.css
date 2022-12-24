@@ -28,9 +28,13 @@
     1. Template default css
 -------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Lora|Montserrat:100,200,300,300i,400,500,600,700,800,900|Playfair+Display:400,400i,700,700i,900,900i|Work+Sans:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Lora|Open+Sans|Montserrat:100,200,300,300i,400,500,600,700,800,900|Playfair+Display:400,400i,700,700i,900,900i|Work+Sans:100,200,300,400,500,600,700,800,900');
+
+* {
+  font-family: 'Open Sans', serif;
+}
 body {
-  font-family: 'Lora', serif;
+  font-family: 'Open Sans', serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
@@ -139,7 +143,7 @@ p {
   line-height: 24px;
   color: #242424;
   margin-bottom: 15px;
-  font-family: 'Lora', serif;
+  font-family: 'Open Sans', serif;
 }
 hr {
   margin: 60px 0;
