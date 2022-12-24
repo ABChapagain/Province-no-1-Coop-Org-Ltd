@@ -4,7 +4,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require "../../config/config.php";
-    
+
     //count total files
     $countfiles = count($_FILES['img']['name']);
 
@@ -18,8 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if ($rowcount == 0) {
-        $sql = "insert into products (name,description,category,short_description,tags) values('$product','$description','$category','$short_description','$tags')";
-        if ($conn->query($sql)) {
+        $stmt = $conn->prepare("insert into products (name,description,category,short_description,tags) values(?,?,?,?,?)");
+        $stmt->bind_param("sssss", $product, $description, $category, $short_description, $tags);
+        if ($stmt->execute()) {
 
             $sql = "select id from products where name='$product'";
             $id = $conn->query($sql)->fetch_assoc()['id'];

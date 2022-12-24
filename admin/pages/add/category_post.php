@@ -8,8 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if ($rowcount == 0) {
-        $sql = "insert into category (name) values('$name')";
-        if ($conn->query($sql)) {
+
+        $stmt = $conn->prepare("insert into category (name)  VALUES (?)");
+        $stmt->bind_param("s", $name);
+        if ($stmt->execute()) {
             $_SESSION['category_added'] = "successful";
         } else {
             $_SESSION['category_added'] = "unsuccessful";

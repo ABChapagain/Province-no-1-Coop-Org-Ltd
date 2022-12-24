@@ -24,8 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if ($rowcount == 0) {
-        $sql = "insert into notices (title,description,published_date,popup_start_date,popup_end_date,short_description) values('$title','$description','$today','$popup_start','$popup_end','$short_description')";
-        if ($conn->query($sql)) {
+
+        $stmt = $conn->prepare("insert into notices (title,description,published_date,popup_start_date,popup_end_date,short_description) values(?,?,?,?,?,?)");
+        $stmt->bind_param("ssssss", $title, $description, $today, $popup_start, $popup_end, $short_description);
+
+        if ($stmt->execute()) {
             // $featured_img = $_FILES['featured_img']['name'];
             // $filename =  uniqid() . ".jpg";
 

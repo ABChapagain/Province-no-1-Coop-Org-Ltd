@@ -27,7 +27,20 @@
                         <i class="fas fa-user"></i>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <form method="post">
+                        <button type="submit" class="btn btn-danger" name="logout">logout</button>
+                    </form>
+                </li>
 
             </ul>
         </nav>
         <!-- /.navbar -->
+
+        <?php
+
+        if (isset($_POST['logout'])) {
+            session_destroy();
+            echo "<script> location.reload() </script>";
+        }
+        ?>

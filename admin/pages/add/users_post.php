@@ -28,8 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "select id from roles where role_name='$role'";
         $roles = $conn->query($sql)->fetch_assoc()['id'];
 
-        $sql = "insert into users (user_name,role,email,password) values('$name','$roles','$email','$hash_password')";
-        if ($conn->query($sql)) {
+        $stmt = $conn->prepare("insert into users (user_name,role,email,password) values(?,?,?,?)");
+        $stmt->bind("siss", $name, $roles, $email, $hash_password);
+        if ($stmt->execute()) {
             $_SESSION['user_added'] = "successful";
         } else {
             $_SESSION['user_added'] = "unsuccessful";
