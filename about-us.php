@@ -190,7 +190,6 @@ const initMap = (branches) => {
                     <h3 class="section-title">Branch Locator</h3>
                 </div>
                 <div class="my-5">
-
                `
 
         branches.forEach((branch) => {
@@ -236,7 +235,6 @@ const initMap = (branches) => {
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: ` & copy; < a href = 'http://www.openstreetmap.org/copyright' > OpenStreetMap < /a>`,
     }).addTo(map)
 
     for (let i = 0; i < branches.length; i++) {
