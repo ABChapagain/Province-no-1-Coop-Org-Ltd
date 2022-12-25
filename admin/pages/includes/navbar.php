@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/Province-no-1-Coop-Org-Ltd/admin/profile.php" role="button">
+                    <a class="nav-link" href="<?php echo url ?>change_password.php" role="button">
                         <i class="fas fa-user"></i>
                     </a>
                 </li>

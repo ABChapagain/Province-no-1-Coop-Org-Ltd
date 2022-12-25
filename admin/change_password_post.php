@@ -35,4 +35,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 echo $_SESSION['password_changed'];
-header("Location:http://localhost/Province-no-1-Coop-Org-Ltd/admin/profile.php");
+header("Location:" . url . "/change_password.php");

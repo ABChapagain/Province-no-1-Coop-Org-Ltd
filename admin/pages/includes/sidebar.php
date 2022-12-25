@@ -68,12 +68,12 @@
                 <li class="nav-item">
                     <a href="<?php echo url ?>applications.php" class="nav-link applications">
                         <i class="nav-icon fas fa-book"></i>
-                        <p class="text">Vacancy Applications</p>
+                        <p class="text">Job Applications</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo url ?>users.php" class="nav-link users">
-                        <i class="nav-icon fas fa-book"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p class="text">Users</p>
                     </a>
                 </li>
