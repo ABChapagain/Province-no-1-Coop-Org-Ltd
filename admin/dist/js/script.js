@@ -258,3 +258,5 @@ $(".file-collection").hover(
     $(".del-button").addClass("hide_del_button");
   }
 );
+
+
