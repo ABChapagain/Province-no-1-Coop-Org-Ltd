@@ -51,7 +51,7 @@ include "./pages/includes/header.php";
 
 
                 <p class="my-3 text-center">
-                    <a href="forgot-password.html">I forgot my password</a>
+                    <a href="forgot_password.php">I forgot my password</a>
                 </p>
 
             </div>
