@@ -143,6 +143,16 @@ require_once('./config/db_config.php');
 
 <?php require_once('./components/LatestEvents.php') ?>
 
+
+<?php
+
+// get notices from database
+$current_date = date('Y-m-d');
+$sql = "SELECT * FROM `notices` WHERE popup_start_date < '$current_date' AND popup_end_date > '$current_date'";
+$res = mysqli_query($conn, $sql);
+
+$result = $res->fetch_all(MYSQLI_ASSOC);
+?>
 <!-- Modal -->
 <div class="modal fade" id="popupModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
