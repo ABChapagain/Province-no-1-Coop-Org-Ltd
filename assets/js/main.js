@@ -59,15 +59,15 @@
   /* Best selling active */
   $('.featured-product-active').owlCarousel({
     loop: true,
-    nav: false,
+    nav: true,
     autoplay: false,
-    autoplayTimeout: 5000,
+    autoplayTimeout: 3000,
     navText: [
       '<i class="ion-ios-arrow-back"></i>',
       '<i class="ion-ios-arrow-forward"></i>',
     ],
     item: 4,
-    margin: 30,
+    margin: 20,
     responsive: {
       0: {
         items: 1,

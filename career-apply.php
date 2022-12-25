@@ -5,18 +5,16 @@ require_once('./config/db_config.php');
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
     $vacancy_id = $_GET['id'];
+    $current_date = date('Y-m-d');
 
-    $sql = "SELECT * FROM vacancy WHERE id = $vacancy_id";
+    $sql = "SELECT * FROM vacancy WHERE id = $vacancy_id AND termination_date > '$current_date'";
     $res = $conn->query($sql);
     $vacancy = $res->fetch_assoc();
 
     if ($res->num_rows > 0) {
-
-
-        $sql = "SELECT * FROM vacancy";
+        $sql = "SELECT * FROM vacancy WHERE termination_date > '$current_date'";
         $res = $conn->query($sql);
         $vacancies = $res->fetch_all(MYSQLI_ASSOC);
-
 
 ?>
 
@@ -158,6 +156,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
 
 <?php
+
     } else {
         echo "<script>setTimeout(`location.href = 'index.php'`,0);</script>";
     }

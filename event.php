@@ -6,13 +6,16 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $event_id = $_GET['id'];
 
     $sql = "SELECT * FROM events WHERE id = $event_id";
-    $result = $conn->query($sql);
-    $result = $result->fetch_assoc();
-
-    $sql = "select * from event_images where id = " . $result['id'] . " AND featured = 1";
     $res = $conn->query($sql);
-    $image = $res->fetch_assoc();
-    $image = $image['name'];
+    $result = $res->fetch_assoc();
+
+    if ($res->num_rows > 0) {
+
+
+        $sql = "select * from event_images where id = " . $result['id'] . " AND featured = 1";
+        $res = $conn->query($sql);
+        $image = $res->fetch_assoc();
+        $image = $image['name'];
 
 
 
@@ -55,17 +58,17 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                             <?php echo $result['description'] ?>
                         </p>
                         <?php
-                            $sql = "select * from event_images where id = " . $result['id'] . " AND featured <> 1";
-                            $res = $conn->query($sql);
-                            $images = $res->fetch_all(MYSQLI_ASSOC);
-                            ?>
+                                $sql = "select * from event_images where id = " . $result['id'] . " AND featured <> 1";
+                                $res = $conn->query($sql);
+                                $images = $res->fetch_all(MYSQLI_ASSOC);
+                                ?>
 
 
                         <div class="dec-img-wrapper">
                             <div class="row">
                                 <?php
-                                    foreach ($images as $image) {
-                                    ?>
+                                        foreach ($images as $image) {
+                                        ?>
                                 <div class="col-md-6">
                                     <div class="dec-img">
                                         <img width="auto" height="347px" style="object-fit: contain;"
@@ -73,8 +76,8 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                     </div>
                                 </div>
                                 <?php
-                                    }
-                                    ?>
+                                        }
+                                        ?>
                             </div>
                         </div>
 
@@ -102,10 +105,14 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
 
 <?php
-    require_once('./components/Footer.php');
+    } else {
+        echo "<script>window.location.href = 'events.php'</script>";
+        exit();
+    }
 } else {
     echo "<script>window.location.href = 'events.php'</script>";
     exit();
 }
 
+require_once('./components/Footer.php');
 ?>
