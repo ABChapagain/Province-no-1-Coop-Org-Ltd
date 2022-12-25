@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="plugins/leaflet/leaflet.css">
     <script src="plugins/leaflet/leaflet.js"></script>
     <script src=" assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script>
+
+    </script>
 
 </head>
 
@@ -92,6 +95,7 @@
         </div>
     </header>
     <!-- header end -->
+
 
 
     <div style="min-height: 87vh;">

@@ -84,19 +84,23 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                     echo
                                     '<div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success!</strong> Your application has been submitted successfully.
+                        <img src="assets/img/icons/x-lg.svg" alt="close" />
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                                     echo "<script>setTimeout(`location.href = 'index.php'`,2000);</script>";
                                 } else {
                                     echo
                                     '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>Error!</strong> Something went wrong. Please try again.
+                        <img src="assets/img/icons/x-lg.svg" alt="close" />
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                                 }
                             } else {
                                 echo
                                 '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Error!</strong> File type not allowed. Allowed file types: pdf, doc,docx
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <img src="assets/img/icons/x-lg.svg" alt="close" />
+                        </button></div>';
                             }
                         }
 

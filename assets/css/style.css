@@ -37,6 +37,14 @@ body {
   font-size: 14px;
   color: #242424;
 }
+
+.model-title {
+  font-family: 'Open Sans', serif;
+}
+.model-body {
+  font-family: 'Open Sans', serif;
+}
+
 .img {
   max-width: 100%;
   transition: all 0.3s ease-out 0s;

@@ -1,6 +1,10 @@
 ;(function ($) {
   'use strict'
 
+  $(document).ready(function () {
+    $('#popupModel').modal('show')
+  })
+
   /*--
     Menu Stick
     -----------------------------------*/
