@@ -85,51 +85,8 @@ require_once('./config/db_config.php');
 
 <?php require_once('./components/OurProducts.php') ?>
 
-<!-- Testimonial Area Start -->
-<div class="testimonials-area bg-image-2 bg-img pt-100 pb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-                <div class="testimonial-active owl-carousel">
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img alt="" src="assets/img/icon-img/testi.png" />
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do
-                            eiusmod tempor incididunt ut labore
-                        </p>
-                        <h4>Achyut Chapagain</h4>
-                        <h5>Customer</h5>
-                    </div>
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img alt="" src="assets/img/icon-img/testi.png" />
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do
-                            eiusmod tempor incididunt ut labore
-                        </p>
-                        <h4>Rejens Rayamajhi</h4>
-                        <h5>Customer</h5>
-                    </div>
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img alt="" src="assets/img/icon-img/testi.png" />
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do
-                            eiusmod tempor incididunt ut labore
-                        </p>
-                        <h4>Sandeep Giri</h4>
-                        <h5>Customer</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Testimonial Area End -->
+<?php require_once('./components/Testimonial.php') ?>
+
 
 
 <!-- Message from CEO -->
@@ -186,102 +143,28 @@ require_once('./config/db_config.php');
 
 <?php require_once('./components/LatestEvents.php') ?>
 
-
-
-<?php
-$sql = "SELECT * FROM products";
-
-$result = $conn->query($sql);
-$result->fetch_all(MYSQLI_ASSOC);
-
-foreach ($result as $product) {
-
-    echo "
-<div class='modal fade exampleModal' id='productModal$product[id]' tabindex='-1' role='dialog'>
-    <div class='modal-dialog' role='document'>
-        <div class='modal-content'>
-            <div class='modal-header'>
-                <button type='button' class='close' data-bs-dismiss='modal' aria-label='Close'>
-                    <span aria-hidden='true'>x</span>
+<!-- Modal -->
+<div class="modal fade" id="popupModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog model-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="assets/img/icons/x-lg.svg" alt="close" />
                 </button>
             </div>
-            <div class='modal-body'>
-                <div class='row'>
-                    <div class='col-md-5 col-sm-5 col-xs-12'>
-                    <div class='tab-content'>";
-
-
-    $sql = "select * from product_image where id = $product[id]";
-    $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
-
-    foreach ($images as $index => $image) {
-
-        if ($index == 0) {
-            echo  "
-            <div id='pro-$image[image_id]' class='tab-pane fade show active'>
-                <img src='uploads/products/$image[name]' alt='' />
+            <div class="modal-body">
+                <p>
+                    Here is I love you.....
+                </p>
             </div>
-            ";
-        } else {
-
-            echo "
-            <div id='pro-$image[image_id]' class='tab-pane fade'>
-            <img src='uploads/products/$image[name]' alt='' />
-            </div>
-            ";
-        }
-    }
-    echo "
-                        </div>
-                        <div class='product-thumbnail'>
-                            <div class='thumb-menu owl-carousel nav nav-style' role='tablist'>";
-    foreach ($images as $index => $image) {
-
-        if ($index == 0) {
-            echo  "
-            <a class='active' data-bs-toggle='tab' href='#pro-$image[image_id]'><img
-                                        src='uploads/products/$image[name]' alt='' /></a>
-            ";
-        } else {
-
-            echo "
-            <a data-bs-toggle='tab' href='#pro-$image[image_id]'><img
-                                        src='uploads/products/$image[name]' alt='' /></a>
-                                <a data-bs-toggle='tab' href='#pro-$image[image_id]'><img
-                                        src='uploads/products/$image[name]' alt='' /></a>
-                                <a data-bs-toggle='tab' href='#pro-$image[image_id]'><img
-                                        src='uploads/products/$image[name]' alt='' /></a>
-            ";
-        }
-    }
-    echo "
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class='col-md-7 col-sm-7 col-xs-12'>
-                        <div class='modal-pro-content'>
-                            <h3>$product[name]</h3>
-                            <div class='product-price-wrapper'>
-                                <span>$product[category]</span>
-                            </div>
-                            <p>
-                                $product[description]
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-style" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
-
-    ";
-}
-
-?>
-
-<!-- Modal end -->
 
 
 <?php require_once('./components/Footer.php') ?>

@@ -517,3 +517,18 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+-- create table for job application
+CREATE TABLE `job_application` (
+  `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `resume` varchar(255) NOT NULL,
+  `cover_letter` varchar(255) NOT NULL,
+  `date` date NOT NULL
+) 

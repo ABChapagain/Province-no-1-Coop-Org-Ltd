@@ -1,4 +1,7 @@
-<?php require_once('./components/Header.php');
+<?php
+require_once('./components/Header.php');
+require_once('./config/db_config.php');
+
 
 ?>
 
@@ -82,6 +85,10 @@
 </div>
 <!-- About Us Page Area End -->
 
-<?php require_once('./components/Footer.php');
+
+<?php
+require_once('./components/AboutSection.php');
+
+require_once('./components/Footer.php');
 
 ?>

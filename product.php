@@ -215,13 +215,8 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
 <?php
     } else {
-    ?>
-<div class="blog-page-area masonary-style ptb-100">
-    <div class="container text-center">
-        <h1>NO PRODUCT TO SHOW</h1>
-    </div>
-</div>
-<?php
+        echo "<script>window.location.href = 'products.php'</script>";
+        exit();
     }
 } else {
     echo "<script>window.location.href = 'products.php'</script>";
