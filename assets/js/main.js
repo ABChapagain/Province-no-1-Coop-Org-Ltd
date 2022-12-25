@@ -38,7 +38,7 @@
   $('.slider-active').owlCarousel({
     loop: true,
     nav: false,
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 5000,
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
@@ -64,7 +64,7 @@
   $('.featured-product-active').owlCarousel({
     loop: true,
     nav: true,
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 3000,
     navText: [
       '<i class="ion-ios-arrow-back"></i>',
