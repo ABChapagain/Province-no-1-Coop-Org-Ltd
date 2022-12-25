@@ -3,12 +3,15 @@ require_once('./components/Header.php');
 require_once('./config/db_config.php');
 
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
-    $vacancy_id = $_GET['id'];
-
+    $id = $_GET['id'];
+    $vacancy_id = mysqli_real_escape_string($conn, $id);
     $sql = "SELECT * FROM vacancy WHERE id = $vacancy_id";
     $res = $conn->query($sql);
     $vacancy = $res->fetch_assoc();
-}
+
+    if ($res->num_rows > 0) {
+
+
 
 ?>
 
@@ -56,16 +59,16 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
             <div>
 
                 <?php
-                $current_date = date('Y-m-d');
-                $termination_date = $vacancy['termination_date'];
+                        $current_date = date('Y-m-d');
+                        $termination_date = $vacancy['termination_date'];
 
-                if (strtotime($current_date) < strtotime($termination_date)) {
-                    echo "<a class='btn btn-style-2' href='career-apply.php?id=$vacancy_id'>Apply Now</a>";
-                } else {
-                    echo '<button class="btn btn-danger py-2 px-3">Application Closed</button>';
-                }
+                        if (strtotime($current_date) < strtotime($termination_date)) {
+                            echo "<a class='btn btn-style-2' href='career-apply.php?id=$vacancy_id'>Apply Now</a>";
+                        } else {
+                            echo '<button class="btn btn-danger py-2 px-3">Application Closed</button>';
+                        }
 
-                ?>
+                        ?>
             </div>
 
             <div class="blog-dec-tags-social">
@@ -85,6 +88,16 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 </div>
 
 
-<?php require_once('./components/Footer.php');
+<?php
+    } else {
+        echo "<script>window.location.href = 'careers.php'</script>";
+        exit();
+    }
+} else {
+    echo "<script>window.location.href = 'careers.php'</script>";
+    exit();
+}
+
+require_once('./components/Footer.php');
 
 ?>

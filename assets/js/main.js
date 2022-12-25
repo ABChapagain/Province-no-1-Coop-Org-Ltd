@@ -1,6 +1,10 @@
 ;(function ($) {
   'use strict'
 
+  $(document).ready(function () {
+    $('#popupModel').modal('show')
+  })
+
   /*--
     Menu Stick
     -----------------------------------*/
@@ -34,7 +38,7 @@
   $('.slider-active').owlCarousel({
     loop: true,
     nav: false,
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 5000,
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
@@ -59,15 +63,15 @@
   /* Best selling active */
   $('.featured-product-active').owlCarousel({
     loop: true,
-    nav: false,
-    autoplay: false,
-    autoplayTimeout: 5000,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
     navText: [
       '<i class="ion-ios-arrow-back"></i>',
       '<i class="ion-ios-arrow-forward"></i>',
     ],
     item: 4,
-    margin: 30,
+    margin: 20,
     responsive: {
       0: {
         items: 1,

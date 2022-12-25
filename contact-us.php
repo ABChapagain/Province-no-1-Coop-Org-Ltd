@@ -92,19 +92,23 @@
             </div>
             <!-- Contact Address Strat -->
             <!-- Google Map Start -->
-            <!-- <div class="col-md-12">
+            <div class="col-md-12">
                 <div id="store-location">
                     <div class="contact-map pt-80">
-                        <div id="map" height></div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.6123188455513!2d87.6769012509231!3d26.660892477220717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e58f5fdb32e3ff%3A0x469f9ad5de4872ee!2z4KSq4KWN4KSw4KSm4KWH4KS2IOCkqC4g4KWnIOCkpeCli-CklSDgpIngpKrgpK3gpYvgpJXgpY3gpKTgpL4g4KS14KS_4KS24KS_4KS34KWN4KSf4KS_4KSV4KWD4KSkIOCkuOCkueCkleCkvuCksOClgCDgpLjgpILgpJgg4KSy4KS_Lg!5e0!3m2!1sen!2snp!4v1671953647391!5m2!1sen!2snp"
+                            height="600px" width="100%" allowfullscreen="" aria-hidden="false" tabindex="0"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- Google Map Start -->
         </div>
     </div>
 </div>
 <!-- Contact Area Start -->
 
-<?php require_once('./components/Footer.php');
+<?php
+require_once('./components/Footer.php');
 
 ?>
