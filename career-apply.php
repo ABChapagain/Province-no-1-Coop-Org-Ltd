@@ -77,7 +77,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                 $file_store = "uploads/resume/" . $uniqID;
 
 
-                                $sql = "INSERT INTO `job_application` (`vacancy_id`, `name`, `email`, `phone`, `address`, `position`, `resume`, `cover_letter`, `date`) VALUES ('$vacancy_id', '$name', '$email', '$phone', '$address', '$position', '$file_store','$uniqID', '$date')";
+                                $sql = "INSERT INTO `job_application` (`vacancy_id`, `name`, `email`, `phone`, `address`, `position`, `resume`, `cover_letter`, `date`) VALUES ('$vacancy_id', '$name', '$email', '$phone', '$address', '$position', '$uniqID', '$cover_letter', '$date')";
 
                                 if ($conn->query($sql)) {
                                     move_uploaded_file($file_tem_loc, $file_store);
