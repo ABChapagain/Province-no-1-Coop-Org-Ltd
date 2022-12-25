@@ -1,6 +1,12 @@
 <?php
 require_once('./components/Header.php');
 require_once('./config/db_config.php');
+
+if (isset($_GET['id'])) {
+    $notice_id = $_GET['id'];
+} else {
+    $notice_id = '';
+}
 ?>
 
 
@@ -33,6 +39,18 @@ require_once('./config/db_config.php');
                         $notices = $result->fetch_all(MYSQLI_ASSOC);
 
                         foreach ($notices as $index => $notice) :
+
+                            $show = '';
+                            if ($notice_id === '') {
+                                if ($index === 0) {
+                                    $show = 'show';
+                                }
+                            } else {
+                                if ($notice_id === $notice['id']) {
+                                    $show = 'show';
+                                }
+                            }
+
                         ?>
 
                         <div class="panel panel-default">
@@ -52,28 +70,21 @@ require_once('./config/db_config.php');
                                 </h5>
                             </div>
                             <div id="notice-<?php echo $notice['id'] ?>"
-                                class="panel-collapse collapse <?php echo $index == 0 ? 'show' : '' ?>"
-                                data-bs-parent="#faq">
+                                class="panel-collapse collapse <?php echo $show ?>" data-bs-parent="#faq">
                                 <div class="panel-body">
                                     <div class="billing-information-wrapper text-justify">
                                         <p>
                                             <?php echo $notice['description'] ?>
                                         </p>
-
                                         <?php
-
                                             $sql = "SELECT * FROM notice_images WHERE id = $notice[id]";
-
                                             $res = mysqli_query($conn, $sql);
-
                                             if ($res->num_rows > 0) :
                                                 while ($notice_images = $res->fetch_assoc()) :
                                             ?>
                                         <img class="my-2" width="100%"
                                             src="./uploads/notices/<?php echo $notice_images['image'] ?>"
                                             alt="<?php echo $notice['title'] ?>" />
-
-
                                         <?php
                                                 endwhile;
                                             endif; ?>

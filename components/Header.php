@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="plugins/leaflet/leaflet.css">
     <script src="plugins/leaflet/leaflet.js"></script>
     <script src=" assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+
     <script>
 
     </script>

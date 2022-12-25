@@ -148,33 +148,56 @@ require_once('./config/db_config.php');
 
 // get notices from database
 $current_date = date('Y-m-d');
-$sql = "SELECT * FROM `notices` WHERE popup_start_date < '$current_date' AND popup_end_date > '$current_date'";
+$sql = "SELECT * FROM `notices` WHERE popup_start_date < '$current_date' AND popup_end_date > '$current_date' ORDER BY id DESC";
 $res = mysqli_query($conn, $sql);
+$notices = $res->fetch_all(MYSQLI_ASSOC);
 
-$result = $res->fetch_all(MYSQLI_ASSOC);
+foreach ($notices as $notice) {
+
+
 ?>
 <!-- Modal -->
-<div class="modal fade" id="popupModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="popupNoticeModel<?php echo $notice['id'] ?>" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog model-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><?php echo $notice['title'] ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <img src="assets/img/icons/x-lg.svg" alt="close" />
                 </button>
             </div>
             <div class="modal-body">
                 <p>
-                    Here is I love you.....
+                    <?php echo $notice['short_description'] ?>
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn-style" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn py-2 px-4 border" data-bs-dismiss="modal">Close</button>
+                <a href="notice.php?id=<?php echo $notice['id'] ?>" class="btn py-2 px-4 text-white bg-project">Read
+                    More</a>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+}
+?>
+
+<script>
+<?php
+
+    foreach ($notices as $notice) :
+    ?>
+$(document).ready(function() {
+    $('#popupNoticeModel<?php echo $notice['id'] ?>').modal('show');
+})
+
+<?php
+    endforeach;
+    ?>
+</script>
 
 
 <?php require_once('./components/Footer.php') ?>
