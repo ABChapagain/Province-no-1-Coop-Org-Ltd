@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$email = $_SESSION['email'];
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -29,7 +31,7 @@ try {
 
     //Recipients
     $mail->setFrom('rejensraya@gmail.com');
-    $mail->addAddress('rejensraya@gmail.com');     //Add a recipient
+    $mail->addAddress($email);     //Add a recipient
 
 
 
@@ -48,4 +50,6 @@ try {
 
 $url = $_SESSION['url'];
 unset($_SESSION['password']);
+unset($_SESSION['url']);
+unset($_SESSION['email']);
 header("Location:" . $url . "login.php");

@@ -22,6 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['url'] = url;
         $_SESSION['password'] = $new_pass;
+        $_SESSION['email'] = $email;
+
         header("Location:" . url . "plugins/PHPMail/send_mail.php");
         echo "<br>";
         echo $new_pass;
