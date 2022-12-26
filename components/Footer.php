@@ -12,9 +12,7 @@
                                     <img width="80px" src="./assets/img/logo/logo.png" alt="Logo" />
                                     <h5>Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd</h5>
                                 </div>
-                                <p class="py-3">Established in 2010, by enthusiasts & educationists, the ‘IIMS Education
-                                    Foundation
-                                    Pvt. Ltd.’ has long established its roots in Nepalese.
+                                <p class="py-3">Established in Ashar 19, 2078
                                 </p>
                                 <!-- <div id="map" style="height: 200px;"></div> -->
                             </div>
@@ -45,7 +43,7 @@
                                 <h4>Contact Information</h4>
                             </div>
                             <div class="footer-about">
-                                <p>Your address goes here</p>
+                                <p>Damak 9, Jhapa</p>
                                 <div class="footer-contact mt-20">
                                     <ul>
                                         <li>0123456789</li>

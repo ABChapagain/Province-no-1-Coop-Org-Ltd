@@ -59,15 +59,25 @@
             <!-- Contact Address Strat -->
             <div class="col-lg-6">
                 <div class="small-title mb-30">
-                    <h2>Contact Address</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority Lorem Ipsum
-                        available.</p>
+                    <h2>प्रदेश नं. १ थोक उपभोक्ता विशिष्टिकृत सहकारी संघ लिमिटेड</h4>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="contact-information mb-30">
-                            <h4>Our Address</h4>
-                            <p>Your address goes here</p>
+                            <h4>Established Date</h4>
+                            <p> Ashar 19, 2078</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="contact-information mb-30">
+                            <h4>Registration Number</h4>
+                            <p> 04/077/078</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="contact-information mb-30">
+                            <h4>Registration Office</h4>
+                            <p>प्रदेश सहकारी रजिष्ट्रार कार्यलय, इटहरी, सुनसरी</p>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12">
