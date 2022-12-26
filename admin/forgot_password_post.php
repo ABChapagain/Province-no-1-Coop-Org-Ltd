@@ -19,11 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare("update users set password=? where email=?");
         $stmt->bind_param("ss", $hash_password, $email);
         $stmt->execute();
-        echo "send mail";
+
+        $_SESSION['url'] = url;
+        $_SESSION['password'] = $new_pass;
+        header("Location:" . url . "plugins/PHPMail/send_mail.php");
         echo "<br>";
         echo $new_pass;
     } else {
         echo "sorry user with that email does not exist";
     }
 }
-header("Location:" . url . "/login.php");
+// header("Location:" . url . "/login.php");
