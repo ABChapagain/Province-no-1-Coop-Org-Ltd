@@ -1610,7 +1610,6 @@ textarea:focus {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 .top-nav ul li a:hover {

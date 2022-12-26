@@ -23,32 +23,37 @@ require_once('./config/db_config.php');
 <!-- Shop Page Area Start -->
 <div class="shop-page-area ptb-100">
     <div class="container">
-        <div class="row flex-row-reverse">
-            <div class="col-lg-9">
-                <!-- <div class="shop-topbar-wrapper">
-                    <div class="shop-topbar-left">
-                        <ul class="view-mode">
-                            <li class="active">
-                                <a href="#product-grid" data-view="product-grid"><i class="fa fa-th"></i></a>
-                            </li>
-                            <li>
-                                <a href="#product-list" data-view="product-list"><i class="fa fa-list-ul"></i></a>
-                            </li>
-                        </ul>
-                        <p>Showing 1 - 6 of 20 results</p>
-                    </div>
-                    <div class="product-sorting-wrapper">
-                        <div class="product-shorting shorting-style">
-                            <label>View:</label>
-                            <select>
-                                <option value="">20</option>
-                                <option value="">23</option>
-                                <option value="">30</option>
-                            </select>
-                        </div>
+        <div class="row">
 
+            <?php
+            $sql = "SELECT * FROM category";
+
+            $result = $conn->query($sql);
+            $result->fetch_all(MYSQLI_ASSOC);
+            ?>
+
+            <div class="col-lg-3">
+                <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
+                    <div class="shop-widget">
+                        <h4 class="shop-sidebar-title">Category</h4>
+                        <div class="sidebar-list-style mt-20">
+                            <ul>
+                                <?php
+                                foreach ($result as $category) {
+                                    echo "
+                                    <li>
+                                    <input type='checkbox' />
+                                    <a href='#'>$category[name]</a>
+                                    </li>
+                                    ";
+                                }
+                                ?>
+                            </ul>
+                        </div>
                     </div>
-                </div> -->
+                </div>
+            </div>
+            <div class="col-lg-9">
                 <div class="grid-list-product-wrapper">
                     <div class="product-grid product-view pb-20">
                         <div class="row">
@@ -89,58 +94,10 @@ require_once('./config/db_config.php');
 
                         </div>
                     </div>
-                    <!-- <div class="pagination-total-pages">
-                        <div class="pagination-style">
-                            <ul>
-                                <li>
-                                    <a class="prev-next prev" href="#"><i class="ion-ios-arrow-left"></i> Prev</a>
-                                </li>
-                                <li><a class="active" href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">...</a></li>
-                                <li><a href="#">10</a></li>
-                                <li>
-                                    <a class="prev-next next" href="#">Next<i class="ion-ios-arrow-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="total-pages">
-                            <p>Showing 1 - 6 of 20 results</p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
 
-            <?php
-            $sql = "SELECT * FROM category";
 
-            $result = $conn->query($sql);
-            $result->fetch_all(MYSQLI_ASSOC);
-            ?>
-
-            <div class="col-lg-3">
-                <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
-                    <div class="shop-widget">
-                        <h4 class="shop-sidebar-title">Category</h4>
-                        <div class="sidebar-list-style mt-20">
-                            <ul>
-                                <?php
-                                foreach ($result as $category) {
-                                    echo "
-                                    <li>
-                                    <input type='checkbox' />
-                                    <a href='#'>$category[name]</a>
-                                    </li>
-                                    ";
-                                }
-                                ?>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

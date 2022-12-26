@@ -1,21 +1,70 @@
-<?php
-$sql = "SELECT * FROM members";
-$res = $conn->query($sql);
-$members = $res->fetch_all(MYSQLI_ASSOC);
+<!-- Speculation Area Start -->
+<div class="speculation-area ptb-100">
+    <div class="container">
+        <div class="section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">परिकल्पना</h3>
+            </div>
+        </div>
+        <div class="speculation-content">
+            <h4>
+                <ul>
+                    <li>सहकारीहरुको माध्यम द्धारा बस्तु तथा सेवाको बजारीकरण गरी दिगो ब्यवसायीक संघ रुपमा स्थापित हुने
+                    </li>
+                </ul>
+            </h4>
 
-if ($res->num_rows !== 0) {
+        </div>
+    </div>
+</div>
+<!-- Speculation Area End -->
 
-?>
+<!-- Goals Area Start -->
+<div class="goals-area ptb-100">
+    <div class="container">
+        <div class="section-border mb-55">
+            <div class="section-title-wrap text-center">
+                <h3 class="section-title">ध्येय</h3>
+            </div>
+        </div>
+        <div class="goals-content">
+            <h4>
+                <ul>
+                    <li>सहकारीहरु वीचको लगानीबाट ब्यवसायिक संघको रुपमा चिनीने</li>
+                    <li>प्रारम्भीक सहकारीहरु तथा सहकारीका सदस्यहरुलाई ब्यवसाय गर्न प्रोत्साहन गर्ने </li>
+                    <li>सहकारीहरुलाई आवश्यक पर्ने कृषि औजार, उपकरण, प्राविधिक ज्ञान र सिपको खोजि गरि प्रारम्भीक
+                        सहकारीहरु सम्म पुर्याउने</li>
+                    <li>प्रारम्भीक सहकारीहरुका बस्तुहरु थोक मात्रामा खरिदगरि ब्राण्डीङ सहित सहकारीको माध्यमबाट नै
+                        बिक्रीको ब्यवस्था मिलाउने</li>
+                    <li>उत्पादित बस्तुहरुका लागी मेचि देखी महाकाली सम्म एउटै ब्राण्ड अन्तर्गत रहि बजारको बिस्तार गर्ने
+                    </li>
+                    <li>अत्याधुनिक प्रबिधि सँगै ब्यवसायलाई जोड्दै लाने</li>
+                </ul>
+            </h4>
+
+        </div>
+    </div>
+</div>
+
+<!-- Goals Area End -->
+
+
 
 
 <!-- Team Area Start -->
 <div class="team-area pt-95 pb-70">
     <div class="container">
         <div class="product-top-bar section-border mb-50">
-            <div class="section-title-wrap style-two text-center">
+            <div class="section-title-wrap text-center">
                 <h3 class="section-title">Our Members</h3>
             </div>
         </div>
+        <?php
+        $sql = "SELECT * FROM members INNER JOIN department WHERE department.id = members.department_id ORDER BY department.id DESC";
+        $res = mysqli_query($conn, $sql);
+        $members = $res->fetch_all(MYSQLI_ASSOC);
+        if ($res->num_rows !== 0) :
+        ?>
         <div class="row">
             <?php
                 foreach ($members as $member) :
@@ -26,20 +75,25 @@ if ($res->num_rows !== 0) {
                         <img src="uploads/members/<?php echo $member['image'] ?>" alt="Team" />
                     </div>
                     <div class="team-content text-center">
-                        <h4><?php echo $member['name'] ?></h4>
-                        <span style="color: #519f10"><?php echo $member['position'] ?></span>
+                        <h4 class="text-capitalize"><?php echo $member['name'] ?></h4>
+                        <span class="text-capitalize"><?php echo $member['department_name'] ?></span><br>
+                        <span class="text-capitalize" style="color: #519f10"><?php echo $member['position'] ?></span>
+
                     </div>
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
+
+        <?php
+        endif;
+
+        ?>
     </div>
 </div>
 <!-- Team Area End -->
 
-<?php
-}
-?>
+
 
 <!-- Branches Area Start -->
 <div id="branchesInfoContainer">

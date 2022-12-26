@@ -89,6 +89,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                     ?>
 
                         </ul>
+
                     </div>
                     <div class="pro-dec-social">
                         <ul>

@@ -44,9 +44,12 @@
         <div class="header-bottom">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div>
+                    <div class="d-flex align-items-center gap-1">
                         <a href="index.php">
                             <img width="80px" alt="Logo" src="assets/img/logo/logo.png" />
+                        </a>
+                        <a href="index.php">
+                            <span class="fw-bold h4 m-0" style="color: purple;">COOP</span>
                         </a>
                     </div>
                     <div class="col-lg-9 col-md-8 col-6">
