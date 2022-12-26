@@ -51,7 +51,7 @@ include "./pages/includes/header.php";
 
 
                 <p class="my-3 text-center">
-                    <a href="forgot-password.html">I forgot my password</a>
+                    <a href="forgot_password.php">I forgot my password</a>
                 </p>
 
             </div>
@@ -59,3 +59,15 @@ include "./pages/includes/header.php";
         </div>
     </div>
     <!-- /.login-box -->
+
+    <?php
+    require app . "/pages/includes/js_links.php";
+
+
+    if (isset($_SESSION['password_recovery'])) {
+        if ($_SESSION['password_recovery'] == "successful")
+            echo "<script>success('success', 'check you email for password'); </script>";
+        else
+            echo "<script>success('error', 'sorry could not send email'); </script>";
+    }
+    ?>

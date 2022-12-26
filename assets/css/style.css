@@ -49,6 +49,16 @@ body {
   max-width: 100%;
   transition: all 0.3s ease-out 0s;
 }
+.top-nav li.active a,
+.main-menu li.active a,
+.mobile-menu li.active a {
+  color: #519f10 !important;
+}
+
+.main-menu .careers.active a {
+  background-color: #417d0c;
+  color: #fff !important;
+}
 
 a,
 .btn {
@@ -66,6 +76,7 @@ a,
   /* height: 30px; */
   /* line-height: 30px; */
 }
+
 a {
   text-decoration: none;
 }
@@ -1569,6 +1580,41 @@ textarea:focus {
 }
 #mobile-menu-active {
   display: none;
+}
+
+/* Top Nav Style */
+
+.top-nav-area {
+  padding: 10px 0;
+}
+
+.top-nav-area li {
+  list-style: none;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-nav-left ul,
+.top-nav-right ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.top-nav ul li a {
+  color: #1b1b1b;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.top-nav ul li a:hover {
+  color: #519f10;
 }
 
 /*------------------------
