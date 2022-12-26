@@ -33,7 +33,6 @@ if (isset($_GET['id'])) {
                     <div id="faq" class="panel-group">
 
                         <?php
-                        // fetch data from the notice table
                         $sql = "SELECT * FROM notices";
                         $result = mysqli_query($conn, $sql);
                         $notices = $result->fetch_all(MYSQLI_ASSOC);

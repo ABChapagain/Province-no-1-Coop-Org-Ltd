@@ -1,8 +1,15 @@
 ;(function ($) {
-  'use strict'
+  ;('use strict')
 
-  $(document).ready(function () {
-    $('#popupModel').modal('show')
+  let url = window.location.href
+  url = url.split('/').pop().split('.')[0] || 'index'
+
+  let lists = document.querySelectorAll(`.${url}`)
+
+  lists.forEach((list) => {
+    if (list) {
+      list.classList.add('active')
+    }
   })
 
   /*--
@@ -22,7 +29,7 @@
 
   /* jQuery MeanMenu */
   $('#mobile-menu-active').meanmenu({
-    meanScreenWidth: '991',
+    meanScreenWidth: 991,
     meanMenuContainer: '.mobile-menu-area .mobile-menu',
   })
 
