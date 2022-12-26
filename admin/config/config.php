@@ -18,12 +18,17 @@ define("report_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/reports/
 define("notice_url", url . "../uploads/notices/");
 define("notice_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/notices/");
 
+define("resume_url", url . "../uploads/resume/");
+define("resume_upload", dirname(dirname(dirname(__FILE__))) . "/uploads/resume/");
+
+
 require app . "/../config/db_config.php";
 
 $link = $_SERVER['REQUEST_URI'];
 
 $login = strpos($link, "login");
+$forgot_password = strpos($link, "forgot_password");
 
 
-if (!isset($_SESSION['user_name']) && !$login)
+if (!isset($_SESSION['user_name']) && !$login && !$forgot_password)
     header("Location:" . url . "login.php");
