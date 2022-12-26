@@ -38,7 +38,6 @@ if (isset($_GET['id'])) {
                         $notices = $result->fetch_all(MYSQLI_ASSOC);
 
                         foreach ($notices as $index => $notice) :
-
                             $show = '';
                             if ($notice_id === '') {
                                 if ($index === 0) {
