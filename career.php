@@ -61,8 +61,9 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                 <?php
                         $current_date = date('Y-m-d');
                         $termination_date = $vacancy['termination_date'];
+                        $starting_date = $vacancy['starting_date'];
 
-                        if (strtotime($current_date) < strtotime($termination_date)) {
+                        if (strtotime($starting_date) <= strtotime($current_date) && strtotime($termination_date) >= strtotime($current_date)) {
                             echo "<a class='btn btn-style-2' href='career-apply.php?id=$vacancy_id'>Apply Now</a>";
                         } else {
                             echo '<button class="btn btn-danger py-2 px-3">Application Closed</button>';

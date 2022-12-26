@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="plugins/leaflet/leaflet.css">
     <script src="plugins/leaflet/leaflet.js"></script>
     <script src=" assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+
     <script>
 
     </script>
@@ -34,9 +37,10 @@
 
 <body>
 
+    <?php require_once('./components/TopNav.php') ?>
 
     <!-- header start -->
-    <header class="header-area gray-bg clearfix sticky-top">
+    <header class="header-area bg-white clearfix sticky-top">
         <div class="header-bottom">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
@@ -50,22 +54,13 @@
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="index.php">Home</a></li>
-                                        <li><a href="about-us.php">About Us</a></li>
-                                        <li><a href="products.php">Products</a></li>
-                                        <li class="top-hover">
-                                            <a href="notice.php">notice</a>
+                                        <li class="index"><a href="index.php">Home</a></li>
+                                        <li class="products"><a href="products.php">Products</a></li>
+                                        <li class="about-us"><a href="about-us.php">About Us</a></li>
+                                        <li class="top-hover contact-us">
+                                            <a href="contact-us.php">contact us</a>
                                         </li>
-                                        <li class="top-hover">
-                                            <a href="events.php">events</a>
-                                        </li>
-                                        <li class="top-hover">
-                                            <a href="reports.php">reports</a>
-                                        </li>
-                                        <li class="top-hover">
-                                            <a href="contact-us.php">contact</a>
-                                        </li>
-                                        <li class="top-hover">
+                                        <li class="top-hover careers">
                                             <a class="btn py-3 px-4 rounded text-white bg-project"
                                                 href="careers.php">career</a>
                                         </li>
@@ -79,14 +74,14 @@
                     <div class="mobile-menu">
                         <nav id="mobile-menu-active">
                             <ul class="menu-overflow">
-                                <li><a href="about-us.php">About Us</a></li>
-                                <li><a href="index.php">HOME</a></li>
-                                <li><a href="products.php">Products</a></li>
-                                <li><a href="notice.php">notice</a></li>
-                                <li><a href="events.php">events</a></li>
-                                <li><a href="reports.php">reports</a></li>
-                                <li><a href="careers.php">career</a></li>
-                                <li><a href="contact-us.php">contact</a></li>
+                                <li class="index"><a href="index.php">Home</a></li>
+                                <li class="products"><a href="products.php">Products</a></li>
+                                <li class="about-us"><a href="about-us.php">About Us</a></li>
+                                <li class="notice"><a href="notice.php">notice</a></li>
+                                <li class="reports"><a href="reports.php">reports</a></li>
+                                <li class="events"><a href="events.php">events</a></li>
+                                <li class="careers"><a href="careers.php">career</a></li>
+                                <li class="contact-us"><a href="contact-us.php">contact us</a></li>
                             </ul>
                         </nav>
                     </div>

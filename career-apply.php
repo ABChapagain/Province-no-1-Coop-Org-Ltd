@@ -7,12 +7,12 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $vacancy_id = $_GET['id'];
     $current_date = date('Y-m-d');
 
-    $sql = "SELECT * FROM vacancy WHERE id = $vacancy_id AND termination_date > '$current_date'";
+    $sql = "SELECT * FROM vacancy WHERE id = $vacancy_id AND starting_date <= '$current_date' AND termination_date >= '$current_date'";
     $res = $conn->query($sql);
     $vacancy = $res->fetch_assoc();
 
     if ($res->num_rows > 0) {
-        $sql = "SELECT * FROM vacancy WHERE termination_date > '$current_date'";
+        $sql = "SELECT * FROM vacancy WHERE starting_date <= '$current_date' AND termination_date >= '$current_date'";
         $res = $conn->query($sql);
         $vacancies = $res->fetch_all(MYSQLI_ASSOC);
 
@@ -56,7 +56,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                             $email = mysqli_real_escape_string($conn, $_POST['email']);
                             $phone = mysqli_real_escape_string($conn, $_POST['phone']);
                             $address = mysqli_real_escape_string($conn, $_POST['address']);
-                            $position = mysqli_real_escape_string($conn, $_POST['apply-for']);
+                            $apply_for = mysqli_real_escape_string($conn, $_POST['apply-for']);
                             $cover_letter = mysqli_real_escape_string($conn, $_POST['cover-letter']);
                             $date = date('Y-m-d');
 
@@ -77,7 +77,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                                 $file_store = "uploads/resume/" . $uniqID;
 
 
-                                $sql = "INSERT INTO `job_application` (`vacancy_id`, `name`, `email`, `phone`, `address`, `position`, `resume`, `cover_letter`, `date`) VALUES ('$vacancy_id', '$name', '$email', '$phone', '$address', '$position', '$uniqID', '$cover_letter', '$date')";
+                                $sql = "INSERT INTO `job_application` (`vacancy_id`, `name`, `email`, `phone`, `address`, `resume`, `cover_letter`, `date`) VALUES ('$apply_for', '$name', '$email', '$phone', '$address', '$uniqID', '$cover_letter', '$date')";
 
                                 if ($conn->query($sql)) {
                                     move_uploaded_file($file_tem_loc, $file_store);
@@ -127,7 +127,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                         <select name="apply-for" id="apply-for" required>
                             <option disabled selected>-- Apply For --</option>
                             <?php foreach ($vacancies as $vacant) : ?>
-                            <option value="<?php echo $vacant['title'] ?>"
+                            <option value="<?php echo $vacant['id'] ?>"
                                 <?php echo $vacant['id'] === $vacancy['id'] ? 'selected' : '' ?>>
                                 <?php echo $vacant['title'] ?>
                             </option>
@@ -149,10 +149,6 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                             class="btn btn-style-2">
                     </div>
                 </form>
-
-
-
-
             </div>
         </div>
     </div>
