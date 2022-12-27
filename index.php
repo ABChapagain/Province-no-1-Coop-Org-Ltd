@@ -144,9 +144,10 @@ require_once('./config/db_config.php');
 <?php require_once('./components/LatestEvents.php') ?>
 
 
+
+<!-- Nocice popup Start -->
 <?php
 
-// get notices from database
 $current_date = date('Y-m-d');
 $sql = "SELECT * FROM `notices` WHERE popup_start_date < '$current_date' AND popup_end_date > '$current_date' ORDER BY id DESC";
 $res = mysqli_query($conn, $sql);
@@ -184,19 +185,76 @@ foreach ($notices as $notice) {
 <?php
 }
 ?>
+<!-- Notice popup End -->
+
+
+<!-- Reports Popup Start -->
+
+<?php
+
+$current_date = date('Y-m-d');
+$sql = "SELECT * FROM `reports` WHERE start_popup < '$current_date' AND end_popup > '$current_date' ORDER BY id DESC";
+$res = mysqli_query($conn, $sql);
+$reports = $res->fetch_all(MYSQLI_ASSOC);
+
+foreach ($reports as $report) {
+?>
+<!-- Modal -->
+<div class="modal fade" id="popupReportModel<?php echo $report['id'] ?>" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog model-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title me-1" id="staticBackdropLabel">
+                    <?php echo $report['title'] ?>
+                </h5>
+                <span>(<?php echo date('F d, Y', strtotime($report['published_date'])) ?>)</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="assets/img/icons/x-lg.svg" alt="close" />
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <?php echo $report['short_description'] ?>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn py-2 px-4 border" data-bs-dismiss="modal">Close</button>
+                <a href="./uploads/reports/<?php echo $report['file_name'] ?>"
+                    class="btn py-2 px-4 text-white bg-project">Download</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php
+}
+
+
+?>
 
 <script>
-<?php
-
-    foreach ($notices as $notice) :
-    ?>
 $(document).ready(function() {
-    $('#popupNoticeModel<?php echo $notice['id'] ?>').modal('show');
-})
 
-<?php
-    endforeach;
-    ?>
+
+    <?php
+        foreach ($notices as $notice) :
+        ?>
+    $('#popupNoticeModel<?php echo $notice['id'] ?>').modal('show');
+
+    <?php
+        endforeach;
+        ?>
+
+    <?php
+        foreach ($reports as $report) :
+        ?>
+    $('#popupReportModel<?php echo $report['id'] ?>').modal('show');
+    <?php
+        endforeach;
+        ?>
+})
 </script>
 
 

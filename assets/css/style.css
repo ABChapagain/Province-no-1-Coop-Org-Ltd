@@ -1612,6 +1612,10 @@ textarea:focus {
   font-weight: 600;
 }
 
+.top-nav-right ul li a {
+  text-transform: uppercase;
+}
+
 .top-nav ul li a:hover {
   color: #519f10;
 }
