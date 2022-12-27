@@ -40,15 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $filename = $_FILES['img']['name'][$i];
                     $ext = explode(".", $filename);
                     $ext = end($ext);
-                    if (in_array($ext, ["jpg", "png", "jpeg", "svg", "webp"])) {
+                    $validation = validation($_FILES['img']['size'][$i]);
+                    if ($validation) {
                         // Upload file
                         $filename =  uniqid() . ".jpg";
                         move_uploaded_file($_FILES['img']['tmp_name'][$i],  product_upload . $filename);
                         $sql = "insert into product_image (id,name) values('$id','$filename')";
                         $conn->query($sql);
-                    } else {
-                        // echo "<script> alert('please upload photos of specified format') </script>";
-                        die("please upload photos of specified fromat");
                     }
                 }
             }

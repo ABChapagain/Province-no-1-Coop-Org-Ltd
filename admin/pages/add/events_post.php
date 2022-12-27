@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (in_array($ext, ["jpg", "png", "jpeg", "svg", "webp"])) {
                         // Upload file
                         $filename =  uniqid() . ".jpg";
+                        validation($_FILES['img']); //validating the size
                         move_uploaded_file($_FILES['img']['tmp_name'][$i],  event_upload . $filename);
                         $sql = "insert into event_images (id,name) values('$id','$filename')";
                         $conn->query($sql);
@@ -61,4 +62,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['events_added'] = "exists";
     }
 }
-header("Location:events.php");
+// header("Location:events.php");
