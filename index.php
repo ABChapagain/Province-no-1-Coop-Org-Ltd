@@ -230,9 +230,103 @@ foreach ($reports as $report) {
 
 <?php
 }
-
-
 ?>
+
+<!-- Reports Popup End -->
+
+<!-- Events Popup Start -->
+
+<?php
+
+$current_date = date('Y-m-d');
+$sql = "SELECT * FROM `events` WHERE start_popup < '$current_date' AND end_popup > '$current_date' ORDER BY id DESC";
+$res = mysqli_query($conn, $sql);
+$events = $res->fetch_all(MYSQLI_ASSOC);
+
+foreach ($events as $event) {
+?>
+<!-- Modal -->
+<div class="modal fade" id="popupEventModel<?php echo $event['id'] ?>" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog model-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title me-1" id="staticBackdropLabel">
+                    <?php echo $event['title'] ?>
+                </h5>
+                <span>(<?php echo date('F d, Y', strtotime($event['posted_date'])) ?>)</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="assets/img/icons/x-lg.svg" alt="close" />
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <?php echo $event['short_description'] ?>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn py-2 px-4 border" data-bs-dismiss="modal">Close</button>
+                <a href="event.php?id=<?php echo $event['id'] ?>" class="btn py-2 px-4 text-white bg-project">Read
+                    More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php
+}
+?>
+
+<!-- Events Popup End -->
+
+
+<!-- Career Popup Start -->
+
+<?php
+
+$current_date = date('Y-m-d');
+$sql = "SELECT * FROM `vacancy` WHERE start_popup_date < '$current_date' AND end_popup_date > '$current_date' ORDER BY id DESC";
+$res = mysqli_query($conn, $sql);
+$vacancies = $res->fetch_all(MYSQLI_ASSOC);
+
+foreach ($vacancies as $vacancy) {
+?>
+<!-- Modal -->
+<div class="modal fade" id="popupVacancyModel<?php echo $vacancy['id'] ?>" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog model-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title me-1" id="staticBackdropLabel">
+                    <?php echo $vacancy['title'] ?>
+                </h5>
+                <span>(<?php echo date('F d, Y', strtotime($vacancy['published_date'])) ?>)</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="assets/img/icons/x-lg.svg" alt="close" />
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <?php echo $vacancy['short_description'] ?>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn py-2 px-4 border" data-bs-dismiss="modal">Close</button>
+                <a href="career.php?id=<?php echo $vacancy['id'] ?>" class="btn py-2 px-4 text-white bg-project">Read
+                    More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php
+}
+?>
+
+<!-- Events Popup End -->
+
 
 <script>
 $(document).ready(function() {
@@ -251,6 +345,22 @@ $(document).ready(function() {
         foreach ($reports as $report) :
         ?>
     $('#popupReportModel<?php echo $report['id'] ?>').modal('show');
+    <?php
+        endforeach;
+        ?>
+
+    <?php
+        foreach ($events as $event) :
+        ?>
+    $('#popupEventModel<?php echo $event['id'] ?>').modal('show');
+    <?php
+        endforeach;
+        ?>
+
+    <?php
+        foreach ($vacancies as $vacancy) :
+        ?>
+    $('#popupVacancyModel<?php echo $vacancy['id'] ?>').modal('show');
     <?php
         endforeach;
         ?>
