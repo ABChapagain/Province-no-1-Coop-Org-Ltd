@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("ss", $hash_password, $email);
         $stmt->execute();
 
+
         $_SESSION['url'] = url;
         $_SESSION['password'] = $new_pass;
         $_SESSION['email'] = $email;
