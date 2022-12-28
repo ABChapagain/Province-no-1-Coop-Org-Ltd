@@ -1610,6 +1610,9 @@ textarea:focus {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
+}
+
+.top-nav-right ul li a {
   text-transform: uppercase;
 }
 
@@ -1617,11 +1620,31 @@ textarea:focus {
   color: #519f10;
 }
 
+/* Goals Content */
+.speculation-area .speculation-content ul li,
+.goals-area .goals-content ul li {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.speculation-area .speculation-content ul li:last-child,
+.goals-area .goals-content ul li:last-child {
+  margin-bottom: 0;
+}
+
+.speculation-area .speculation-content ul li::before,
+.goals-area .goals-content ul li::before {
+  content: '✓ ';
+}
 /*------------------------
     2. Index page style
 --------------------------*/
 
 /* header bottom cart */
+
+.header-area {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
 
 .header-bottom-right {
   display: flex;
@@ -2262,6 +2285,8 @@ textarea:focus {
 }
 .product-img img {
   width: 100%;
+  height: 190px;
+  object-fit: cover;
 }
 .product-action {
   bottom: 15px;

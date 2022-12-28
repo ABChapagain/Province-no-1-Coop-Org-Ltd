@@ -70,7 +70,7 @@
   /* Best selling active */
   $('.featured-product-active').owlCarousel({
     loop: true,
-    nav: true,
+    nav: false,
     autoplay: true,
     autoplayTimeout: 3000,
     navText: [
@@ -104,7 +104,7 @@
   /* Best selling active */
   $('.best-selling-active').owlCarousel({
     loop: true,
-    nav: true,
+    nav: false,
     autoplay: false,
     autoplayTimeout: 5000,
     navText: [

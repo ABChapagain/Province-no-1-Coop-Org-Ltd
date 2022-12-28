@@ -47,7 +47,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-8 shadow p-3 rounded">
+            <div class="col-md-10 col-xl-8 shadow p-3 rounded">
                 <?php
 
                         if (isset($_POST['submit']) && isset($_FILES['resume'])) {
@@ -156,10 +156,11 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
 
 <?php
-
     } else {
-        echo "<script>setTimeout(`location.href = 'index.php'`,0);</script>";
+        echo "<script>window.location.href = 'careers.php'</script>";
     }
+} else {
+    echo "<script>window.location.href = 'careers.php'</script>";
 }
 require_once('./components/Footer.php');
 

@@ -35,19 +35,22 @@ if (isset($_GET['id'])) {
                         <?php
                         $sql = "SELECT * FROM notices";
                         $result = mysqli_query($conn, $sql);
-                        $notices = $result->fetch_all(MYSQLI_ASSOC);
 
-                        foreach ($notices as $index => $notice) :
-                            $show = '';
-                            if ($notice_id === '') {
-                                if ($index === 0) {
-                                    $show = 'show';
+                        if ($result->num_rows > 0) {
+
+                            $notices = $result->fetch_all(MYSQLI_ASSOC);
+
+                            foreach ($notices as $index => $notice) :
+                                $show = '';
+                                if ($notice_id === '') {
+                                    if ($index === 0) {
+                                        $show = 'show';
+                                    }
+                                } else {
+                                    if ($notice_id === $notice['id']) {
+                                        $show = 'show';
+                                    }
                                 }
-                            } else {
-                                if ($notice_id === $notice['id']) {
-                                    $show = 'show';
-                                }
-                            }
 
                         ?>
 
@@ -75,23 +78,28 @@ if (isset($_GET['id'])) {
                                             <?php echo $notice['description'] ?>
                                         </p>
                                         <?php
-                                            $sql = "SELECT * FROM notice_images WHERE id = $notice[id]";
-                                            $res = mysqli_query($conn, $sql);
-                                            if ($res->num_rows > 0) :
-                                                while ($notice_images = $res->fetch_assoc()) :
-                                            ?>
+                                                $sql = "SELECT * FROM notice_images WHERE id = $notice[id]";
+                                                $res = mysqli_query($conn, $sql);
+                                                if ($res->num_rows > 0) :
+                                                    while ($notice_images = $res->fetch_assoc()) :
+                                                ?>
                                         <img class="my-2" width="100%"
                                             src="./uploads/notices/<?php echo $notice_images['image'] ?>"
                                             alt="<?php echo $notice['title'] ?>" />
                                         <?php
-                                                endwhile;
-                                            endif; ?>
+                                                    endwhile;
+                                                endif; ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <?php endforeach; ?>
+                        <?php
+                        } else {
+                            echo "<h2 class='text-center'>No Notice Found</h2>";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

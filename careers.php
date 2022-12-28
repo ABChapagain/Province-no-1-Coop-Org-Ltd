@@ -52,7 +52,7 @@ require_once('./config/db_config.php');
                                 <th>Openings</th>
                                 <th>Posted On</th>
                                 <th>Apply Before</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
