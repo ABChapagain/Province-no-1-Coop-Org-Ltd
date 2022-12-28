@@ -36,23 +36,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $conn->query($sql)->fetch_assoc()['id'];
 
             // $sql = "insert into notice_images(id,name,featured) values('$id','$filename','1')";
-            // if ($conn->query($sql))
+            // if ($conn->query($sql))                                                                         //there is no featured image in notices
             //     move_uploaded_file($_FILES['featured_img']['tmp_name'],  event_upload . $filename);
 
             if (strlen($_FILES['img']['name'][0]) != 0) {
                 for ($i = 0; $i < $countfiles; $i++) {
-                    $filename = $_FILES['img']['name'][$i];
-                    $ext = explode(".", $filename);
-                    $ext = end($ext);
-                    if (in_array($ext, ["jpg", "png", "jpeg", "svg", "webp"])) {
+                    $validation = validation($_FILES['img']['size'][$i]);
+                    if ($validation) {
+                        $filename = $_FILES['img']['name'][$i];
+                        $ext = explode(".", $filename);
+                        $ext = end($ext);
                         // Upload file
                         $filename =  uniqid() . ".jpg";
-                        move_uploaded_file($_FILES['img']['tmp_name'][$i],  notice_upload . $filename);
                         $sql = "insert into notice_images (id,image) values('$id','$filename')";
-                        $conn->query($sql);
+                        if ($conn->query($sql))
+                            move_uploaded_file($_FILES['img']['tmp_name'][$i],  notice_upload . $filename);
                     } else {
-                        // echo "<script> alert('please upload photos of specified format') </script>";
-                        die("please upload photos of specified fromat");
+                        $_SESSION['validation'] = "warning";
                     }
                 }
             }

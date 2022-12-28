@@ -58,7 +58,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                     <td>
                                         <div>
                                             <?php
-                                            $sql = "select * from notice_images where id=" . $rows['id'];
+                                            $sql = "select * from notice_images where id=" . $rows['id'] . " limit 0,1";
                                             $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                             foreach ($image as $img) :
                                             ?>

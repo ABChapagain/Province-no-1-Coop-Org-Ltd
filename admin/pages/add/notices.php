@@ -80,6 +80,10 @@ include "../../includes.php";
     ?>
 
     <?php
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+    }
     if (isset($_SESSION['notice_added'])) {
         if ($_SESSION['notice_added'] == "successful") {
             echo "<script>success('success', 'notice added successfully'); </script>";

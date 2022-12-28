@@ -81,6 +81,12 @@ include "../../includes.php";
     ?>
 
     <?php
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+    }
     if (isset($_SESSION['events_added'])) {
         if ($_SESSION['events_added'] == "successful") {
             echo "<script>success('success', 'events added successfully'); </script>";

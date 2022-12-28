@@ -9,19 +9,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $position = mysqli_real_escape_string($conn, $_POST['position']);
 
 
+    $validation = validation($_FILES['img']['size']);
+
+    if (!$validation) {
+        $_SESSION['validation'] = "error";
+        header("Location:members.php");
+        exit;
+    }
+
+
     $sql = "select * from members where name='$name'";
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
     if (!$rowcount) {
-
-
         $img = $_FILES['img'];
         $img_name = $img['name'];
         $tempName = $img['tmp_name'];
         $img_name = uniqid() . ".jpg";
-
-        $validation = validation($_FILES['img']['size']);
-
 
 
         $sql = "select id from department where department_name='$department'";

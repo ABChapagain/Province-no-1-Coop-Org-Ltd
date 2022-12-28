@@ -104,14 +104,21 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     </script>
 
     <?php
-    if (isset($_SESSION['notice_updated'])) {
-        if ($_SESSION['notice_updated'] == "successful") {
-            echo "<script>success('success', 'notice updated successfully'); </script>";
-        } else {
-            echo "<script>success('error', 'unable to update notice'); </script>";
-        }
-        unset($_SESSION['notice_updated']);
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
     }
+    // if (isset($_SESSION['notice_updated'])) {
+    //     if ($_SESSION['notice_updated'] == "successful") {
+    //         echo "<script>success('success', 'notice updated successfully'); </script>";
+    //     } else {
+    //         echo "<script>success('error', 'unable to update notice'); </script>";
+    //     }
+    //     unset($_SESSION['notice_updated']);
+    // }
     ?>
 
 </body>

@@ -90,6 +90,13 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     require app . "/pages/includes/js_links.php";
     ?>
     <?php
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
+    }
     if (isset($_SESSION['product_added'])) {
         if ($_SESSION['product_added'] == "successful") {
             echo "<script>success('success', 'product added successfully'); </script>";
