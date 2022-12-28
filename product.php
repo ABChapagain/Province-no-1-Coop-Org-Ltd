@@ -80,12 +80,13 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                             <li class="categories-title">Tags: </li>
 
                             <?php
-                                    $tags = explode(",", $result['tags']);
-                                    foreach ($tags as $tag) {
-                                        echo " ";
-                                        echo "<li><a style='text-transform: capitalize;'  href='#'> $tag, </a></li>";
-                                        echo " ";
-                                    }
+                                    echo $result['tags'];
+                                    // $tags = explode(",", $result['tags']);
+                                    // foreach ($tags as $tag) {
+                                    //     echo " ";
+                                    //     echo "<li><a style='text-transform: capitalize;'  href='#'> $tag, </a></li>";
+                                    //     echo " ";
+                                    // }
                                     ?>
 
                         </ul>
@@ -138,11 +139,13 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                         <ul>
                             <li><span>Tags:</span></li>
                             <?php
-                                    foreach ($tags as $tag) {
-                                        echo " ";
-                                        echo "<li><a href='#'> $tag, </a></li>";
-                                        echo " ";
-                                    }
+                                    echo $result['tags'];
+
+                                    // foreach ($tags as $tag) {
+                                    //     echo " ";
+                                    //     echo "<li><a href='#'> $tag, </a></li>";
+                                    //     echo " ";
+                                    // }
                                     ?>
                         </ul>
                     </div>
