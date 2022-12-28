@@ -179,3 +179,21 @@ foreach ($result as $product) {
 <?php require_once('./components/Footer.php');
 
 ?>
+
+
+<script>
+    const productFetch = function(category) {
+        $.ajax({
+            type: "POST",
+            url: "products-fetch.php",
+            data: {
+                category: category
+            },
+            dataType: "JSON",
+            success: function(response) {
+                let data = ``;
+
+            }
+        });
+    }
+</script>

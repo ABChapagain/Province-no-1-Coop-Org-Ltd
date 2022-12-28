@@ -27,7 +27,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" value="<?php echo $rows['title'] ?>">
                     </div>
 
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="short_description">Short Description</label>
                         <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
                     </div>
@@ -122,6 +122,13 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     </script>
 
     <?php
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
+    }
     if (isset($_SESSION['event_updated'])) {
         if ($_SESSION['event_updated'] == "successful") {
             echo "<script>success('success', 'event updated successfully'); </script>";

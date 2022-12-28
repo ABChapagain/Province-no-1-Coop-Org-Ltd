@@ -58,7 +58,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                     <td>
                                         <div>
                                             <?php
-                                            $sql = "select * from event_images where id=" . $rows['id'];
+                                            $sql = "select * from event_images where featured=1 and id=" . $rows['id'];
                                             $image = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                             foreach ($image as $img) :
                                             ?>

@@ -64,6 +64,10 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 
     <?php
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+    }
     if (isset($_SESSION['member_added'])) {
         if ($_SESSION['member_added'] == "successful") {
             echo "<script>success('success', 'member added successfully'); </script>";

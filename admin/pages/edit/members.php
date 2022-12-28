@@ -91,6 +91,13 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 
     <?php
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
+    }
     if (isset($_SESSION['member_updated'])) {
         if ($_SESSION['member_updated'] == "successful") {
             echo "<script>success('success', 'member updated successfully'); </script>";

@@ -14,6 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = mysqli_real_escape_string($conn, $_POST['category']);
     $tags = mysqli_real_escape_string($conn, $_POST['tags']);
 
+    $validation = validation($_FILES['featured_img']['size']);
+
+    if (!$validation) {
+        $_SESSION['validation'] = "error";
+        header("Location:products.php");
+        exit;
+    }
+
     $sql = "select * from products where name='$product'";
     $result = $conn->query($sql);
     $rowcount = mysqli_num_rows($result);
@@ -25,30 +33,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "select id from products where name='$product'";
             $id = $conn->query($sql)->fetch_assoc()['id'];
 
-
             $featured_img = $_FILES['featured_img']['name'];
             $filename =  uniqid() . ".jpg";
-
-
-
             $sql = "insert into product_image(id,name,featured) values('$id','$filename','1')";
             if ($conn->query($sql))
                 move_uploaded_file($_FILES['featured_img']['tmp_name'],  product_upload . $filename);
 
             if (strlen($_FILES['img']['name'][0]) != 0) {
                 for ($i = 0; $i < $countfiles; $i++) {
-                    $filename = $_FILES['img']['name'][$i];
-                    $ext = explode(".", $filename);
-                    $ext = end($ext);
-                    if (in_array($ext, ["jpg", "png", "jpeg", "svg", "webp"])) {
+                    $validation = validation($_FILES['img']['size'][$i]);
+                    if ($validation) {
+                        $filename = $_FILES['img']['name'][$i];
+                        $ext = explode(".", $filename);
+                        $ext = end($ext);
                         // Upload file
                         $filename =  uniqid() . ".jpg";
-                        move_uploaded_file($_FILES['img']['tmp_name'][$i],  product_upload . $filename);
                         $sql = "insert into product_image (id,name) values('$id','$filename')";
-                        $conn->query($sql);
+                        if ($conn->query($sql))
+                            move_uploaded_file($_FILES['img']['tmp_name'][$i],  product_upload . $filename);
                     } else {
-                        // echo "<script> alert('please upload photos of specified format') </script>";
-                        die("please upload photos of specified fromat");
+                        $_SESSION['validation'] = "warning";
                     }
                 }
             }
