@@ -9,6 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $department = mysqli_real_escape_string($conn, $_POST['department']);
     $position = mysqli_real_escape_string($conn, $_POST['position']);
 
+    if (strlen($_FILES['img']['name']) > 0) {
+        $validation = validation($_FILES['img']['size']);
+        if (!$validation) {
+            $_SESSION['validation'] = "error";
+            header("Location:members.php?id=" . $id);
+            exit;
+        }
+    }
+
+
     $sql = "select id from department where department_name='$department'";
     $department = $conn->query($sql)->fetch_assoc()['id'];
     $sql = "update members set name='$name', department_id='$department',position='$position' where id='$id'";

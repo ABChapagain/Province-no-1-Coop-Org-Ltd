@@ -1,7 +1,14 @@
 <?php
 include "./includes.php";
 
-$sql = "select * from job_application";
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "select * from job_application where vacancy_id='$id'";
+} else {
+    $sql = "select * from job_application";
+}
+
+
 $result = $conn->query($sql);
 $result->fetch_all(MYSQLI_ASSOC);
 ?>
@@ -42,11 +49,14 @@ $result->fetch_all(MYSQLI_ASSOC);
                             <?php
                             $i = 0;
                             foreach ($result as $rows) :
+                                $vacancy_id = $rows['vacancy_id'];
+                                $sql = "select title from vacancy where id='$vacancy_id'";
+                                $position = $conn->query($sql)->fetch_assoc()['title'];
                             ?>
                                 <tr>
                                     <td><?php echo ++$i ?></td>
                                     <td><?php echo $rows['name'] ?> </td>
-                                    <td><?php echo  $rows['position']; ?></td>
+                                    <td><?php echo $position ?></td>
                                     <td><?php echo  $rows['email']; ?></td>
                                     <td><?php echo  $rows['phone']; ?></td>
                                     <td>

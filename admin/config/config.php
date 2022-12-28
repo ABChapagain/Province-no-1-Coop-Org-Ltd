@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+
+
 define("app", dirname(dirname(__FILE__)));
 define("url", "http://localhost/Province-no-1-Coop-Org-Ltd/admin/");
 
@@ -30,5 +33,48 @@ $login = strpos($link, "login");
 $forgot_password = strpos($link, "forgot_password");
 
 
-if (!isset($_SESSION['user_name']) && !$login && !$forgot_password)
+if (!isset($_SESSION['user_name']) && !$login && !$forgot_password) {
     header("Location:" . url . "login.php");
+    exit;
+}
+
+$staff = ['product', 'event', 'report', 'notice', 'index'];
+$hr = ['application', 'vacancy', 'index'];
+
+if (!$login && !$forgot_password) {
+    if ($_SESSION['role'] == 3) {
+        $counter = 0;
+        foreach ($staff as $auth) {
+            if (strpos($link, $auth)) {
+                $counter++;
+            }
+        }
+        if (!$counter) {
+            header("Location:" . url . "products.php");
+            exit;
+        }
+    }
+
+    if ($_SESSION['role'] == 2) {
+        $counter = 0;
+        foreach ($hr as $auth) {
+            if (strpos($link, $auth)) {
+                $counter++;
+            }
+        }
+        if (!$counter) {
+            header("Location:" . url . "vacancy.php");
+            exit;
+        }
+    }
+}
+
+function validation($file)
+{
+    echo $file;
+    // if ($file < 1048576)
+    if ($file < 10)
+        return 1;
+    else
+        return 0;
+}

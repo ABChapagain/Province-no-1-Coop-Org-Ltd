@@ -31,12 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $countfiles = count($_FILES['img']['name']);
         if (strlen($_FILES['img']['name'][0]) != 0)
             for ($i = 0; $i < $countfiles; $i++) {
-                $filename = $_FILES['img']['name'][$i];
-                // Upload file
-                $filename = uniqid() . ".jpg";
-                move_uploaded_file($_FILES['img']['tmp_name'][$i],  notice_upload . $filename);
-                $sql = "insert into notice_images (id,image) values('$id','$filename')";
-                $conn->query($sql);
+                $validation = validation($_FILES['img']['size'][$i]);
+                if ($validation) {
+                    $filename = $_FILES['img']['name'][$i];
+                    // Upload file
+                    $filename = uniqid() . ".jpg";
+                    $sql = "insert into notice_images (id,image) values('$id','$filename')";
+                    if ($conn->query($sql))
+                        move_uploaded_file($_FILES['img']['tmp_name'][$i],  notice_upload . $filename);
+                } else
+                    $_SESSION['validation'] = "warning";
             }
         $_SESSION['notice_updated'] = "successful";
     } else {

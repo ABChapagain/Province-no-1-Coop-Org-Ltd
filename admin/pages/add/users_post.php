@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $roles = $conn->query($sql)->fetch_assoc()['id'];
 
         $stmt = $conn->prepare("insert into users (user_name,role,email,password) values(?,?,?,?)");
-        $stmt->bind("siss", $name, $roles, $email, $hash_password);
+        $stmt->bind_param("siss", $name, $roles, $email, $hash_password);
         if ($stmt->execute()) {
             $_SESSION['user_added'] = "successful";
         } else {

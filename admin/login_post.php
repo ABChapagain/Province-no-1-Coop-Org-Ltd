@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows > 0) {
         $result =  $result->fetch_assoc();
         $_SESSION['user_name'] = $result['user_name'];
+        $_SESSION['role'] = $result['role'];
         $real_password = $result['password'];
         if (password_verify($password, $real_password)) {
             header("Location:index.php");

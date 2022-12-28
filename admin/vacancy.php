@@ -61,7 +61,7 @@ $result->fetch_all(MYSQLI_ASSOC);
                                         <?php echo $rows['starting_date'] . " to " . $rows['termination_date'] ?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo url ?>pages/view/vacancy.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="View applications"><i class="fas fa-book-open"></i></button></a>
+                                        <a href="<?php echo url ?>applications.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="View applications"><i class="fas fa-book-open"></i></button></a>
 
                                         <a href="<?php echo url ?>pages/view/vacancy.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
                                         <a href="<?php echo url ?>pages/edit/vacancy.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>

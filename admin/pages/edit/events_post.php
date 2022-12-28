@@ -14,8 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $popup_start = $popupdate[0];
     $popup_end = $popupdate[1];
 
-    echo $popup_end;
-    echo $popup_start;
+    if (strlen($_FILES['featured_img']['name']) > 0) {
+        $validation = validation($_FILES['featured_img']['size']);
+        if (!$validation) {
+            $_SESSION['validation'] = "error";
+            header("Location:events.php?id=" . $id);
+            exit;
+        }
+    }
+
     $sql = "update events set title='$title', description='$description',short_description='$short_description',start_popup='$popup_start',end_popup='$popup_end' where id='$id'";
     if ($conn->query($sql)) {
         if (strlen($_FILES['featured_img']['name']) > 0) {
@@ -33,12 +40,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $countfiles = count($_FILES['img']['name']);
         if (strlen($_FILES['img']['name'][0]) != 0)
             for ($i = 0; $i < $countfiles; $i++) {
-                $filename = $_FILES['img']['name'][$i];
-                // Upload file
-                $filename = uniqid() . ".jpg";
-                move_uploaded_file($_FILES['img']['tmp_name'][$i],  event_upload . $filename);
-                $sql = "insert into event_images (id,name) values('$id','$filename')";
-                $conn->query($sql);
+                $validation = validation($_FILES['img']['size'][$i]);
+                if ($validation) {
+                    $filename = $_FILES['img']['name'][$i];
+                    // Upload file
+                    $filename = uniqid() . ".jpg";
+                    $sql = "insert into event_images (id,name) values('$id','$filename')";
+                    if ($conn->query($sql)) {
+                        move_uploaded_file($_FILES['img']['tmp_name'][$i],  event_upload . $filename);
+                    }
+                } else {
+                    $_SESSION['validation'] = "warning";
+                }
             }
         $_SESSION['event_updated'] = "successful";
     } else {

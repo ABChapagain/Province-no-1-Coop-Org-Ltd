@@ -17,6 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $popup_end = $popupdate[1];
 
 
+    $validation = validation($_FILES['featured_img']['size']);
+
+    if (!$validation) {
+        $_SESSION['validation'] = "error";
+        header("Location:events.php");
+        exit;
+    }
+
 
 
     $sql = "select * from events where title='$title'";
@@ -38,18 +46,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (strlen($_FILES['img']['name'][0]) != 0) {
                 for ($i = 0; $i < $countfiles; $i++) {
-                    $filename = $_FILES['img']['name'][$i];
-                    $ext = explode(".", $filename);
-                    $ext = end($ext);
-                    if (in_array($ext, ["jpg", "png", "jpeg", "svg", "webp"])) {
+                    $validation = validation($_FILES['img']['size'][$i]);
+                    if ($validation) {
+                        $filename = $_FILES['img']['name'][$i];
+                        $ext = explode(".", $filename);
+                        $ext = end($ext);
                         // Upload file
                         $filename =  uniqid() . ".jpg";
-                        move_uploaded_file($_FILES['img']['tmp_name'][$i],  event_upload . $filename);
                         $sql = "insert into event_images (id,name) values('$id','$filename')";
-                        $conn->query($sql);
+                        if ($conn->query($sql))
+                            move_uploaded_file($_FILES['img']['tmp_name'][$i],  event_upload . $filename);
                     } else {
                         // echo "<script> alert('please upload photos of specified format') </script>";
-                        die("please upload photos of specified fromat");
+                        $_SESSION['validation'] = "warning";
                     }
                 }
             }
