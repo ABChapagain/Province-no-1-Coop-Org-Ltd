@@ -130,7 +130,7 @@ require_once('./config/db_config.php');
                                 foreach ($result as $category) {
                                     echo "
                                     <li>
-                                    <input type='checkbox' />
+                                    <input type='checkbox' onClick='productFetch(`$category[name]`)' />
                                     <a href='#'>$category[name]</a>
                                     </li>
                                     ";
@@ -222,3 +222,21 @@ foreach ($result as $product) {
 <?php require_once('./components/Footer.php');
 
 ?>
+
+
+<script>
+    const productFetch = function(category) {
+        $.ajax({
+            type: "POST",
+            url: "products-fetch.php",
+            data: {
+                category: category
+            },
+            dataType: "JSON",
+            success: function(response) {
+                let data = ``;
+
+            }
+        });
+    }
+</script>
