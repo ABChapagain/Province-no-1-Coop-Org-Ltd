@@ -76,10 +76,18 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                 <div class="blog-dec-social">
                     <span>share :</span>
                     <ul>
-                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
-                        <li><a href="#"><i class="ion-social-skype"></i></a></li>
-                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        </li>
+                        <?php
+                                $share_url = "https://www.facebook.com/sharer/sharer.php?u=$current_url";
+                                ?>
+                        <li><a class="share" href="<?php echo $share_url ?>"><i class="ion-social-facebook"></i>
+                            </a></li>
+                        <?php
+                                $share_url = "https://twitter.com/intent/tweet?url=$current_url";
+                                ?>
+                        <li><a class="tweet" href="<?php echo $share_url ?>"><i class="ion-social-twitter"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

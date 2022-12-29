@@ -4,6 +4,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     require "../../config/config.php";
 
+    $validation = pdfValidation($_FILES['files']['name']);
+
+    if (!$validation) {
+        $_SESSION['validation'] = "error";
+        header("Location:reports.php");
+        exit;
+    }
 
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);

@@ -1,10 +1,26 @@
 <?php
 include "../../includes.php";
 
+if (!isset($_GET['id'])) {
+?>
+    <script>
+        location.replace("<?php echo url . "users.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $id = $_GET['id'];
 $sql = "select * from users where id='$id'";
 $result = $conn->query($sql);
+if ($result->num_rows == 0) {
+?>
+    <script>
+        location.replace("<?php echo url . "users.php" ?>")
+    </script>
+<?php
+    exit;
+}
 $rows = $result->fetch_assoc();
 
 $sql = "select * from roles where role_name!='admin'";
@@ -24,7 +40,7 @@ $roles = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['user_name'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['user_name'] ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">roles</label>

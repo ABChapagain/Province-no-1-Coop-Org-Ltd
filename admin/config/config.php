@@ -69,11 +69,26 @@ if (!$login && !$forgot_password) {
     }
 }
 
-function validation($file)
+function validation($size, $name)
 {
-    echo $file;
-    // if ($file < 1048576)
-    if ($file < 10)
+    $allowed = ['jpg', 'jpeg', 'png'];
+    $name = explode(".", $name);
+    $name = end($name);
+    // if ($size < 10)
+    if ($size < 1048576 && in_array($name, $allowed))
+        return 1;
+    else
+        return 0;
+}
+
+
+function pdfValidation($name)
+{
+    $allowed = ['pdf'];
+    $name = explode(".", $name);
+    $name = end($name);
+    // if ($size < 10)
+    if (in_array($name, $allowed))
         return 1;
     else
         return 0;

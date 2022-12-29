@@ -130,8 +130,6 @@ const deleteUser = async function (id) {
   }
 };
 
-
-
 //delete image
 async function deleteProductImage(id, name) {
   const result = await deleteConfirmation();
@@ -229,17 +227,26 @@ const datePickerdata = {
     format: "YYYY/MM/DD",
   },
 };
+
 //setting starting and ending date in date range picker
-const changeDatePickerData = function (startDate, endDate) {
+function changeDatePickerData(startDate, endDate, whatFor = "datepicker") {
   datePickerdata.startDate = startDate;
   datePickerdata.endDate = endDate;
-  datePicker();
-};
+  if (whatFor == "datepicker") {
+    datePicker();
+  } else if (whatFor == "vacancy") {
+    vacancyPopup();
+  }
+}
 
 const datePicker = function () {
   $("#reservation").daterangepicker(datePickerdata);
 };
+const vacancyPopup = function () {
+  $("#vacancy-popup").daterangepicker(datePickerdata);
+};
 datePicker();
+vacancyPopup();
 ////////////////////////////////////
 
 //file upload
@@ -258,6 +265,3 @@ $(".file-collection").hover(
     $(".del-button").addClass("hide_del_button");
   }
 );
-
-
-

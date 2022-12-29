@@ -17,18 +17,18 @@ include "../../includes.php";
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" required>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description">       </textarea>
+                            <textarea id="summernote" name="description" required>       </textarea>
                         </div>
                     </div>
 
@@ -51,6 +51,8 @@ include "../../includes.php";
                                 <label class="custom-file-label" for="image"> Select images</label>
                             </div>
                         </div>
+                        <div class="img-description">Images must be less than 1mb. Allowed file types: jpg, jpeg, png</div>
+
                     </div>
 
                     <div class="form-group">
@@ -61,7 +63,7 @@ include "../../includes.php";
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control float-right" id="reservation" name="popupdate">
+                            <input type="text" class="form-control float-right" id="reservation" name="popupdate" required>
                         </div>
                         <!-- /.input group -->
                     </div>

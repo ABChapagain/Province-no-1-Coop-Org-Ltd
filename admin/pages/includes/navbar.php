@@ -36,9 +36,7 @@
             </ul>
         </nav>
         <!-- /.navbar -->
-
         <?php
-
         if (isset($_POST['logout'])) {
             session_destroy();
             echo "<script> location.reload() </script>";

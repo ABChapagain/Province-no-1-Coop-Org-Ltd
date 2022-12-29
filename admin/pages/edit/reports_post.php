@@ -10,6 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
     $file_exists = false;
     if ($_FILES['files']['name']) {
+        $validation = pdfValidation($_FILES['files']['name']);
+
+        if (!$validation) {
+            $_SESSION['validation'] = "error";
+            header("Location:reports.php");
+            exit;
+        }
         $filename = $_FILES['files']['name'];
         $file_exists = true;
     }
