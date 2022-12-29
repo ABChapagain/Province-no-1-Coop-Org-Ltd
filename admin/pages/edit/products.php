@@ -1,11 +1,27 @@
 <?php
 include "../../includes.php";
 
+if (!isset($_GET['id'])) {
+?>
+    <script>
+        location.replace("<?php echo url . "products.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $id = $_GET['id'];
 $sql = "select * from products where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
+if ($result->num_rows == 0) {
+?>
+    <script>
+        location.replace("<?php echo url . "products.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $sql = "select * from product_image where id='$id'";
 $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
@@ -28,7 +44,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Category</label>
@@ -48,29 +64,31 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     </div>
                     <div class="form-group">
                         <label for="short_description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required><?php echo $rows['short_description'] ?></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description"><?php echo $rows['description'] ?></textarea>
+                            <textarea id="summernote" name="description" required><?php echo $rows['description'] ?></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="tags">Tags</label>
-                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags" value="<?php echo $rows['tags'] ?>">
+                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags" value="<?php echo $rows['tags'] ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img" required>
                                 <label class="custom-file-label" for="featured_image"> Replace featured image</label>
                             </div>
                         </div>
+                        <div class="img-description">Images must be less than 1mb. Allowed file types: jpg, jpeg, png</div>
+
                     </div>
 
                     <div class="form-group">
@@ -82,6 +100,8 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                 <label class="custom-file-label" for="image"> Add images</label>
                             </div>
                         </div>
+                        <div class="img-description">Images must be less than 1mb. Allowed file types: jpg, jpeg, png</div>
+
                     </div>
                 </div>
                 <!-- /.card-body -->
@@ -124,6 +144,8 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 
     <?php
+
+
     if (isset($_SESSION['validation'])) {
         if ($_SESSION['validation'] == "error")
             echo "<script>success('error', 'image validation error'); </script>";
@@ -131,6 +153,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             echo "<script>success('warning', 'gallary validation error'); </script>";
         unset($_SESSION['validation']);
     }
+
     if (isset($_SESSION['product_updated'])) {
         if ($_SESSION['product_updated'] == "successful") {
             echo "<script>success('success', 'product updated successfully'); </script>";

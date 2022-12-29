@@ -17,7 +17,7 @@ include "../../includes.php";
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" required>
                     </div>
                 </div>
                 <!-- /.card-body -->

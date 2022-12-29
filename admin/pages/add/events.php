@@ -18,18 +18,18 @@ include "../../includes.php";
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" required>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description">       </textarea>
+                            <textarea id="summernote" name="description" required>       </textarea>
                         </div>
                     </div>
 
@@ -37,10 +37,11 @@ include "../../includes.php";
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img" required>
                                 <label class="custom-file-label" for="featured_image"> Select image</label>
                             </div>
                         </div>
+                        <div class="img-description">Images must be less than 1mb. Allowed file types: jpg, jpeg, png</div>
                     </div>
 
                     <div class="form-group">
@@ -52,6 +53,8 @@ include "../../includes.php";
                                 <label class="custom-file-label" for="image"> Select images</label>
                             </div>
                         </div>
+                        <div class="img-description">Images must be less than 1mb. Allowed file types: jpg, jpeg, png</div>
+
                     </div>
 
                     <div class="form-group">
@@ -62,7 +65,7 @@ include "../../includes.php";
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control float-right" id="reservation" name="popupdate">
+                            <input type="text" class="form-control float-right" id="reservation" name="popupdate" required>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -81,12 +84,7 @@ include "../../includes.php";
     ?>
 
     <?php
-    if (isset($_SESSION['validation'])) {
-        if ($_SESSION['validation'] == "error")
-            echo "<script>success('error', 'image validation error'); </script>";
-        elseif ($_SESSION['validation'] == "warning")
-            echo "<script>success('warning', 'gallary validation error'); </script>";
-    }
+
     if (isset($_SESSION['events_added'])) {
         if ($_SESSION['events_added'] == "successful") {
             echo "<script>success('success', 'events added successfully'); </script>";
@@ -96,6 +94,13 @@ include "../../includes.php";
             echo "<script>success('error', 'unable to add events'); </script>";
         }
         unset($_SESSION['events_added']);
+    }
+
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
     }
     ?>
 

@@ -1,10 +1,27 @@
 <?php
 include "../../includes.php";
 
+if (!isset($_GET['id'])) {
+?>
+    <script>
+        location.replace("<?php echo url . "category.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $id = $_GET['id'];
 $sql = "select * from category where id='$id'";
 $result = $conn->query($sql);
+
+if ($result->num_rows == 0) {
+?>
+    <script>
+        location.replace("<?php echo url . "category.php" ?>")
+    </script>
+<?php
+    exit;
+}
 $rows = $result->fetch_assoc();
 ?>
 
@@ -21,7 +38,7 @@ $rows = $result->fetch_assoc();
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>" required>
                     </div>
                 </div>
                 <!-- /.card-body -->

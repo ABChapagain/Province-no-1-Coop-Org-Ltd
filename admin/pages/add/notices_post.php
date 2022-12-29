@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (strlen($_FILES['img']['name'][0]) != 0) {
                 for ($i = 0; $i < $countfiles; $i++) {
-                    $validation = validation($_FILES['img']['size'][$i]);
+                    $validation = validation($_FILES['img']['size'][$i], $_FILES['img']['name'][$i]);
                     if ($validation) {
                         $filename = $_FILES['img']['name'][$i];
                         $ext = explode(".", $filename);

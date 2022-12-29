@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $position = mysqli_real_escape_string($conn, $_POST['position']);
 
 
-    $validation = validation($_FILES['img']['size']);
+    $validation = validation($_FILES['img']['size'], $_FILES['img']['name']);
 
     if (!$validation) {
         $_SESSION['validation'] = "error";

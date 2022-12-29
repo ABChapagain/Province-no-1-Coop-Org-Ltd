@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = mysqli_real_escape_string($conn, $_POST['category']);
     $tags = mysqli_real_escape_string($conn, $_POST['tags']);
 
-    $validation = validation($_FILES['featured_img']['size']);
+    $validation = validation($_FILES['featured_img']['size'], $_FILES['featured_img']['name']);
 
     if (!$validation) {
         $_SESSION['validation'] = "error";
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (strlen($_FILES['img']['name'][0]) != 0) {
                 for ($i = 0; $i < $countfiles; $i++) {
-                    $validation = validation($_FILES['img']['size'][$i]);
+                    $validation = validation($_FILES['img']['size'][$i], $_FILES['img']['name']);
                     if ($validation) {
                         $filename = $_FILES['img']['name'][$i];
                         $ext = explode(".", $filename);

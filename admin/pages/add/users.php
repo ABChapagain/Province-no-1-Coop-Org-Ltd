@@ -23,12 +23,12 @@ $roles = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
                     </div>
 
                     <div class="form-group">
