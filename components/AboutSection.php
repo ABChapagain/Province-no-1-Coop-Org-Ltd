@@ -151,7 +151,8 @@ const initMap = (branches) => {
             </div>
             </div>
 </div>
-</div>`;
+</div>
+<hr />`;
 
     }
 

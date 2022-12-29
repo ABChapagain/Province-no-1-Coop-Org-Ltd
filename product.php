@@ -3,7 +3,7 @@ require_once('./components/Header.php');
 
 require_once('./config/db_config.php');
 
-$current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 
 
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {

@@ -85,7 +85,6 @@ require_once('./config/db_config.php');
 
 <?php require_once('./components/OurProducts.php') ?>
 
-<?php require_once('./components/Testimonial.php') ?>
 
 
 
@@ -142,6 +141,8 @@ require_once('./config/db_config.php');
 </div>
 
 <?php require_once('./components/LatestEvents.php') ?>
+<?php require_once('./components/Testimonial.php') ?>
+
 
 
 
