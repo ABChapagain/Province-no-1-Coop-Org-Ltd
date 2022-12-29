@@ -24,7 +24,7 @@ $roles = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['user_name'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['user_name'] ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">roles</label>

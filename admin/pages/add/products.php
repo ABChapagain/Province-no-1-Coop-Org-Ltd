@@ -23,7 +23,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Category</label>
@@ -40,14 +40,14 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     </div>
                     <div class="form-group">
                         <label for="description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required></textarea>
                     </div>
 
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description"></textarea>
+                            <textarea id="summernote" name="description" required></textarea>
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img" required>
                                 <label class="custom-file-label" for="featured_image"> Select image</label>
                             </div>
                         </div>
@@ -74,7 +74,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
                     <div class="form-group">
                         <label for="tags">Tags</label>
-                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags">
+                        <input type="text" class="form-control" id="tags" placeholder="seperate tags with comma ','" name="tags" required>
                     </div>
 
                 </div>
@@ -90,13 +90,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     require app . "/pages/includes/js_links.php";
     ?>
     <?php
-    if (isset($_SESSION['validation'])) {
-        if ($_SESSION['validation'] == "error")
-            echo "<script>success('error', 'image validation error'); </script>";
-        elseif ($_SESSION['validation'] == "warning")
-            echo "<script>success('warning', 'gallary validation error'); </script>";
-        unset($_SESSION['validation']);
-    }
+
     if (isset($_SESSION['product_added'])) {
         if ($_SESSION['product_added'] == "successful") {
             echo "<script>success('success', 'product added successfully'); </script>";
@@ -106,6 +100,14 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             echo "<script>success('error', 'unable to add product'); </script>";
         }
         unset($_SESSION['product_added']);
+    }
+
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
     }
     ?>
 

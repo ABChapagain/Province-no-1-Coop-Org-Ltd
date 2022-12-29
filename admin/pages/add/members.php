@@ -21,11 +21,11 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Department</label>
-                        <select class="form-control" name="department">
+                        <select class="form-control" name="department" required>
                             <option value="" disabled selected>select</option>
                             <?php
                             foreach ($category as $cat) :
@@ -38,14 +38,14 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     </div>
                     <div class="form-group">
                         <label for="position">Position</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Position" name="position">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Position" name="position" required>
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img">
-                                <label class="custom-file-label" for="image"> please enter images of jpg, png, jpeg, svg, webp format</label>
+                                <input type="file" class="custom-file-input" id="image" name="img" required>
+                                <label class="custom-file-label" for="image"> </label>
                             </div>
                         </div>
                     </div>

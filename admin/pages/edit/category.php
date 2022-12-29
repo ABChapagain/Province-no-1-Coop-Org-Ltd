@@ -21,7 +21,7 @@ $rows = $result->fetch_assoc();
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>" required>
                     </div>
                 </div>
                 <!-- /.card-body -->

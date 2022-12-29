@@ -22,18 +22,18 @@ $rows = $result->fetch_assoc();
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" value="<?php echo $rows['title'] ?>">
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" value="<?php echo $rows['title'] ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="short_description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required><?php echo $rows['short_description'] ?></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description"> <?php echo $rows['description'] ?> </textarea>
+                            <textarea id="summernote" name="description" required> <?php echo $rows['description'] ?> </textarea>
                         </div>
                     </div>
 
@@ -58,7 +58,7 @@ $rows = $result->fetch_assoc();
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control float-right" id="reservation" name="popupdate">
+                            <input type="text" class="form-control float-right" id="reservation" name="popupdate" required>
                         </div>
                         <!-- /.input group -->
                     </div>

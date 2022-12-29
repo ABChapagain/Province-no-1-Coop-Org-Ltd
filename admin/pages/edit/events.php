@@ -24,18 +24,18 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" value="<?php echo $rows['title'] ?>">
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" value="<?php echo $rows['title'] ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="short_description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"><?php echo $rows['short_description'] ?></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required><?php echo $rows['short_description'] ?></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description"> <?php echo $rows['description'] ?> </textarea>
+                            <textarea id="summernote" name="description" required> <?php echo $rows['description'] ?> </textarea>
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img" required>
                                 <label class="custom-file-label" for="featured_image"> Replace image</label>
                             </div>
                         </div>
@@ -68,7 +68,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control float-right" id="reservation" name="popupdate">
+                            <input type="text" class="form-control float-right" id="reservation" name="popupdate" required>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -122,13 +122,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     </script>
 
     <?php
-    if (isset($_SESSION['validation'])) {
-        if ($_SESSION['validation'] == "error")
-            echo "<script>success('error', 'image validation error'); </script>";
-        elseif ($_SESSION['validation'] == "warning")
-            echo "<script>success('warning', 'gallary validation error'); </script>";
-        unset($_SESSION['validation']);
-    }
+
     if (isset($_SESSION['event_updated'])) {
         if ($_SESSION['event_updated'] == "successful") {
             echo "<script>success('success', 'event updated successfully'); </script>";
@@ -136,6 +130,14 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             echo "<script>success('error', 'unable to update event'); </script>";
         }
         unset($_SESSION['event_updated']);
+    }
+
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
     }
     ?>
 

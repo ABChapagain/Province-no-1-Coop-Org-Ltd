@@ -20,18 +20,18 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" required>
                     </div>
 
                     <div class="form-group">
                         <label for="short_description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description">       </textarea>
+                            <textarea id="summernote" name="description" required>       </textarea>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control float-right" id="reservation" name="popupdate">
+                            <input type="text" class="form-control float-right" id="reservation" name="popupdate" required>
                         </div>
                     </div>
                     <!-- /.input group -->

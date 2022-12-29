@@ -61,6 +61,13 @@ $rows = $result->fetch_assoc();
                 </div>
                 <hr>
 
+                   <div class="RegistrationDate">
+                    <span class="font-weight-bold">Registration Date</span>
+                    <div class="card-body">
+                        <?php echo $rows['start_popup_date'] . " to " . $rows['end_popup_date'] ?>
+                    </div>
+                </div>
+                <hr>
 
             </div>
         </div>

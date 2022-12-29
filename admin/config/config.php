@@ -72,8 +72,8 @@ if (!$login && !$forgot_password) {
 function validation($file)
 {
     echo $file;
-    // if ($file < 10)
-    if ($file < 1048576)
+    // if ($file < 1048576)
+    if ($file < 10)
         return 1;
     else
         return 0;

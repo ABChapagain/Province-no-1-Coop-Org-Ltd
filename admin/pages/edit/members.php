@@ -24,7 +24,7 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Product name" name="name" value="<?php echo $rows['name'] ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Department</label>
@@ -47,13 +47,13 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     </div>
                     <div class="form-group">
                         <label for="position">Position</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Position" name="position" value="<?php echo $rows['position'] ?>">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Position" name="position" value="<?php echo $rows['position'] ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img">
+                                <input type="file" class="custom-file-input" id="image" name="img" required>
                                 <label class="custom-file-label" for="image">Replace image</label>
                             </div>
                         </div>
@@ -91,13 +91,7 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 
     <?php
-    if (isset($_SESSION['validation'])) {
-        if ($_SESSION['validation'] == "error")
-            echo "<script>success('error', 'image validation error'); </script>";
-        elseif ($_SESSION['validation'] == "warning")
-            echo "<script>success('warning', 'gallary validation error'); </script>";
-        unset($_SESSION['validation']);
-    }
+
     if (isset($_SESSION['member_updated'])) {
         if ($_SESSION['member_updated'] == "successful") {
             echo "<script>success('success', 'member updated successfully'); </script>";
@@ -105,6 +99,14 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             echo "<script>success('error', 'unable to update member'); </script>";
         }
         unset($_SESSION['member_updated']);
+    }
+
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
     }
     ?>
 

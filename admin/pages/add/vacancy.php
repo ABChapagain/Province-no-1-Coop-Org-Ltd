@@ -17,23 +17,23 @@ include "../../includes.php";
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" required>
                     </div>
 
                     <div class="form-group">
                         <label for="vacant">Vacant Seats</label>
-                        <input type="text" class="form-control" id="vacant" placeholder="Enter the number of vacant seats" name="vacant">
+                        <input type="text" class="form-control" id="vacant" placeholder="Enter the number of vacant seats" name="vacant" required>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Short Description</label>
-                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description"></textarea>
+                        <textarea class="form-control" id="short_description" rows="3" placeholder="Enter ..." name="short_description" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="summernote">Description</label>
                         <div class="card-body">
-                            <textarea id="summernote" name="description">       </textarea>
+                            <textarea id="summernote" name="description" required>       </textarea>
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ include "../../includes.php";
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img" required>
                                 <label class="custom-file-label" for="featured_image"> Select image</label>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ include "../../includes.php";
                         <div class="input-group">
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img[]" multiple>
+                                <input type="file" class="custom-file-input" id="image" name="img[]" multiple required>
                                 <label class="custom-file-label" for="image"> Select images</label>
                             </div>
                         </div>
@@ -68,7 +68,19 @@ include "../../includes.php";
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control float-right" id="reservation" name="registration">
+                            <input type="text" class="form-control float-right" id="reservation" name="registration" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Popup Date Date:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <input type="text" id="vacancy-popup" name="popup" class="form-control float-right" />
                         </div>
                     </div>
 
