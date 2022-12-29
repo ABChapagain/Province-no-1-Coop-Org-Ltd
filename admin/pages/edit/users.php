@@ -1,10 +1,26 @@
 <?php
 include "../../includes.php";
 
+if (!isset($_GET['id'])) {
+?>
+    <script>
+        location.replace("<?php echo url . "users.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $id = $_GET['id'];
 $sql = "select * from users where id='$id'";
 $result = $conn->query($sql);
+if ($result->num_rows == 0) {
+?>
+    <script>
+        location.replace("<?php echo url . "users.php" ?>")
+    </script>
+<?php
+    exit;
+}
 $rows = $result->fetch_assoc();
 
 $sql = "select * from roles where role_name!='admin'";

@@ -1,11 +1,27 @@
 <?php
 include "../../includes.php";
 
+if (!isset($_GET['id'])) {
+?>
+    <script>
+        location.replace("<?php echo url . "products.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $id = $_GET['id'];
 $sql = "select * from products where id='$id'";
 $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
+if ($result->num_rows == 0) {
+?>
+    <script>
+        location.replace("<?php echo url . "products.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $sql = "select * from product_image where id='$id'";
 $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);

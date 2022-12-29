@@ -1,10 +1,26 @@
 <?php
 include "../../includes.php";
 
+if (!isset($_GET['id'])) {
+?>
+    <script>
+        location.replace("<?php echo url . "applications.php" ?>")
+    </script>
+<?php
+    exit;
+}
 
 $id = $_GET['id'];
 $sql = "select * from job_application where id='$id'";
 $result = $conn->query($sql);
+if ($result->num_rows == 0) {
+?>
+    <script>
+        location.replace("<?php echo url . "applications.php" ?>")
+    </script>
+<?php
+    exit;
+}
 $rows = $result->fetch_assoc();
 
 $vacancy_id = $rows['vacancy_id'];

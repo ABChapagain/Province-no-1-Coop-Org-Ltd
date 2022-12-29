@@ -1,10 +1,27 @@
 <?php
 include "../../includes.php";
 
+if (!isset($_GET['id'])) {
+?>
+    <script>
+        location.replace("<?php echo url . "vacancy.php" ?>")
+    </script>
+<?php
+    exit;
+}
+
 
 $id = $_GET['id'];
 $sql = "select * from vacancy where id='$id'";
 $result = $conn->query($sql);
+if ($result->num_rows == 0) {
+?>
+    <script>
+        location.replace("<?php echo url . "vacancy.php" ?>")
+    </script>
+<?php
+    exit;
+}
 $rows = $result->fetch_assoc();
 
 ?>
@@ -61,7 +78,7 @@ $rows = $result->fetch_assoc();
                 </div>
                 <hr>
 
-                   <div class="RegistrationDate">
+                <div class="RegistrationDate">
                     <span class="font-weight-bold">Registration Date</span>
                     <div class="card-body">
                         <?php echo $rows['start_popup_date'] . " to " . $rows['end_popup_date'] ?>
