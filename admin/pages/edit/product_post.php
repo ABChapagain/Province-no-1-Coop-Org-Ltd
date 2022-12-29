@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if (strlen($_FILES['featured_img']['name']) > 0) {
-        $validation = validation($_FILES['featured_img']['size']);
+        $validation = validation($_FILES['featured_img']['size'], $_FILES['featured_img']['name']);
         if (!$validation) {
             $_SESSION['validation'] = "error";
             header("Location:products.php?id=" . $id);
@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $countfiles = count($_FILES['img']['name']);
         if (strlen($_FILES['img']['name'][0]) != 0)
             for ($i = 0; $i < $countfiles; $i++) {
+                $validation = validation($_FILES['img']['size'][$i], $_FILES['img']['name'][$i]);
                 if ($validation) {
                     $filename = $_FILES['img']['name'][$i];
                     // Upload file

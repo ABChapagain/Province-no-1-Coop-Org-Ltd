@@ -73,6 +73,8 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                 <label class="custom-file-label" for="image">Replace image</label>
                             </div>
                         </div>
+                        <div class="img-description">Images must be less than 1mb. Allowed file types: jpg, jpeg, png</div>
+
                     </div>
                 </div>
                 <!-- /.card-body -->

@@ -64,6 +64,8 @@ $rows = $result->fetch_assoc();
                                 <label class="custom-file-label" for="file"> Replace File</label>
                             </div>
                         </div>
+                        <div class="img-description"> Allowed file types: pdf</div>
+
                     </div>
 
                     <div class="form-group">

@@ -43,6 +43,8 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                                 <label class="custom-file-label" for="files"> Select File </label>
                             </div>
                         </div>
+                        <div class="img-description"> Allowed file types: pdf</div>
+
                     </div>
 
                     <div class="form-group">

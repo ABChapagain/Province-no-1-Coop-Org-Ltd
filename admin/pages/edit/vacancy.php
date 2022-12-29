@@ -24,10 +24,6 @@ if ($result->num_rows == 0) {
 $rows = $result->fetch_assoc();
 
 ?>
-$rows = $result->fetch_assoc();
-
-
-?>
 
 
 <body>
@@ -84,7 +80,7 @@ $rows = $result->fetch_assoc();
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </div>
-                            <input type="text" id="vacancy-popup" name="datetimes" class="form-control float-right" />
+                            <input type="text" id="vacancy-popup" class="form-control float-right" name="popup" />
                         </div>
                     </div>
 
