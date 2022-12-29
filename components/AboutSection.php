@@ -50,7 +50,12 @@
 
 
 
-
+<?php
+$sql = "SELECT * FROM members INNER JOIN department WHERE department.id = members.department_id ORDER BY department.id DESC";
+$res = mysqli_query($conn, $sql);
+$members = $res->fetch_all(MYSQLI_ASSOC);
+if ($res->num_rows !== 0) :
+?>
 <!-- Team Area Start -->
 <div class="team-area pt-95 pb-70">
     <div class="container">
@@ -59,12 +64,7 @@
                 <h3 class="section-title">Our Members</h3>
             </div>
         </div>
-        <?php
-        $sql = "SELECT * FROM members INNER JOIN department WHERE department.id = members.department_id ORDER BY department.id DESC";
-        $res = mysqli_query($conn, $sql);
-        $members = $res->fetch_all(MYSQLI_ASSOC);
-        if ($res->num_rows !== 0) :
-        ?>
+
         <div class="row">
             <?php
                 foreach ($members as $member) :
@@ -85,13 +85,14 @@
             <?php endforeach; ?>
         </div>
 
-        <?php
-        endif;
 
-        ?>
     </div>
 </div>
 <!-- Team Area End -->
+<?php
+endif;
+
+?>
 
 
 
