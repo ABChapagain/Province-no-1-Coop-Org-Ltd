@@ -50,7 +50,7 @@ require_once('./config/db_config.php');
                                 <th>SN</th>
                                 <th>Job Title</th>
                                 <th>Openings</th>
-                                <th>Posted On</th>
+                                <th>Apply After</th>
                                 <th>Apply Before</th>
                                 <th>Action</th>
                             </tr>

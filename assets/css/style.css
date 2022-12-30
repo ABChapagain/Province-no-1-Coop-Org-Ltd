@@ -2124,7 +2124,6 @@ textarea:focus {
 .slider-area:hover .slider-active.owl-carousel > .owl-nav div {
   opacity: 1;
 }
-
 /* Default Slider Animations */
 
 .owl-item .slider-content * {
