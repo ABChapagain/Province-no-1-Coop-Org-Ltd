@@ -48,7 +48,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                     </div>
 
                     <div class="form-group">
-                        <label>Event Popup Date:</label>
+                        <label>Report Popup Date:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -84,6 +84,13 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
         }
         unset($_SESSION['reports_added']);
     }
+
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'file validation error'); </script>";
+        unset($_SESSION['validation']);
+    }
+
     ?>
 
 </body>

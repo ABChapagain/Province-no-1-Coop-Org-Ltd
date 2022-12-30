@@ -72,8 +72,10 @@ if (!$login && !$forgot_password) {
 function validation($size, $name)
 {
     $allowed = ['jpg', 'jpeg', 'png'];
+    print_r($name);
     $name = explode(".", $name);
-    $name = end($name);
+    $name = strtolower(end($name));
+    echo $name;
     // if ($size < 10)
     if ($size < 1048576 && in_array($name, $allowed))
         return 1;
@@ -86,7 +88,7 @@ function pdfValidation($name)
 {
     $allowed = ['pdf'];
     $name = explode(".", $name);
-    $name = end($name);
+    $name = strtolower(end($name));
     // if ($size < 10)
     if (in_array($name, $allowed))
         return 1;
