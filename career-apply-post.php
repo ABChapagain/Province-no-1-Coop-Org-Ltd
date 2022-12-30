@@ -3,8 +3,7 @@ session_start();
 require_once('./config/db_config.php');
 
 
-if (isset($_POST['submit']) && isset($_FILES['resume'])) {
-
+if (isset($_FILES['resume'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
@@ -24,7 +23,6 @@ if (isset($_POST['submit']) && isset($_FILES['resume'])) {
 
     if (in_array($file_ext, $allowed_ext)) {
         // Set unique id with the extension
-
         $uniqID =  uniqid() . "." . pathinfo($file_name, PATHINFO_EXTENSION);
         $file_tem_loc = $_FILES['resume']['tmp_name'];
         $file_store = "uploads/resume/" . $uniqID;
