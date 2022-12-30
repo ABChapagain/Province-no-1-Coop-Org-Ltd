@@ -19,7 +19,7 @@ require_once('./config/db_config.php');
 <!-- Breadcrumb Area End -->
 
 <?php
-$sql = "SELECT * FROM events";
+$sql = "SELECT * FROM events ORDER BY posted_date, id DESC";
 $res = $conn->query($sql);
 $result = $res->fetch_all(MYSQLI_ASSOC);
 

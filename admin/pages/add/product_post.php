@@ -65,4 +65,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['product_added'] = "exists";
     }
 }
-// header("Location:products.php");
+header("Location:products.php");

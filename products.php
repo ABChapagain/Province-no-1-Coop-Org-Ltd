@@ -98,10 +98,13 @@ const productFetch = (category) => {
                             <div class='product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30'>
                                 <div class='product-wrapper mb-30 shadow rounded'>
                                     <div class='rounded'>
-                                    <img alt='Product' class='product-image'
+                                    <a  href='product.php?id=${product.id}'>
+                                        <img alt='Product' class='product-image'
                                             width='100%'
                                             src='uploads/products/${product.image}' />
+                                    </a>
                                     </div>
+
                                     <div class='blog-content px-2 py-3'>
                                         <h4>${product.name}</h4>
                                         <p>${product.short_description.length > 100 ? product.short_description.substr(0, 100) + '....' : product.short_description}</p>

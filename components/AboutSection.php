@@ -84,8 +84,6 @@ if ($res->num_rows !== 0) :
             </div>
             <?php endforeach; ?>
         </div>
-
-
     </div>
 </div>
 <!-- Team Area End -->
@@ -118,7 +116,8 @@ const initMap = (branches) => {
 
     let branchesInfoHtml = ''
     if (branches.length !== 0) {
-        branchesInfoHtml = `<div class="branch-area pt-100 pb-100">
+        branchesInfoHtml = `
+<div class="branch-area pt-100 pb-100">
     <div class="container">
         <div class="section-title-wrap style-two text-center mb-50">
             <h3 class="section-title">Our Branches</h3>
@@ -132,7 +131,9 @@ const initMap = (branches) => {
                `
 
         branches.forEach((branch) => {
-            branchesInfoHtml += `<div class="col-12 px-3" id="branchesInfo-${branch.id}">
+            branchesInfoHtml += `
+                    <hr />
+                    <div class="col-12 px-3" id="branchesInfo-${branch.id}">
                         <h5>${branch.name}</h5>
                         <h5>${branch.address}</h5>
                         <a href="tel:${branch.phone}">
@@ -141,19 +142,19 @@ const initMap = (branches) => {
                         <a href="mailto:${branch.email}">
                             <h5 class="text-green">${branch.email}</h5>
                         </a>
-                    </div>
-                    <hr>`
+                    </div>`
         })
-        branchesInfoHtml += `</div>
-
+        branchesInfoHtml += `
+                </div>
+                <hr />
             </div>
             <div class="col-8">
                 <div id="mapId" style="height: 100%; width: 100%"></div>
             </div>
-            </div>
+        </div>
+    </div>
 </div>
-</div>
-<hr />`;
+`;
 
     }
 

@@ -40,10 +40,12 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     <?php echo $vacancy['title'] ?>
                 </h2>
                 <div class="mt-4">
-                    Posted On : <span
+                    Apply After : <span
                         class="fw-bold me-3"><?php echo date('F d, Y', strtotime($vacancy['starting_date'])) ?></span>
                     Apply Before : <span
                         class="fw-bold"><?php echo date('F d, Y', strtotime($vacancy['termination_date'])) ?></span><br>
+                    Posted On: <span
+                        class="fw-bold me-3"><?php echo date('F d, Y', strtotime($vacancy['published_date'])) ?></span>
                     Openings : <span class="fw-bold"><?php echo $vacancy['vacancy_seats'] ?></span>
                 </div>
             </div>
@@ -65,8 +67,10 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
                         if (strtotime($starting_date) <= strtotime($current_date) && strtotime($termination_date) >= strtotime($current_date)) {
                             echo "<a class='btn btn-style-2' href='career-apply.php?id=$vacancy_id'>Apply Now</a>";
-                        } else {
+                        } else if (strtotime($starting_date) < strtotime($current_date)) {
                             echo '<button class="btn btn-danger py-2 px-3">Application Closed</button>';
+                        } else {
+                            echo '<button class="btn btn-danger py-2 px-3">Application Not Started</button>';
                         }
 
                         ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('./components/Header.php');
 require_once('./config/db_config.php');
 
@@ -48,64 +49,39 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
         <div class="row justify-content-center">
             <div class="col-md-10 col-xl-8 shadow p-3 rounded">
+
+                <?php
+                        if (isset($_SESSION['apply_error'])) {
+                        ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?php echo $_SESSION['apply_error'] ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <img src="assets/img/icons/x-lg.svg" alt="close" />
+                    </button>
+                </div>
+                <?php
+                            unset($_SESSION['apply_error']);
+                        }
+                        ?>
                 <?php
 
-                        if (isset($_POST['submit']) && isset($_FILES['resume'])) {
-
-                            $name = mysqli_real_escape_string($conn, $_POST['name']);
-                            $email = mysqli_real_escape_string($conn, $_POST['email']);
-                            $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-                            $address = mysqli_real_escape_string($conn, $_POST['address']);
-                            $apply_for = mysqli_real_escape_string($conn, $_POST['apply-for']);
-                            $cover_letter = mysqli_real_escape_string($conn, $_POST['cover-letter']);
-                            $date = date('Y-m-d');
-
-                            // Get file name
-                            $file_name = $_FILES['resume']['name'];
-
-                            // Allowed extensions
-                            $allowed_ext = array('pdf', 'doc', 'docx', 'jpg');
-
-                            // Get file extension
-                            $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-
-                            if (in_array($file_ext, $allowed_ext)) {
-                                // Set unique id with the extension
-
-                                $uniqID =  uniqid() . "." . pathinfo($file_name, PATHINFO_EXTENSION);
-                                $file_tem_loc = $_FILES['resume']['tmp_name'];
-                                $file_store = "uploads/resume/" . $uniqID;
-
-
-                                $sql = "INSERT INTO `job_application` (`vacancy_id`, `name`, `email`, `phone`, `address`, `resume`, `cover_letter`, `date`) VALUES ('$apply_for', '$name', '$email', '$phone', '$address', '$uniqID', '$cover_letter', '$date')";
-
-                                if ($conn->query($sql)) {
-                                    move_uploaded_file($file_tem_loc, $file_store);
-                                    echo
-                                    '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success!</strong> Your application has been submitted successfully.
-                        <img src="assets/img/icons/x-lg.svg" alt="close" />
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                                    echo "<script>setTimeout(`location.href = 'index.php'`,2000);</script>";
-                                } else {
-                                    echo
-                                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>Error!</strong> Something went wrong. Please try again.
-                        <img src="assets/img/icons/x-lg.svg" alt="close" />
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                                }
-                            } else {
-                                echo
-                                '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>Error!</strong> File type not allowed. Allowed file types: pdf, doc,docx
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                        <img src="assets/img/icons/x-lg.svg" alt="close" />
-                        </button></div>';
-                            }
-                        }
-
+                        if (isset($_SESSION['apply_success'])) {
                         ?>
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?php echo $_SESSION['apply_success'] ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <img src="assets/img/icons/x-lg.svg" alt="close" />
+                    </button>
+                </div>
+                <?php
+                            unset($_SESSION['apply_success']);
+                            echo "<script>setTimeout(() => {
+                                window.location.href = 'careers.php';
+                            }, 3000);</script>";
+                        }
+                        ?>
+
+                <form action="career-apply-post.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="mb-2" for="name">Full Name: </label>
                         <input type="text" name="name" placeholder="Full Name" required />
@@ -149,6 +125,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                             class="btn btn-style-2">
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

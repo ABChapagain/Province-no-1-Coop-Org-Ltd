@@ -150,7 +150,7 @@ require_once('./config/db_config.php');
 <?php
 
 $current_date = date('Y-m-d');
-$sql = "SELECT * FROM `notices` WHERE popup_start_date < '$current_date' AND popup_end_date > '$current_date' ORDER BY id DESC";
+$sql = "SELECT * FROM `notices` WHERE popup_start_date <= '$current_date' AND popup_end_date >= '$current_date' ORDER BY id DESC";
 $res = mysqli_query($conn, $sql);
 $notices = $res->fetch_all(MYSQLI_ASSOC);
 
@@ -194,7 +194,7 @@ foreach ($notices as $notice) {
 <?php
 
 $current_date = date('Y-m-d');
-$sql = "SELECT * FROM `reports` WHERE start_popup < '$current_date' AND end_popup > '$current_date' ORDER BY id DESC";
+$sql = "SELECT * FROM `reports` WHERE start_popup <= '$current_date' AND end_popup >= '$current_date' ORDER BY id DESC";
 $res = mysqli_query($conn, $sql);
 $reports = $res->fetch_all(MYSQLI_ASSOC);
 
@@ -240,7 +240,7 @@ foreach ($reports as $report) {
 <?php
 
 $current_date = date('Y-m-d');
-$sql = "SELECT * FROM `events` WHERE start_popup < '$current_date' AND end_popup > '$current_date' ORDER BY id DESC";
+$sql = "SELECT * FROM `events` WHERE start_popup <= '$current_date' AND end_popup >= '$current_date' ORDER BY posted_date, id DESC";
 $res = mysqli_query($conn, $sql);
 $events = $res->fetch_all(MYSQLI_ASSOC);
 
@@ -287,7 +287,7 @@ foreach ($events as $event) {
 <?php
 
 $current_date = date('Y-m-d');
-$sql = "SELECT * FROM `vacancy` WHERE start_popup_date < '$current_date' AND end_popup_date > '$current_date' ORDER BY id DESC";
+$sql = "SELECT * FROM `vacancy` WHERE start_popup_date <= '$current_date' AND end_popup_date >= '$current_date' ORDER BY id DESC";
 $res = mysqli_query($conn, $sql);
 $vacancies = $res->fetch_all(MYSQLI_ASSOC);
 

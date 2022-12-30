@@ -42,13 +42,11 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="product-details-img">
-                    <img style="object-fit: cover;" width="100%" height="100%" class="zoompro"
+                    <img style="object-fit: cover; max-height: 380px;" width="100%" height="100%" class="zoompro"
                         src="uploads/products/<?php echo $images[0]['name'] ?>"
                         data-zoom-image="uploads/products/<?php echo $images[0]['name'] ?>" alt="zoom" />
                     <div id="gallery" class="mt-20 product-dec-slider owl-carousel">
-
                         <?php foreach ($images as $index => $image) {
-
                                 ?>
                         <a data-image="uploads/products/<?php echo $image['name'] ?>"
                             data-zoom-image="uploads/products/<?php echo $image['name'] ?>">
@@ -184,8 +182,10 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
                     ?>
             <div class="product-wrapper mb-30 shadow rounded">
                 <div class='rounded'>
-                    <img alt='Product' class='product-image' width='100%'
-                        src='./uploads/products/<?php echo $image[0]['name'] ?>' />
+                    <a href="product.php?id=<?php echo $product['id'] ?>">
+                        <img alt='Product' class='product-image' width='100%'
+                            src='./uploads/products/<?php echo $image[0]['name'] ?>' />
+                    </a>
                 </div>
                 <div class='blog-content px-2 py-3'>
                     <h4>
