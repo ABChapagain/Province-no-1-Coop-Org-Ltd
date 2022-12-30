@@ -85,6 +85,7 @@ include "../../includes.php";
     if (isset($_SESSION['validation'])) {
         if ($_SESSION['validation'] == "warning")
             echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
     }
     if (isset($_SESSION['notice_added'])) {
         if ($_SESSION['notice_added'] == "successful") {

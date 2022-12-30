@@ -101,6 +101,7 @@ include "../../includes.php";
             echo "<script>success('error', 'image validation error'); </script>";
         elseif ($_SESSION['validation'] == "warning")
             echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
     }
     ?>
 

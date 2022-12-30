@@ -52,7 +52,7 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                             <option value="<?php echo $selected ?>" selected><?php echo $selected ?></option>
                             <?php
                             foreach ($department as $cat) :
-                                if ($selected != $cat['name']) :
+                                if ($selected != $cat['department_name']) :
                             ?>
                                     <option value="<?php echo $cat['department_name'] ?>"><?php echo $cat['department_name'] ?></option>
                             <?php
@@ -69,7 +69,7 @@ $department = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <label for="image">Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="img" required>
+                                <input type="file" class="custom-file-input" id="image" name="img">
                                 <label class="custom-file-label" for="image">Replace image</label>
                             </div>
                         </div>
