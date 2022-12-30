@@ -1582,6 +1582,15 @@ textarea:focus {
   display: none;
 }
 
+.input-error {
+  color: red;
+  display: none;
+}
+
+.input-error.active {
+  display: block;
+}
+
 /* Top Nav Style */
 
 .top-nav-area {
