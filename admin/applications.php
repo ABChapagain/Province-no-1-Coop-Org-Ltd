@@ -61,8 +61,9 @@ $result->fetch_all(MYSQLI_ASSOC);
                                     <td><?php echo  $rows['phone']; ?></td>
                                     <td>
                                         <a href="<?php echo url ?>pages/view/applications.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
-                                        <a href="<?php echo url ?>pages/edit/notices.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a>
-                                        <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteNotice(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+                                        <!-- <a href="<?php echo url ?>pages/edit/notices.php?id=<?php //echo $rows['id'] 
+                                                                                                    ?>"><button class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pen-square"></i></button></a> -->
+                                        <button class="btn btn-danger" data-toggle="tooltip" onclick="deleteApplication(<?php echo $rows['id'] ?>)" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -88,13 +89,13 @@ $result->fetch_all(MYSQLI_ASSOC);
 
 
 <?php
-if (isset($_SESSION['notice_deleted'])) {
-    echo $_SESSION['notice_deleted'];
-    if ($_SESSION['notice_deleted'] == "successful") {
-        echo "<script>success('success', 'notice deleted successfully'); </script>";
+if (isset($_SESSION['application_deleted'])) {
+    echo $_SESSION['application_deleted'];
+    if ($_SESSION['application_deleted'] == "successful") {
+        echo "<script>success('success', 'application deleted successfully'); </script>";
     } else {
-        echo "<script>success('error', 'unable to delete notice'); </script>";
+        echo "<script>success('error', 'unable to delete application'); </script>";
     }
-    unset($_SESSION['notice_deleted']);
+    unset($_SESSION['application_deleted']);
 }
 ?>

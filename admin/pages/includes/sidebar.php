@@ -84,6 +84,14 @@
                     </li>
                 <?php endif; ?>
 
+                <?php if ($_SESSION['role'] == 1) : ?>
+                    <li class="nav-item">
+                        <a href="<?php echo url ?>departments.php" class="nav-link departments">
+                            <i class="nav-icon fas fa-building"></i>
+                            <p class="text">Department</p>
+                        </a>
+                    </li>
+                <?php endif; ?>
 
                 <?php if ($_SESSION['role'] == 2 || $_SESSION['role'] == 1) :
                 ?>
