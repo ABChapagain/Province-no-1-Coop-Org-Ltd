@@ -83,7 +83,7 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img" required>
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
                                 <label class="custom-file-label" for="featured_image"> Replace featured image</label>
                             </div>
                         </div>
@@ -145,15 +145,6 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 
     <?php
 
-
-    if (isset($_SESSION['validation'])) {
-        if ($_SESSION['validation'] == "error")
-            echo "<script>success('error', 'image validation error'); </script>";
-        elseif ($_SESSION['validation'] == "warning")
-            echo "<script>success('warning', 'gallary validation error'); </script>";
-        unset($_SESSION['validation']);
-    }
-
     if (isset($_SESSION['product_updated'])) {
         if ($_SESSION['product_updated'] == "successful") {
             echo "<script>success('success', 'product updated successfully'); </script>";
@@ -161,6 +152,15 @@ $category = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
             echo "<script>success('error', 'unable to update product'); </script>";
         }
         unset($_SESSION['product_updated']);
+    }
+
+
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'image validation error'); </script>";
+        elseif ($_SESSION['validation'] == "warning")
+            echo "<script>success('warning', 'gallary validation error'); </script>";
+        unset($_SESSION['validation']);
     }
     ?>
 

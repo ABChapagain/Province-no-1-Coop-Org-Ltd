@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
     $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
     $file_exists = false;
+    $updated_date = date("Y-m-d");
     if ($_FILES['files']['name']) {
         $validation = pdfValidation($_FILES['files']['name']);
 
@@ -26,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $popup_end = $popupdate[1];
 
 
-    $sql = "update reports set title='$title', description='$description',short_description='$short_description',start_popup='$popup_start',end_popup='$popup_end' where id='$id' ";
+    $sql = "update reports set title='$title', description='$description',short_description='$short_description',start_popup='$popup_start',end_popup='$popup_end',updated_date='$updated_date' where id='$id' ";
     if ($conn->query($sql)) {
 
         if ($file_exists) {

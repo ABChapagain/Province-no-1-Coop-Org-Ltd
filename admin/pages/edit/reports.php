@@ -60,7 +60,7 @@ $rows = $result->fetch_assoc();
                         <div class="input-group">
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="file" name="files" multiple>
+                                <input type="file" class="custom-file-input" id="file" name="files">
                                 <label class="custom-file-label" for="file"> Replace File</label>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ $rows = $result->fetch_assoc();
                     </div>
 
                     <div class="form-group">
-                        <label>Event Popup Date:</label>
+                        <label>Report Popup Date:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -136,6 +136,12 @@ $rows = $result->fetch_assoc();
             echo "<script>success('error', 'unable to update report'); </script>";
         }
         unset($_SESSION['report_updated']);
+    }
+
+    if (isset($_SESSION['validation'])) {
+        if ($_SESSION['validation'] == "error")
+            echo "<script>success('error', 'file validation error'); </script>";
+        unset($_SESSION['validation']);
     }
     ?>
 
