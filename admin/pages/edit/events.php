@@ -59,7 +59,7 @@ $images = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                         <label for="image">Featured Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img">
+                                <input type="file" class="custom-file-input" id="featured_image" name="featured_img" required>
                                 <label class="custom-file-label" for="featured_image"> Replace image</label>
                             </div>
                         </div>
