@@ -9,15 +9,15 @@ include "../../includes.php";
     <div class="items">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Add Category</h3>
+                <h3 class="card-title">Add Department</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" enctype="multipart/form-data" action="category_post.php">
+            <form method="POST" enctype="multipart/form-data" action="departments_post.php">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter category" name="name" required>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Department name" name="name" required>
                     </div>
                 </div>
                 <!-- /.card-body -->
@@ -34,15 +34,15 @@ include "../../includes.php";
 
 
     <?php
-    if (isset($_SESSION['category_added'])) {
-        if ($_SESSION['category_added'] == "successful") {
-            echo "<script>success('success', 'category added successfully'); </script>";
-        } elseif ($_SESSION['category_added'] == "exists") {
-            echo "<script> success('warning','category already exists') </script>";
+    if (isset($_SESSION['department_added'])) {
+        if ($_SESSION['department_added'] == "successful") {
+            echo "<script>success('success', 'department added successfully'); </script>";
+        } elseif ($_SESSION['department_added'] == "exists") {
+            echo "<script> success('warning','department already exists') </script>";
         } else {
-            echo "<script>success('error', 'unable to add category'); </script>";
+            echo "<script>success('error', 'unable to add department'); </script>";
         }
-        unset($_SESSION['category_added']);
+        unset($_SESSION['department_added']);
     }
     ?>
 

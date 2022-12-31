@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+
+
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $popupdate =  mysqli_real_escape_string($conn, $_POST['popupdate']);
     $short_description = mysqli_real_escape_string($conn, $_POST['short_description']);
@@ -20,6 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ext = explode(".", $filename);
     $ext = end($ext);
     $filename = str_replace(" ", "_", $title) . ".$ext";
+    if (file_exists(report_upload . $filename)) {
+        $i = 1;
+        while (file_exists(report_upload . $filename)) {
+            $filename = str_replace(" ", "_", $title . "_$i") . ".$ext";
+        }
+    }
     move_uploaded_file($_FILES['files']['tmp_name'],  report_upload . $filename);
 
     $today = date("Y-m-d");

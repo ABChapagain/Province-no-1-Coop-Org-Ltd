@@ -69,6 +69,13 @@ $position = $conn->query($sql)->fetch_assoc()['title'];
                 </div>
                 <hr>
 
+                <div class="cover-letter">
+                    <span class="font-weight-bold">Cover Letter:</span>
+                    <textarea name="" id="" cols="100%" rows="10"><?php echo $rows['cover_letter'] ?></textarea>
+
+                </div>
+                <hr>
+
 
 
                 <!-- <div class="PopupDate">
@@ -100,21 +107,6 @@ $position = $conn->query($sql)->fetch_assoc()['title'];
                             </div>
                         </div>
 
-                        <div class="file">
-                            <div class="link">
-                                <div class="pdf">
-                                    <div class="pdf_img">
-                                        <a target="_blank" class="file" href="<?php echo resume_url . $rows['cover_letter'] ?>">
-                                            <img class="" src="<?php echo url ?>dist/img/pdf.png" alt="" height="50px">
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="file_name">
-                                <span>Cover Letter</span>
-                            </div>
-                        </div>
                     </div>
 
                 </div>

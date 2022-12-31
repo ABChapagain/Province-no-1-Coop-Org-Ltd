@@ -66,6 +66,15 @@ const deleteProduct = async function (id) {
   }
 };
 
+//delete department
+const deleteDepartment = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/department.php?id=${id}`);
+  }
+};
+
+
 //delete category
 const deleteCategory = async function (id) {
   const result = await deleteConfirmation();
@@ -111,6 +120,14 @@ const deleteNotice = async function (id) {
   const result = await deleteConfirmation();
   if (result.isConfirmed) {
     location.replace(`pages/delete/notice.php?id=${id}`);
+  }
+};
+
+//delete application
+const deleteApplication = async function (id) {
+  const result = await deleteConfirmation();
+  if (result.isConfirmed) {
+    location.replace(`pages/delete/application.php?id=${id}`);
   }
 };
 
