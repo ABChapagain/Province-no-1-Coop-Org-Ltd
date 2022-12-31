@@ -80,6 +80,8 @@ if (isset($_SESSION['category_deleted'])) {
     echo $_SESSION['category_deleted'];
     if ($_SESSION['category_deleted'] == "successful") {
         echo "<script>success('success', 'category deleted successfully'); </script>";
+    } elseif ($_SESSION['category_deleted'] == "exists") {
+        echo "<script>success('error', 'category in use'); </script>";
     } else {
         echo "<script>success('error', 'unable to delete category'); </script>";
     }
