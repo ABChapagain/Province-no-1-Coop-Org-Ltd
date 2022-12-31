@@ -8,7 +8,7 @@ require_once('./config/db_config.php');
 
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $product_id = $_GET['id'];
-    $sql = "SELECT * FROM products WHERE id = $product_id";
+    $sql = "SELECT products.id, products.name, products.short_description, products.tags, products.description, category.id as categoryId, category.name as category FROM products JOIN category WHERE products.category = category.id AND products.id = $product_id";
     $res = $conn->query($sql);
     $result = $res->fetch_assoc();
 
@@ -167,7 +167,7 @@ if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 
             <?php
 
-                    $sql = "SELECT * from products where category = '$result[category]' AND id <> $result[id]";
+                    $sql = "SELECT * from products where category = '$result[categoryId]' AND id <> $result[id]";
 
                     $res = $conn->query($sql);
 
