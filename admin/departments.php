@@ -77,9 +77,10 @@ $result->fetch_all(MYSQLI_ASSOC);
 
 <?php
 if (isset($_SESSION['department_deleted'])) {
-    echo $_SESSION['department_deleted'];
     if ($_SESSION['department_deleted'] == "successful") {
         echo "<script>success('success', 'department deleted successfully'); </script>";
+    } elseif ($_SESSION['department_deleted'] == "exists") {
+        echo "<script>success('error', 'department in use'); </script>";
     } else {
         echo "<script>success('error', 'unable to delete department'); </script>";
     }

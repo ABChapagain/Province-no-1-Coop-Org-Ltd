@@ -4,3 +4,13 @@ alter table users add role int;
 alter table users add constraint role_id foreign key (role) references roles(id);
 insert into roles(role_name) VALUES ("admin"),("staff");
 alter table users add email varchar(50);
+
+
+///
+
+
+alter table products drop constraint category
+ALTER TABLE `products` CHANGE `category` `category` INT(50) NULL DEFAULT NULL;
+
+alter table products add constraint category foreign key (category) references category(id);
+///
