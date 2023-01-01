@@ -73,7 +73,11 @@ $result->fetch_all(MYSQLI_ASSOC);
                                         </div>
                                     </td>
                                     <td>
-                                        <?php echo $rows['category'] ?>
+                                        <?php
+                                        $cat = $rows['category'];
+                                        $category = $conn->query("select name from category where id='$cat'")->fetch_assoc()['name'];
+                                        echo $category;
+                                        ?>
                                     </td>
                                     <td>
                                         <a href="<?php echo url ?>pages/view/products.php?id=<?php echo $rows['id'] ?>"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View"><i class="fas fa-eye"></i></button></a>
