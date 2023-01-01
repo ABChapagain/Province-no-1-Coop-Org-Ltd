@@ -10,4 +10,5 @@ while ($i < 8) {
         $i++;
     }
     echo "END\n";
+    echo "For the streak";
 }
