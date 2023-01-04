@@ -43,17 +43,39 @@
                                 <h4>Contact Information</h4>
                             </div>
                             <div class="footer-about">
-                                <p>Damak 9, Jhapa</p>
+                                <div class="footer-contact">
+                                    <p>
+                                        प्रदेश नं. १ थोक उपभोक्ता विशिष्टिकृत सहकारी संघ लिमिटेड
+                                    </p>
+                                </div>
+                                <div class="footer-contact mt-20">
+                                    <p>Damak 9, Jhapa</p>
+                                </div>
+
                                 <div class="footer-contact mt-20">
                                     <ul>
-                                        <li>0123456789</li>
-                                        <li>0123456789</li>
+                                        <li>
+                                            <a href="tel:023 585640">
+                                                023-585640
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+977 9814099804">
+                                                9814099804
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="footer-contact mt-20">
                                     <ul>
-                                        <li>demo@example.com</li>
-                                        <li>demo@example.com</li>
+                                        <li>pradeshthokupabhokta78@gmail.com</li>
+                                    </ul>
+                                </div>
+                                <div class="footer-contact mt-20">
+                                    <ul>
+                                        <li style="list-style: none;">
+                                            <a href="https://thokupabhokta.coop.np">thokupabhokta.coop.np </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

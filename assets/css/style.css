@@ -1431,6 +1431,7 @@ textarea:focus {
 [data-overlay='8']::before {
   opacity: 0.8;
 }
+
 /*image background*/
 .bg-1,
 .bg-2,

@@ -3,9 +3,9 @@
         <div class="top-nav">
             <div class="top-nav-left">
                 <ul>
-                    <li><a href="tel:+880 1711 111 111"><i class="fa fa-phone"></i> +880 1711 111 111</a></li>
-                    <li><a href="mailto:achyutchapagain05@gmail.com"><i class="fa fa-envelope"></i>
-                            abc@gmail.com</a>
+                    <li><a href="tel:+023 585640"><i class="fa fa-phone"></i> 023-585640</a></li>
+                    <li><a href="mailto:pradeshthokupabhokta78@gmail.com"><i class="fa fa-envelope"></i>
+                            pradeshthokupabhokta78@gmail.com</a>
                 </ul>
             </div>
             <div class="top-nav-right">
