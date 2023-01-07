@@ -42,7 +42,7 @@ require_once('./config/db_config.php');
                                 foreach ($result as $category) {
                                     echo "
                                     <li>
-                                    <input type='radio' name='productCategory' id='productCategory$category[id]' onclick='productFetch(`$category[name]`)'/>
+                                    <input type='radio' name='productCategory' id='productCategory$category[id]' onclick='productFetch(`$category[id]`)'/>
                                     <label for='productCategory$category[id]'>$category[name]</label>
                                     </li>
                                     ";
