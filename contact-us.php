@@ -56,22 +56,22 @@ require_once('./components/Header.php');
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="contact-form-style mb-20">
-                                <input name="con_name" placeholder="Full Name" type="text">
+                                <input name="con_name" placeholder="Full Name" type="text" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-form-style mb-20">
-                                <input name="con_email" placeholder="Email Address" type="email">
+                                <input name="con_email" placeholder="Email Address" type="email" required>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="contact-form-style mb-20">
-                                <input name="con_subject" placeholder="Subject" type="text">
+                                <input name="con_subject" placeholder="Subject" type="text" required>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="contact-form-style">
-                                <textarea name="con_message" placeholder="Message"></textarea>
+                                <textarea name="con_message" placeholder="Message" required></textarea>
                                 <button class="submit" name="con_submit" type="submit">SEND MESSAGE</button>
                             </div>
                         </div>
