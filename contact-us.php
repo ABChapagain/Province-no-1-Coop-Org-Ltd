@@ -1,4 +1,6 @@
-<?php require_once('./components/Header.php');
+<?php
+session_start();
+require_once('./components/Header.php');
 ?>
 
 
@@ -28,7 +30,29 @@
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority Lorem Ipsum
                         available.</p>
                 </div>
-                <form id="contact-form" action="https://whizthemes.com/mail-php/other/mail.php">
+                <?php if (isset($_SESSION['contact_success'])) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> <?php echo $_SESSION['contact_success']; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <img src="assets/img/icons/x-lg.svg" alt="close" />
+                    </button>
+                </div>
+                <?php
+                    unset($_SESSION['contact_success']);
+                endif;
+                ?>
+                <?php if (isset($_SESSION['contact_error'])) : ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> <?php echo $_SESSION['contact_error']; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <img src="assets/img/icons/x-lg.svg" alt="close" />
+                    </button>
+                </div>
+                <?php
+                    unset($_SESSION['contact_error']);
+                endif;
+                ?>
+                <form id="contact-form" action="contact-us-post.php" method="POST">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="contact-form-style mb-20">
@@ -48,7 +72,7 @@
                         <div class="col-lg-12">
                             <div class="contact-form-style">
                                 <textarea name="con_message" placeholder="Message"></textarea>
-                                <button class="submit" type="submit">SEND MESSAGE</button>
+                                <button class="submit" name="con_submit" type="submit">SEND MESSAGE</button>
                             </div>
                         </div>
                     </div>
@@ -56,6 +80,8 @@
                 <p class="form-messege"></p>
             </div>
             <!-- Contact Form Area End -->
+
+
             <!-- Contact Address Strat -->
             <div class="col-lg-6">
                 <div class="small-title mb-30">
