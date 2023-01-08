@@ -68,7 +68,11 @@
                                 </div>
                                 <div class="footer-contact mt-20">
                                     <ul>
-                                        <li>pradeshthokupabhokta78@gmail.com</li>
+                                        <li style="word-break: break-all;">
+                                            <a href="mailto: pradeshthokupabhokta78@gmail.com">
+                                                pradeshthokupabhokta78@gmail.com
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="footer-contact mt-20">
