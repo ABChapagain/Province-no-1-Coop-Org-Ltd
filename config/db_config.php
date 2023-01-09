@@ -1,6 +1,13 @@
 <?php
 date_default_timezone_set('Asia/Kathmandu');
 
+// URL Root
+// define('URLROOT', 'http://localhost/MVC');
+define('URLROOT', 'http://localhost/Province-no-1-Coop-Org-Ltd');
+
+// SITE NAME
+define('SITENAME', 'Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd');
+
 $db_name = 'province';
 $host = 'localhost';
 $password = "";
