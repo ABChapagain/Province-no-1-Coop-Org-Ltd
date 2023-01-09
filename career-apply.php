@@ -1,7 +1,7 @@
 <?php
 session_start();
+$siteName = 'Apply Now';
 require_once('./components/Header.php');
-require_once('./config/db_config.php');
 
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
 

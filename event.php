@@ -1,6 +1,6 @@
 <?php
+$siteName = 'Event';
 require_once('./components/Header.php');
-require_once('./config/db_config.php');
 
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $event_id = $_GET['id'];

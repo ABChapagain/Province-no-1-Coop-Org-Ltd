@@ -1,6 +1,6 @@
 <?php
+$siteName = 'Error';
 require_once('./components/Header.php');
-require_once('./config/db_config.php');
 ?>
 
 <div class="text-center mtb-150">

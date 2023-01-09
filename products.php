@@ -1,7 +1,6 @@
 <?php
+$siteName = 'Products';
 require_once('./components/Header.php');
-
-require_once('./config/db_config.php');
 
 ?>
 

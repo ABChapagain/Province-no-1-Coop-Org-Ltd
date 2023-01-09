@@ -1,5 +1,6 @@
 <?php
 session_start();
+$siteName = 'Contact Us';
 require_once('./components/Header.php');
 ?>
 

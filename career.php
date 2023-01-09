@@ -1,6 +1,6 @@
 <?php
+$siteName = 'Career Apply';
 require_once('./components/Header.php');
-require_once('./config/db_config.php');
 
 if (isset($_GET['id']) && !is_null($_GET['id']) && $_GET['id'] != '') {
     $id = $_GET['id'];

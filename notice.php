@@ -1,6 +1,6 @@
 <?php
+$siteName = 'Notices';
 require_once('./components/Header.php');
-require_once('./config/db_config.php');
 
 if (isset($_GET['id'])) {
     $notice_id = $_GET['id'];

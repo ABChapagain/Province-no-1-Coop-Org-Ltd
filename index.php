@@ -1,8 +1,6 @@
 <?php
+$siteName = "Home";
 require_once('./components/Header.php');
-require_once('./config/db_config.php');
-
-
 ?>
 
 

@@ -1,10 +1,19 @@
+<?php require_once('./config/db_config.php') ?>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Province no. 1 Wholesale Consumer Specialized Cooperative Union Ltd</title>
+    <title>
+        <?php
+        if (isset($siteName)) {
+            echo $siteName . ' | ' . SITENAME;
+        } else {
+            echo SITENAME;
+        }
+        ?>
+    </title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
