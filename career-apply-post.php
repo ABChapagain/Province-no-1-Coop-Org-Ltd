@@ -23,7 +23,10 @@ if (isset($_FILES['resume'])) {
 
     if (in_array($file_ext, $allowed_ext)) {
         // Set unique id with the extension
-        $uniqID =  uniqid() . "." . pathinfo($file_name, PATHINFO_EXTENSION);
+        // $uniqID =  uniqid() . "." . pathinfo($file_name, PATHINFO_EXTENSION);
+
+        $uniqID = str_replace(" ", "-", $name) . "--" . $email . "." . pathinfo($file_name, PATHINFO_EXTENSION);
+        
         $file_tem_loc = $_FILES['resume']['tmp_name'];
         $file_store = "uploads/resume/" . $uniqID;
 
